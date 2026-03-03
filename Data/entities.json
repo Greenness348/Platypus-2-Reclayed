@@ -1198,7 +1198,7 @@
     "sprite": "Sprites/Enemies/fish fighter green",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "homingFishFighter",
+      "luaScript": "greenFishFighter",
       "firePattern": {
         "veryEasy": [ 99999 ],
         "easy": [ 100 ],
@@ -1236,4 +1236,5 @@
     "points": 10,
     "secondaryTargetValue": 1
   }
+
 ]
