@@ -1235,6 +1235,43 @@
     "highlightPoints": false,
     "points": 10,
     "secondaryTargetValue": 1
+  },
+  {
+    "name": "icbmLauncher",
+    "sprite": "Sprites/Enemies/green big uns",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "icbmLauncher"
+    },
+    "sortOrder": 1999,
+    "stopEvaluation": true
+  },
+  {
+    "name": "icbmBackground",
+    "sprite": "Sprites/Enemies/icbm",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "icbmBackground"
+    },
+    "sortOrder": 9999,
+    "stopEvaluation": true
+  },
+  {
+    "name": "icbmLaunched",
+    "sprite": "Sprites/Enemies/icbm",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "icbmLaunched"
+    },
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 11999,
+    "maxHitPoints": 100,
+    "shieldPenetrating": true,
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 200
   }
-
 ]
+
