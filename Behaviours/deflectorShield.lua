@@ -96,7 +96,7 @@ function OnHitByBullet()
                 fireArgs.AddFieldFloat("mx", mxb)
                 fireArgs.AddFieldFloat("my", myb)
 
-                SpawnEntityWorld("enemyshot_pelletSmall_red", firePos, fireArgs)
+                SpawnEntityWorld("enemyshot_deflector", firePos, fireArgs)
             end
         end
     end
@@ -121,3 +121,4 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
+
