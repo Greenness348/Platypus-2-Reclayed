@@ -15,8 +15,6 @@ function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5)
 
-
-
     if self.commandArgs.HasField("spawnRange") then
         local s = self.commandArgs.GetFieldFloatArray("spawnRange")
         spawnXmin = s[1] or 0
@@ -43,7 +41,6 @@ function OnInitialise()
 end
 
 function OnTick()
-
     if self.worldPosition.x < 500 then
         my = my + 0.1
         timer = timer - 1
@@ -53,9 +50,7 @@ function OnTick()
         end
     end
 
-
     if my > 3 then my = 3 end
-
 
     if self.worldPosition.y > 200 then
         local args = NewJSONObject()
@@ -66,7 +61,6 @@ function OnTick()
     self.movement = { x = mx, y = my, z = 0 }
 end
 
-
 function HasCollision()
     return hitbox
 end
@@ -74,4 +68,5 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
+
 
