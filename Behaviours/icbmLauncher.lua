@@ -1,75 +1,66 @@
-local my = 0
-local mx = 0
-local hitbox = false
-local onPlane = false
-local timer = 3
+local mx
+local decoy
 local missiles
 local offset = 0
-local store1
 local spawnXmin
 local spawnXmax
 local spawnYmin
 local spawnYmax
 local speedX
 local speedY
-local decoy = 2
-local type
 
 function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5)
 
-    if self.commandArgs.HasField("missiles") then missiles = self.commandArgs.GetFieldInt("missiles") else missiles = 1 end
-    if self.commandArgs.HasField("type") then type = self.commandArgs.GetFieldInt("type") else type = 0 end
-    if self.commandArgs.HasField("spawnRange") then
-        local s = self.commandArgs.GetFieldFloatArray("spawnRange")
-        spawnXmin = s[1] or 0
-        spawnXmax = s[2] or 0
-        spawnYmin = s[3] or 0
-        spawnYmax = s[4] or 0
-    else
-        spawnXmin = -200
-        spawnXmax = -200
-        spawnYmin = -250
-        spawnYmax =  200
-    end
-    if self.commandArgs.HasField("speed") then
-        local p = self.commandArgs.GetFieldFloatArray("speed")
-        speedX = p[1] or 0
-        speedY = p[2] or 0
-    else
-        speedX =  3
-        speedY = -2
-    end
-
-
-    for i = 0, missiles - 1 do
-        local args = NewJSONObject()
-        args.AddFieldFloatArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
-        args.AddFieldFloatArray("speed", { speedX, speedY })
-        if type == 1 then
-            SpawnEntityWorld("icmmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y + 101}, args)
-            else
-            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y + 111}, args)
+    if self.commandArgs.HasField("decoy") then decoy = self.commandArgs.GetFieldBool("decoy") else decoy = false end
+    
+    if decoy == false then
+        if self.commandArgs.HasField("missiles") then missiles = self.commandArgs.GetFieldInt("missiles") else missiles = 1 end
+        if self.commandArgs.HasField("spawnRange") then
+            local s = self.commandArgs.GetFieldFloatArray("spawnRange")
+            spawnXmin = s[1] or 0
+            spawnXmax = s[2] or 0
+            spawnYmin = s[3] or 0
+            spawnYmax = s[4] or 0
+        else
+            spawnXmin = -200
+            spawnXmax = -200
+            spawnYmin = -250
+            spawnYmax =  200
         end
-        SpawnEntityWorld("icbmLauncherDecoy", { x = self.worldPosition.x + (offset * 1), y = self.worldPosition.y}, NewJSONObject())
-        offset = offset + 70
+        if self.commandArgs.HasField("speed") then
+            local p = self.commandArgs.GetFieldFloatArray("speed")
+            speedX = p[1] or 0
+            speedY = p[2] or 0
+        else
+            speedX =  3
+            speedY = -2
+        end
+
+        for i = 0, missiles - 1 do
+            local missileArgs = NewJSONObject()
+            missileArgs.AddFieldFloatArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
+            missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
+            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y}, missileArgs)
+
+            local launcherArgs = NewJSONObject()
+            launcherArgs.AddFieldBool("decoy", true)
+            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + (offset * 1), y = self.worldPosition.y}, launcherArgs)
+            offset = offset + 70
+        end
     end
 end
 
 function OnTick()
-    self.movement = { x = mx, y = my, z = 0 }
-    if self.position.x < -1600 then
-        self.Deactivate()
+    self.movement = { x = mx, y = 0, z = 0 }
+    if decoy == false then
+        if self.position.x < -1600 then self.Deactivate() end
+    else        
+        if self.position.x < -600 then self.Deactivate() end
     end
 end
 
-
 function HasCollision()
-    return hitbox
+    return false
 end
-
-function ShouldKillPlayerOnTouch()
-    return true
-end
-

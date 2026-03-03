@@ -1,7 +1,5 @@
+local mx
 local my = 0
-local mx = 0
-local hitbox = false
-local onPlane = false
 local timer = 3
 local spawnXmin
 local spawnXmax
@@ -11,6 +9,8 @@ local spawnY
 local spawnX
 local speedX
 local speedY
+local isLaunched = false
+
 function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5)
@@ -44,29 +44,29 @@ function OnTick()
     if self.worldPosition.x < 500 then
         my = my + 0.1
         timer = timer - 1
+        if isLaunched == false then
+            PlaySound("s_icbm_warning")
+            isLaunched = true
+        end
         if timer <= 0 then
             timer = 3
-            SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x, y = self.worldPosition.y - 50 }, NewJSONObject())
+            local smokeArgs = NewJSONObject()
+            smokeArgs.AddFieldFloat("mx", -mx)
+            SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x, y = self.worldPosition.y - 60 }, smokeArgs)
         end
     end
 
     if my > 3 then my = 3 end
 
     if self.worldPosition.y > 200 then
-        local args = NewJSONObject()
-        args.AddFieldFloatArray("speed", { speedX, speedY })
-        SpawnEntityWorld("icbm", { x = spawnX, y = spawnY }, args)
+        local missileArgs = NewJSONObject()
+        missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
+        SpawnEntityWorld("icbmLaunched", { x = spawnX, y = spawnY }, missileArgs)
         self.Deactivate()
     end
     self.movement = { x = mx, y = my, z = 0 }
 end
 
 function HasCollision()
-    return hitbox
+    return false
 end
-
-function ShouldKillPlayerOnTouch()
-    return true
-end
-
-
