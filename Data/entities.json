@@ -1238,7 +1238,7 @@
   },
   {
     "name": "icbmLauncher",
-    "sprite": "Sprites/Enemies/green big uns",
+    "sprite": "Sprites/Enemies/icbm launch silo",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "icbmLauncher"
@@ -1248,7 +1248,7 @@
   },
   {
     "name": "icbmBackground",
-    "sprite": "Sprites/Enemies/icbm",
+    "sprite": "Sprites/Enemies/icbm background",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "icbmBackground"
@@ -1258,7 +1258,7 @@
   },
   {
     "name": "icbmLaunched",
-    "sprite": "Sprites/Enemies/icbm",
+    "sprite": "Sprites/Enemies/icbm launched",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "icbmLaunched"
@@ -1274,4 +1274,5 @@
     "points": 200
   }
 ]
+
 
