@@ -1,0 +1,302 @@
+[
+    {
+        "name": "s_player_exp",
+        "audioBus": "explosions",
+        "audioFile": "explosion-med",
+        "defaultVolume": 0.8,
+        "minPitch": 0.363,
+        "maxPitch": 0.635,
+        "cooldownFrames": 4
+    },
+    {
+        "name": "s_shielded_exp",
+        "audioBus": "explosions",
+        "audioFile": "explosion-med",
+        "defaultVolume": 0.8,
+        "minPitch": 0.363,
+        "maxPitch": 0.635,
+        "cooldownFrames": 4
+    },
+    {
+        "name": "s_enemyfire_saucer",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_fishfighter",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_goldfish",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_pinkship",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bigpinkship",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_cannonboat",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_mineshards",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_turretsingle",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_turretdouble",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_turretdoublelaser",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_turrettriple",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_spinner",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.18,
+        "minPitch": 1.2,
+        "maxPitch": 1.2,
+        "cooldownFrames": 4
+    },
+    {
+        "name": "s_enemyfire_midbossspinner",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.18,
+        "minPitch": 1.2,
+        "maxPitch": 1.2,
+        "cooldownFrames": 4
+    },
+    {
+        "name": "s_enemyfire_squid",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bigsquid",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_pinksquid",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_minitrashcan",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_starfish",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_minitick",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_startick",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bigtick",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_trainwarcannon",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bigplaneshotgun",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bigplanescatter",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_subcannon",
+        "audioBus": "sfx",
+        "audioFile": "laser",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_octopusguncannon",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_octopusgunshotgun",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_octopusgunhomer",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_octopusgunscatter",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_octopuscore",
+        "audioBus": "sfx",
+        "audioFile": "laser small",
+        "defaultVolume": 0.45,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },// ######################################################################################
+    {
+        "name": "s_enemyfire_minesquid",
+        "audioBus": "sfx",
+        "audioFile": "clunk",
+        "defaultVolume": 0.6,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_bomber",
+        "audioBus": "sfx",
+        "audioFile": "clunk",
+        "defaultVolume": 0.6,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_deflector",
+        "audioBus": "sfx",
+        "audioFile": "deflect",
+        "defaultVolume": 0.4,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemy_shield_up",
+        "audioBus": "sfx",
+        "audioFile": "enemy shield up",
+        "defaultVolume": 1.0,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemy_shield_down",
+        "audioBus": "sfx",
+        "audioFile": "enemy shield down",
+        "defaultVolume": 1.0,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    }
+]

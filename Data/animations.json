@@ -1,0 +1,93 @@
+[
+  {
+    "sprite": "Sprites/Enemies/zipper",
+    "generateColliders": true,
+    "collisionSpriteScale": 1,
+    "matDayCycleMultiplier": 0.5
+  },
+  {
+    "sprite": "Sprites/Enemies/yellow big uns",
+    "collisionSprite": "Sprites/Enemies/green big uns_collision",
+    "collisionSpriteScale": 0.02,
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 3
+  },
+  {
+    "sprite": "Sprites/Enemies/deflector tick",
+    "generateColliders": true,
+    "collisionSprite": "Effects/Bullets/deflector tick_collision",
+    "rows": 2,
+    "columns": 3
+  },
+  {
+    "sprite": "Sprites/Enemies/deflector tick bottom",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 5,
+    "columns": 2,
+    "updateCounter": 4
+  },
+  {
+    "sprite": "Effects/Particles/deflector shield up",
+    "rows": 2,
+    "columns": 5
+  },
+  {
+    "sprite": "Effects/Particles/deflector shield loop",
+    "collisionSprite": "Effects/Particles/deflector shield loop_collision",
+    "generateColliders": true,
+    "collisionSpriteScale": 1,
+    "rows": 4,
+    "columns": 5
+  },
+  {
+    "sprite": "Effects/Particles/deflector shield shard",
+    "matEmissionPower": 2,
+    "matDayCycleMultiplier": 0.0,
+    "rows": 1,
+    "columns": 2
+  },
+  {
+    "sprite": "Sprites/Enemies/mine squid",
+    "generateColliders": true,
+    "rows": 2,
+    "columns": 3
+  },
+  {
+    "sprite": "Sprites/Enemies/bomber",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 4
+  },
+  {
+    "sprite": "Effects/Bullets/bullet bomb",
+    "generateColliders": true,
+    "matReflectionPass": false,
+    "matEmissionPower": 2
+  },
+  {
+    "sprite": "Sprites/Enemies/jumper",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 4
+  },
+  {
+    "sprite": "Sprites/Enemies/fish fighter green",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 8,
+    "columns": 8
+  },
+  {
+    "sprite": "Effects/Bullets/deflectorbullet",
+    "generateColliders": true,
+    "collisionSprite": "Effects/Bullets/deflectorbullet_collision",
+    "matEmissionPower": 2,
+    "matDayCycleMultiplier": 0.0,
+    "updateCounter": 0
+  }
+]

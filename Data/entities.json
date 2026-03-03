@@ -1,0 +1,1239 @@
+[
+  {
+    "name": "explosionPlayer",
+    "sprite": "Effects/Explosions/medium explosion",
+    "soundOnSpawn": "s_player_exp",
+    "sortOrder": 29000,
+    "behaviour": "Explosion"
+  },
+  {
+    "name": "explosionShielded",
+    "sprite": "Effects/Explosions/medium explosion",
+    "soundOnSpawn": "s_shielded_exp",
+    "sortOrder": 29000,
+    "behaviour": "Explosion"
+  },
+  {
+    "name": "saucer",
+    "sprite": "Sprites/Enemies/saucer",
+    "behaviour": "Saucer",
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "speed": 4,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 10,
+    "secondaryTargetValue": 1,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_saucer",
+      "firePattern": {
+        "veryEasy": [ 80 ],
+        "easy": [ 80 ],
+        "normal": [ 60 ],
+        "hard": [ 40 ],
+        "nasty": [ 50 ]
+      }
+    }
+  },
+  {
+    "name": "blackFish",
+    "sprite": "Sprites/Enemies/fish fighter black",
+    "behaviour": "FishFighter",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_fishfighter"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "speed": 5,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "orangeFish",
+    "sprite": "Sprites/Enemies/fish fighter orange",
+    "behaviour": "FishFighter",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_fishfighter"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "speed": 5,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "randFish",
+    "sprite": "Sprites/Enemies/fish fighter black",
+    "behaviour": "RandomFishFighter",
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "speed": 5,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_fishfighter",
+      "firePattern": {
+        "veryEasy": [ 99999 ],
+        "easy": [ 99999 ],
+        "normal": [ 99999 ],
+        "hard": [ 99999 ],
+        "nasty": [ 99999 ]
+      }
+    }
+  }  ,
+  {
+    "name": "goldFish",
+    "sprite": "Sprites/Enemies/goldfish",
+    "behaviour": "GoldFish",
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 9000,
+    "speed": -2,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "maxHitPoints": 35,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 100,
+    "secondaryTargetValue": 1,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_goldfish",
+      "turretData": {
+        "bulletCount": {
+          "easy": 3,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 8
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "easy": 3,
+          "normal": 4,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpreadAngle": 120,
+        "bulletEntity": "enemyshot_normal"
+      }
+    }
+  },
+  {
+    "name": "pinkShip",
+    "sprite": "Sprites/Enemies/pink ship",
+    "behaviour": "PinkShip",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_pinkship",
+      "topGunY": 68,
+      "topGunX": -30,
+      "bottomGunY": -68,
+      "bottomGunX": -30,
+      "basicGunX": -60
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_pink2_1",
+    "secondaryDebrisEntity": "debris_pink2_2",
+    "damageEffects": [
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink2_1",
+            "x": -30,
+            "y": 60,
+            "mx": -2,
+            "my": -4,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 6,
+        "parachuterChance": 0.33,
+        "parachuterX": 50,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink2_1",
+            "x": 30,
+            "y": -40,
+            "mx": 3,
+            "my": -2,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 7,
+        "parachuterChance": 0.33,
+        "parachuterX": 50,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink2_1",
+            "x": -25,
+            "y": -15,
+            "mx": -3,
+            "my": -2,
+            "frame": 9,
+            "type": 2
+          },
+          {
+            "entity": "debris_pink2_2",
+            "x": 20,
+            "y": 76,
+            "mx": -3,
+            "my": 3,
+            "frame": 8,
+            "type": 1
+          }
+        ]
+      }
+    ],
+    "sortOrder": 1200,
+    "maxHitPoints": 240,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "highlightPoints": true,
+    "points": 500,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "bigPinkShip",
+    "sprite": "Sprites/Enemies/big pink ship",
+    "behaviour": "BigPinkShip",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigpinkship",
+      "topGunY": 128,
+      "topGunX": -60,
+      "bottomGunY": -128,
+      "bottomGunX": -60,
+      "basicGunX": -100
+    },
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_pink_1",
+    "secondaryDebrisEntity": "debris_pink_2",
+    "turrets": [
+      {
+        "turretEntity": "turretTriple",
+        "turretX": 0,
+        "turretY": 0
+      }
+    ],
+    "sortOrder": 1200,
+    "maxHitPoints": 1000,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "highlightPoints": true,
+    "points": 2000,
+    "primaryTargetValue": 4,
+    "damageEffects": [
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink_1",
+            "x": -60,
+            "y": 120,
+            "mx": -6,
+            "my": -4,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 6,
+        "parachuterChance": 0.33,
+        "parachuterX": 100,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink_1",
+            "x": 60,
+            "y": -80,
+            "mx": -9,
+            "my": 0,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 7,
+        "parachuterChance": 0.33,
+        "parachuterX": 100,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_pink_1",
+            "x": -50,
+            "y": -30,
+            "mx": -7,
+            "my": 0,
+            "frame": 9,
+            "type": 2
+          },
+          {
+            "entity": "debris_pink_2",
+            "x": 40,
+            "y": 152,
+            "mx": -3,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "cannonBoat",
+    "sprite": "Sprites/Enemies/cannon boat",
+    "behaviour": "CannonBoat",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_cannonboat"
+    },
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 600,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 5
+  },
+  {
+    "name": "floatingBomb",
+    "behaviour": "FloatingBomb",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_mineshards"
+    },
+    "sprite": "Sprites/Enemies/bomb",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_tan_1",
+    "secondaryDebrisEntity": "debris_tan_2",
+    "sortOrderSiblingBuffer": 2,
+    "highlightPoints": false,
+    "stopEvaluation": true,
+    "points": 50
+  },
+  {
+    "name": "mineLayerFloatingBomb",
+    "behaviour": "FloatingBomb",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_mineshards"
+    },
+    "sprite": "Sprites/Enemies/bomb",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_tan_1",
+    "secondaryDebrisEntity": "debris_tan_2",
+    "sortOrder": 2300,
+    "highlightPoints": false,
+    "stopEvaluation": true,
+    "points": 50
+  },
+  {
+    "name": "trainWarCannon",
+    "sprite": "empty",
+    "behaviour": "Car",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_trainwarcannon",
+      "topOffsetX": 0,
+      "topOffsetY": -4.5,
+      "cartype": 1
+    },
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "sortOrder": 9000,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 350,
+    "points": 1000,
+    "highlightPoints": true,
+    "primaryTargetValue": 1
+  },
+  {
+    "name": "sub",
+    "sprite": "Sprites/Boss 3/sub",
+    "behaviour": "Sub",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_subcannon",
+      "barrelOffset": {
+        "x": -116,
+        "y": 10
+      }
+    },
+    "mainDebrisEntity": "debris_yellow2_1",
+    "secondaryDebrisEntity": "debris_yellow2_2",
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "sortOrder": 1115,
+    "maxHitPoints": 6000,
+    "highlightPoints": true,
+    "speedKillTimer": 6000,
+    "endKillTimerOnDeath": false,
+    "points": 2500,
+    "primaryTargetValue": 1
+  },
+  {
+    "name": "octopusGunCannon",
+    "sprite": "Sprites/Boss 5/weapon 1",
+    "behaviour": "OctopusGunGeneric",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 1090,
+    "maxHitPoints": 120,
+    "isEnemy": false,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_octopusguncannon",
+      "firstShotDelay": 30,
+      "turretData": {
+        "bulletCount": {
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -40,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "easy": 4,
+          "normal": 4,
+          "hard": 4,
+          "nasty": 4
+        },
+        "bulletSpreadAngle": 10,
+        "bulletEntity": "enemyshot_trail_leftright"
+      },
+      "firePattern": {
+        "veryEasy": [ 400 ],
+        "easy": [ 400 ],
+        "normal": [ 400 ],
+        "hard": [ 250 ],
+        "nasty": [ 150 ]
+      }
+    }
+  },
+  {
+    "name": "octopusGunShotgun",
+    "sprite": "Sprites/Boss 5/weapon 2",
+    "behaviour": "OctopusGunGeneric",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 1090,
+    "maxHitPoints": 200,
+    "isEnemy": false,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_octopusgunshotgun",
+      "firstShotDelay": 30,
+      "turretData": {
+        "bulletCount": {
+          "easy": 5,
+          "normal": 7,
+          "hard": 8,
+          "nasty": 9
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -40,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "easy": 5,
+          "normal": 5,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpreadAngle": 170,
+        "bulletEntity": "enemyshot_trail"
+      },
+      "firePattern": {
+        "veryEasy": [ 250 ],
+        "easy": [ 250 ],
+        "normal": [ 200 ],
+        "hard": [ 140 ],
+        "nasty": [ 160 ]
+      }
+    }
+  },
+  {
+    "name": "octopusGunHomer",
+    "sprite": "Sprites/Boss 5/weapon 3",
+    "behaviour": "OctopusGunGeneric",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 1090,
+    "maxHitPoints": 140,
+    "isEnemy": false,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_octopusgunhomer",
+      "firstShotDelay": 30,
+      "turretData": {
+        "bulletCount": {
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -40,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "easy": 4,
+          "normal": 4,
+          "hard": 4,
+          "nasty": 4
+        },
+        "bulletSpreadAngle": 30,
+        "bulletEntity": "enemyshot_homer"
+      },
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 200 ],
+        "normal": [ 50, 100 ],
+        "hard": [ 40 ],
+        "nasty": [ 50, 50, 50, 100  ]
+      }
+    }
+  },
+  {
+    "name": "octopusGunMissiles",
+    "sprite": "Sprites/Boss 5/weapon 5",
+    "behaviour": "OctopusGunMissiles",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 1090,
+    "maxHitPoints": 200,
+    "isEnemy": false,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "fireSFX": "s_blank",
+      "firstShotDelay": 30,
+      "firePattern": {
+        "veryEasy": [ 300 ],
+        "easy": [ 300 ],
+        "normal": [ 50, 150 ],
+        "hard": [ 50, 50, 150 ],
+        "nasty": [ 50, 50, 150 ]
+      }
+    }
+  },
+  {
+    "name": "octopusGunScatter",
+    "sprite": "Sprites/Boss 5/weapon 6",
+    "behaviour": "OctopusGunGeneric",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 1090,
+    "maxHitPoints": 200,
+    "isEnemy": false,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_octopusgunscatter",
+      "firstShotDelay": 30,
+      "turretData": {
+        "bulletCount": {
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpawnDistance": 50,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "easy": 7,
+          "normal": 7,
+          "hard": 7,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 70,
+        "bulletEntity": "enemyshot_car_cannon"
+      },
+      "bulletSpawnDistance": 50,
+      "bulletOriginOffX": 0,
+      "bulletOriginOffY": 0,
+      "bulletSpeed": {
+        "easy": 7,
+        "normal": 7,
+        "hard": 7,
+        "nasty": 7
+      },
+      "bulletSpreadAngle": 70,
+      "bulletEntity": "enemyshot_car_cannon",
+      "firePattern": {
+        "veryEasy":   [ 20, 20, 20, 20, 500 ],
+        "easy":   [ 20, 20, 20, 20, 500 ],
+        "normal": [ 20, 20, 20, 20, 300 ],
+        "hard":   [ 20, 20, 20, 20, 20, 20, 300 ],
+        "nasty":  [ 20, 20, 20, 20, 20, 20, 20, 20, 150 ]
+      }
+    }
+  },// ######################################################################################
+  {
+    "name": "luaMissileBoat",
+    "sprite": "Sprites/Enemies/missile boat",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "genericBoatSmall"
+    },
+    "turrets": [
+      {
+        "turretEntity": "boatMissileLauncher",
+        "turretX": 40,
+        "turretY": 10
+      }
+    ],
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 200,
+    "highlightPoints": true,
+    "points": 500,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "luaCannonBoat",
+    "sprite": "Sprites/Enemies/cannon boat",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "genericBoatBig"
+    },
+    "turrets": [
+      {
+        "turretEntity": "boatCannonGun",
+        "turretX": -65,
+        "turretY": 30
+      }
+    ],
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "sortOrder": 100,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 600,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 5
+  },
+  {
+    "name": "flameBoat",
+    "sprite": "Sprites/Enemies/cannon boat",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "genericBoatBig"
+    },
+    "turrets": [
+      {
+        "turretEntity": "flamethrowerTurretBoat",
+        "turretX": -64,
+        "turretY": 20
+      }
+    ],
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "sortOrder": 100,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 600,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 5
+  },
+  {
+    "name": "shieldTick",
+    "sprite": "Sprites/Enemies/deflector tick",
+    "turrets" : [
+      {
+        "turretEntity": "deflectorShield",
+        "turretX": 0,
+        "turretY": -3
+      }
+    ],
+    "behaviour": "GenericSquid",
+    "customBehaviourData": {
+      "acceleration": 0.1,
+      "focus_acceleration": 0.1,
+      "movement_threshold": 10,
+      "tickUntilGiveUp": 2400,
+      "tickUntilDeactivate": 2600,
+      "bottomSprite": "Sprites/Enemies/deflector tick bottom",
+      "bottomSpriteOffset": {
+        "x": 1.4,
+        "y": 2
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_purple_2",
+    "secondaryDebrisEntity": "debris_purple_2",
+    "sortOrder": 5000,
+    "sortOrderSiblingBuffer": 2,
+    "maxHitPoints": 200,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "highlightPoints": true,
+    "points":1000,
+    "primaryTargetValue": 2,
+    "damageEffects": [
+      {
+        "frame": 4,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x": -30,
+            "y": -5,
+            "mx": -4,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x":  30,
+            "y": -5,
+            "mx": 4,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "deflectorShield",
+    "sprite": "Effects/Particles/deflector shield loop",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"deflectorShield"
+    },
+    "sortOrder": 20000,
+    "maxHitPoints": 300,
+    "shieldPenetrating": true
+  },
+  {
+    "name": "enemyshot_deflector",
+    "sprite": "Effects/Bullets/deflectorbullet",
+    "sortOrder": 21001,
+    "behaviour": "EnemyBullet",
+    "smallAndFastMoving": true,
+    "customBehaviourData": {
+      "shottype": 1
+    }
+  },
+  {
+    "name": "deflectorShieldShard",
+    "sprite": "Effects/Particles/deflector shield shard",
+    "sortOrder": 20900,
+    "behaviour": "MultiParticle"
+  },
+  {
+    "name": "zipper",
+    "sprite": "Sprites/Enemies/zipper",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"zipper"
+    },
+    "explosionEntity": "explosionSmall",
+    "sortOrder": 10000,
+    "maxHitPoints": 40,
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 100,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "yellowBigUn",
+    "sprite": "Sprites/Enemies/yellow big uns",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"BigYellowUn"
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_yellow_1",
+    "secondaryDebrisEntity": "debris_yellow_2",
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0,
+        "parachuterX": 0,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_1",
+            "x": -8,
+            "y": 0,
+            "mx": -2,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_yellow_2",
+            "x": 19,
+            "y": 0,
+            "mx": 2,
+            "my": -6,
+            "frame": 8,
+            "type": 2
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_2",
+            "x": 0,
+            "y": -15,
+            "mx": -1,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_1",
+            "x": 45,
+            "y": 15,
+            "mx": -1,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_yellow_2",
+            "x": 45,
+            "y": -15,
+            "mx": 2,
+            "my": 3,
+            "frame": 7,
+            "type": 2
+          }
+        ]
+      }
+    ],
+    "sortOrder": 9000,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 120,
+    "highlightPoints": true,
+    "points": 200,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "mineSquid",
+    "sprite": "Sprites/Enemies/mine squid",
+    "behaviour": "LaserSquid",
+    "customBehaviourData": {
+      "bottomSprite": "Sprites/Enemies/laser squid bottom",
+      "bottomSpriteOffset": {
+        "x": 3,
+        "y": 8
+      }
+    },
+    "explosionEntity": "explosionBig",
+    "explosionX": -5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_green_1",
+    "secondaryDebrisEntity": "debris_green_2",
+    "turrets": [
+      {
+        "turretEntity": "mineSquidGun",
+        "turretX": 0,
+        "turretY": 70
+      }
+    ],
+    "sortOrder": 1200,
+    "sortOrderSiblingBuffer": 2,
+    "maxHitPoints": 600,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 5,
+    "damageEffects": [
+      {
+        "frame": 3,
+        "shards": [
+          {
+            "entity": "debris_green_2",
+            "x": 25,
+            "y": 40,
+            "mx": 4,
+            "my": -6,
+            "frame": 8,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "shards": [
+          {
+            "entity": "debris_green_2",
+            "x": 20,
+            "y": -52,
+            "mx": 4,
+            "my": -4,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+       },
+       {
+        "frame": 5,
+        "shards": [
+            {
+                "entity": "debris_green_2",
+                "x": 30,
+                "y": -15,
+                "mx": 4,
+                "my": -4,
+                "frame": 9,
+                "type": 1
+            }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "mineSquidGun",
+    "sprite": "Effects/Bullets/bullet bomb",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"mineSquidGun",
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 150 ],
+        "normal": [ 100 ],
+        "hard": [ 80 ],
+        "nasty": [ 60 ]
+      }
+    },
+    "sortOrder": -100
+  },
+  {
+    "name": "bomber",
+    "sprite": "Sprites/Enemies/bomber",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "bomber",
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 150 ],
+        "normal": [ 100 ],
+        "hard": [ 80 ],
+        "nasty": [ 60 ]
+      }
+    },
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_red_1",
+    "secondaryDebrisEntity": "debris_red_2",
+    "sortOrder": 9000,
+    "maxHitPoints": 300,
+    "isEnemy": true,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "enemyshot_bomb",
+    "sprite": "Effects/Bullets/bullet bomb",
+    "sortOrder": 10001,
+    "explosionEntity": "explosionMedium",
+    "maxHitPoints": 1,
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "enemyshot_bomb"
+    },
+    "smallAndFastMoving": true
+  },
+  {
+    "name": "luaFlipPlane",
+    "sprite": "Sprites/Enemies/flip plane",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "luaFlipPlane"
+    },
+    "mainDebrisEntity": "debris_purple_1",
+    "secondaryDebrisEntity": "debris_purple_2",
+    "sortOrder": 400,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 300,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 4,
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0.33,
+        "parachuterX": 80,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_purple_1",
+            "x": -30,
+            "y": 56,
+            "mx": -3,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 80,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x": 10,
+            "y": 100,
+            "mx": 3,
+            "my": -5,
+            "frame": 8,
+            "type": 1
+          },
+          {
+            "entity": "debris_purple_1",
+            "x": -25,
+            "y": -50,
+            "mx": -4,
+            "my": -2,
+            "frame": 9,
+            "type": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "luaGreenBigUn",
+    "sprite": "Sprites/Enemies/green big uns",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"luaBigGreenUn"
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_green_1",
+    "secondaryDebrisEntity": "debris_green_2",
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0,
+        "parachuterX": 0,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": -8,
+            "y": 0,
+            "mx": -2,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green_2",
+            "x": 19,
+            "y": 0,
+            "mx": 2,
+            "my": -6,
+            "frame": 8,
+            "type": 2
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_2",
+            "x": 0,
+            "y": -15,
+            "mx": -1,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": 45,
+            "y": 15,
+            "mx": -1,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green_2",
+            "x": 45,
+            "y": -15,
+            "mx": 2,
+            "my": 3,
+            "frame": 7,
+            "type": 2
+          }
+        ]
+      }
+    ],
+    "sortOrder": 9000,
+    "speed": 0.2,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 120,
+    "highlightPoints": true,
+    "points": 200,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "greenFish",
+    "sprite": "Sprites/Enemies/fish fighter green",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "homingFishFighter",
+      "firePattern": {
+        "veryEasy": [ 99999 ],
+        "easy": [ 100 ],
+        "normal": [ 60 ],
+        "hard": [ 40 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "jumper",
+    "sprite": "Sprites/Enemies/jumper",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "jumper"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 10,
+    "secondaryTargetValue": 1
+  }
+]

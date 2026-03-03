@@ -1,0 +1,1891 @@
+[
+  {
+    "name": "legacyTurret",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 35,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "exampleFlamethrowerTurret",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_flame",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 4,
+            "easy": 4,
+            "normal": 4,
+            "hard": 4,
+            "nasty": 4
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_fire"
+      },
+      "firePattern": {
+        "veryEasy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 90 ],
+        "easy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 80 ],
+        "normal": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 70 ],
+        "hard": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 60 ],
+        "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
+      }
+    }
+  },
+  {
+    "name": "turretNastySingle",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 35,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 5.5,
+          "normal": 6,
+          "hard": 7,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 150 ],
+        "easy": [ 100 ],
+        "normal": [ 10, 70 ],
+        "hard": [ 10, 10, 60 ],
+        "nasty": [ 7, 7, 7, 70  ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "turretNastySingleSlower",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 4,
+            "easy": 4,
+            "normal": 5,
+            "hard": 7,
+            "nasty": 7
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 136 ],
+        "easy": [ 136 ],
+        "normal": [ 97 ],
+        "hard": [ 10, 77 ],
+        "nasty": [ 10, 77 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "turretBigUn",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 35,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 120 ],
+        "easy": [ 120 ],
+        "normal": [ 10, 90 ],
+        "hard": [ 10, 10, 80 ],
+        "nasty": [ 7, 7, 7, 60  ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "turretBigUnSlower",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 4,
+            "easy": 4,
+            "normal": 5,
+            "hard": 6,
+            "nasty": 7
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 136 ],
+        "easy": [ 136 ],
+        "normal": [ 97 ],
+        "hard": [ 10, 87 ],
+        "nasty": [ 5, 5, 87 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "turretCarSingle",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 35,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 120 ],
+        "easy": [ 120 ],
+        "normal": [ 20, 70 ],
+        "hard": [ 10, 60 ],
+        "nasty": [ 10,10, 50  ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "turretCarSingleSlower",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 35,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 136 ],
+        "easy": [ 136 ],
+        "normal": [ 37, 97 ],
+        "hard": [ 25, 87 ],
+        "nasty": [ 25, 25, 77 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "bigPlaneSquidGun",
+    "sprite": "Sprites/Enemies/big squid gun",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigplaneshotgun",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -20,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 130,
+        "bulletEntity": "enemyshot_trail"
+      },
+      "firePattern": {
+        "veryEasy": [ 1000 ],
+        "easy": [ 1000 ],
+        "normal": [ 800 ],
+        "hard": [ 600, 300 ],
+        "nasty": [ 400, 200 ]
+      }
+    }
+  },
+  {
+    "name": "squidGun",
+    "sprite": "Sprites/Enemies/squid gun",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_squid",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -20,
+        "bulletOriginOffY": 5,
+        "bulletSpeed": {
+          "veryEasy": 5,
+          "easy": 6,
+          "normal": 8,
+          "hard": 9,
+          "nasty": 9
+        },
+        "bulletSpreadAngle": 120,
+        "bulletEntity": "enemyshot_laser"
+      },
+      "firePattern": {
+        "veryEasy": [ 300 ],
+        "easy": [ 180 ],
+        "normal": [ 100 ],
+        "hard": [ 40, 80 ],
+        "nasty": [ 20, 50 ]
+      }
+    }
+  },
+  {
+    "name": "bigSquidGun",
+    "sprite": "Sprites/Enemies/big squid gun",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigsquid",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 7,
+          "hard": 7,
+          "nasty": 7
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -20,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 4,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpreadAngle": 120,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 150 ],
+        "easy": [ 150 ],
+        "normal": [ 130 ],
+        "hard": [ 30, 100 ],
+        "nasty": [ 30, 30, 80 ]
+      }
+    }
+  },
+  {
+    "name": "bigPlaneThrusterSquidGun",
+    "sprite": "Sprites/Enemies/big squid gun",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigplanescatter",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 9,
+          "hard": 11,
+          "nasty": 13
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -20,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 4,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpreadAngle": 120,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 200 ],
+        "normal": [ 160 ],
+        "hard": [ 150 ],
+        "nasty": [ 150 ]
+      }
+    }
+  },
+  {
+    "name": "pinkSquidGun",
+    "sprite": "Sprites/Enemies/squid gun pink",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_pinksquid",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 6,
+          "hard": 6,
+          "nasty": 7
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": -32,
+        "bulletOriginOffY": 15,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 4,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpreadAngle": 90,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 150, 30 ],
+        "easy": [ 150, 30 ],
+        "normal": [ 30, 30, 100 ],
+        "hard": [ 20, 20, 20, 80 ],
+        "nasty": [ 20, 20, 20, 20, 20, 60 ]
+      }
+    }
+  },
+  {
+    "name": "miniTickGun",
+    "sprite": "empty",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_minitick",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 2.5,
+          "easy": 2.5,
+          "normal": 3.5,
+          "hard": 4,
+          "nasty": 4
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_bigRed"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 60 ],
+        "hard": [ 40 ],
+        "nasty": [ 40 ]
+      }
+    }
+  },
+  {
+    "name": "bigTickGun",
+    "sprite": "empty",
+    "behaviour": "StarTurret",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_startick",
+      "firePattern": {
+        "veryEasy": [ 380 ],
+        "easy": [ 380 ],
+        "normal": [ 250 ],
+        "hard": [ 100, 250 ],
+        "nasty": [ 100, 200 ]
+      }
+    }
+  },
+  {
+    "name": "randomTickGun",
+    "sprite": "empty",
+    "behaviour": "RandomShotTurret",
+    "explosionEntity": "explosionMedium",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigtick",
+      "bulletCount": {
+        "veryEasy": 8,
+        "easy": 8,
+        "normal": 12,
+        "hard": 15,
+        "nasty": 18
+      },
+      "bulletSpread": {
+        "easy": 360,
+        "normal": 360,
+        "hard": 360,
+        "nasty": 360
+      },
+      "speedRange": {
+        "easy": [ 2.0, 4.0 ],
+        "normal": [ 4.0, 8.0 ],
+        "hard": [ 4.0, 9.0 ],
+        "nasty": [ 4.0, 10.0 ]
+      },
+      "bulletEntity": {
+        "easy": "enemyshot_steadyBigRed",
+        "normal": "enemyshot_steadyBigRed",
+        "hard": "enemyshot_steadyBigRed",
+        "nasty": "enemyshot_steadyBigRed"
+      },
+      "firePattern": {
+        "veryEasy": [ 30 ],
+        "easy": [ 30 ],
+        "normal": [ 16 ],
+        "hard": [ 14 ],
+        "nasty": [ 12 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "medTickGun",
+    "sprite": "empty",
+    "behaviour": "RandomShotTurret",
+    "explosionEntity": "explosionMedium",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_bigtick",
+      "bulletCount": {
+        "veryEasy": 8,
+        "easy": 8,
+        "normal": 12,
+        "hard": 12,
+        "nasty": 15
+      },
+      "bulletSpread": {
+        "easy": 360,
+        "normal": 360,
+        "hard": 360,
+        "nasty": 360
+      },
+      "speedRange": {
+        "easy": [ 2.0, 4.0 ],
+        "normal": [ 4.0, 7.5 ],
+        "hard": [ 4.0, 9.0 ],
+        "nasty": [ 4.0, 10.0 ]
+      },
+      "bulletEntity": {
+        "easy": "enemyshot_steadyBigRed",
+        "normal": "enemyshot_steadyBigRed",
+        "hard": "enemyshot_steadyBigRed",
+        "nasty": "enemyshot_steadyBigRed"
+      },
+      "firePattern": {
+          "veryEasy": [ 30,300 ],
+          "easy": [ 30,300 ],
+          "normal": [ 18, 18, 18, 100 ],
+          "hard": [ 15, 15, 15, 100 ],
+          "nasty": [ 12, 12, 12, 12, 12, 100 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },
+  {
+    "name": "miniTrashcanGun",
+    "sprite": "Sprites/Enemies/mini trashcan gun",
+    "behaviour": "SquidGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_minitrashcan",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 20,
+        "bulletOriginOffX": -20,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpreadAngle": 100,
+        "bulletEntity": "enemyshot_homer"
+      },
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 200 ],
+        "normal": [ 120 ],
+        "hard": [ 100 ],
+        "nasty": [ 80 ]
+      }
+    }
+  },
+  {
+    "name": "starfishGunSmall",
+    "sprite": "Sprites/Enemies/starfish gun small",
+    "behaviour": "StarfishGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_starfish",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 5,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpawnDistance": 40,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 6,
+          "hard": 6.5,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 360,
+        "bulletEntity": "enemyshot_accellerator"
+      }
+    }
+  },
+  {
+    "name": "starfishGunMed",
+    "sprite": "Sprites/Enemies/starfish gun med",
+    "behaviour": "StarfishMediumGun",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_starfish",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 5,
+          "hard": 5,
+          "nasty": 5
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 6,
+          "hard": 7,
+          "nasty": 8
+        },
+        "bulletSpreadAngle": 360,
+        "bulletEntity": "enemyshot_accellerator"
+      }
+    }
+  },
+  {
+    "name": "turretSuperGunShip",
+    "sprite": "Sprites/Enemies/turretSuperGunShip",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSuperGunShipFire",
+      "fireSFX": "s_enemyfire_turretdoublelaser",
+      "shadowSprite": "Sprites/Enemies/turretSuperGunShipShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 40,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 5,
+          "easy": 5,
+          "normal": 6,
+          "hard": 6,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 0,
+        "bulletEntity": "enemyshot_laser_small_double"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 30, 80 ],
+        "hard": [ 30, 30, 60 ],
+        "nasty": [ 30, 30, 30, 60 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretSingle",
+    "sprite": "Sprites/Enemies/turretSingle",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5.5,
+          "hard": 6,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretMeanSingle",
+    "sprite": "Sprites/Enemies/turretSingle",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5.5,
+          "hard": 6,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 20, 20, 80 ],
+        "hard": [ 20, 20, 60 ],
+        "nasty": [ 10, 10, 10, 30, 10, 10, 10, 40 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretSingleSlower",
+    "sprite": "Sprites/Enemies/turretSingle",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5.5,
+          "hard": 6,
+          "nasty": 6.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 137 ],
+        "easy": [ 137 ],
+        "normal": [ 117 ],
+        "hard": [ 87 ],
+        "nasty": [ 57 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretFlipPlane1",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 6,
+          "hard": 7,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 20, 110 ],
+        "hard": [ 20, 20, 100 ],
+        "nasty": [ 20, 20, 20, 90 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretFlipPlane2",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 4.5,
+          "hard": 5.5,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 20, 127 ],
+        "easy": [ 20, 127 ],
+        "normal": [ 20, 20, 107 ],
+        "hard": [ 20, 20, 20, 97 ],
+        "nasty": [ 20, 20, 20, 20, 87 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretPod1",
+    "sprite": "Sprites/Enemies/turretSingle",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 20, 20, 80 ],
+        "hard": [ 20, 20, 60 ],
+        "nasty": [ 10, 10, 10, 30, 10, 10, 10, 40 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretPod2",
+    "sprite": "Sprites/Enemies/turretSuperGunShip",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSuperGunShipFire",
+      "fireSFX": "s_enemyfire_turretdoublelaser",
+      "shadowOffsetX": -8,
+      "shadowOffsetY": -8,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 40,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4,
+          "easy": 4,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 0,
+        "bulletEntity": "enemyshot_laser_small_double"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 20, 80 ],
+        "hard": [ 20, 20, 60 ],
+        "nasty": [ 20, 20, 20, 50 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretPod3",
+    "sprite": "Sprites/Enemies/turretTriple",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretTripleFire",
+      "fireSFX": "s_enemyfire_turrettriple",
+      "shadowSprite": "Sprites/Enemies/turretTripleShadow",
+      "shadowOffsetX": -8,
+      "shadowOffsetY": -8,
+      "turretData": {
+        "bulletCount": {
+            "veryEasy": 3,
+            "easy": 3,
+            "normal": 3,
+            "hard": 3,
+            "nasty": 3
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+            "veryEasy": 3.5,
+            "easy": 4,
+            "normal": 4.5,
+            "hard": 5,
+            "nasty": 5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+          "veryEasy": [ 200 ],
+          "easy": [ 120 ],
+          "normal": [ 80 ],
+          "hard": [ 15, 80 ],
+          "nasty": [ 15, 15, 80 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretGunMount",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 7
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 137 ],
+        "easy": [ 137 ],
+        "normal": [ 117 ],
+        "hard": [ 38, 87 ],
+        "nasty": [ 36, 57 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "squidMotherTurret",
+    "sprite": "Sprites/Enemies/turretDouble",
+    "behaviour": "SquidMotherTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleFire",
+      "fireSFX": "s_enemyfire_turretdoublelaser",
+      "shadowSprite": "Sprites/Enemies/turretDoubleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 6,
+          "nasty": 6.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_laser_double"
+      },
+      "firePattern": {
+        "veryEasy": [ 60 ],
+        "easy": [ 60 ],
+        "normal": [ 10, 10, 60 ],
+        "hard": [ 10, 10, 60 ],
+        "nasty": [ 5, 5, 5, 5, 60 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretDouble",
+    "sprite": "Sprites/Enemies/turretDouble",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleFire",
+      "fireSFX": "s_enemyfire_turretdouble",
+      "shadowSprite": "Sprites/Enemies/turretDoubleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretDoubleLaser",
+    "sprite": "Sprites/Enemies/turretDouble",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleFire",
+      "fireSFX": "s_enemyfire_turretdoublelaser",
+      "shadowSprite": "Sprites/Enemies/turretDoubleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 50,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 0,
+        "bulletEntity": "enemyshot_laser_double"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 60 ],
+        "hard": [ 10, 50 ],
+        "nasty": [ 10, 10, 50 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretCarDoubleLaser",
+    "sprite": "Sprites/Enemies/turretDouble",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleFire",
+      "fireSFX": "s_enemyfire_turretdoublelaser",
+      "shadowSprite": "Sprites/Enemies/turretDoubleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 50,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 6,
+          "easy": 6,
+          "normal": 6,
+          "hard": 6,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 0,
+        "bulletEntity": "enemyshot_laser_double"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 70 ],
+        "hard": [ 50, 50, 100 ],
+        "nasty": [ 30, 30, 30, 100 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretTriple",
+    "sprite": "Sprites/Enemies/turretTriple",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretTripleFire",
+      "fireSFX": "s_enemyfire_turrettriple",
+      "shadowSprite": "Sprites/Enemies/turretTripleShadow",
+      "shadowOffsetX": -8,
+      "shadowOffsetY": -8,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 120 ],
+        "normal": [ 80 ],
+        "hard": [ 65 ],
+        "nasty": [ 50 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretTripleSlower",
+    "sprite": "Sprites/Enemies/turretTriple",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretTripleFire",
+      "fireSFX": "s_enemyfire_turrettriple",
+      "shadowSprite": "Sprites/Enemies/turretTripleShadow",
+      "shadowOffsetX": -8,
+      "shadowOffsetY": -8,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 223 ],
+        "easy": [ 143 ],
+        "normal": [ 93 ],
+        "hard": [ 83 ],
+        "nasty": [ 63 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretSingleSmall",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "isEnemy": true
+  },
+  {
+    "name": "turretDoubleSmall",
+    "sprite": "Sprites/Enemies/turretDoubleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleSmallFire",
+      "fireSFX": "s_enemyfire_turretdouble",
+      "shadowSprite": "Sprites/Enemies/turretDoubleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "turretTripleSmall",
+    "sprite": "Sprites/Enemies/turretTripleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretTripleSmallFire",
+      "fireSFX": "s_enemyfire_turrettriple",
+      "shadowSprite": "Sprites/Enemies/turretTripleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 3,
+          "hard": 3,
+          "nasty": 3
+        },
+        "bulletSpawnDistance": 60,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 100 ],
+        "easy": [ 100 ],
+        "normal": [ 80 ],
+        "hard": [ 60 ],
+        "nasty": [ 40 ]
+      }
+    },
+    "isEnemy": true
+  },
+  {
+    "name": "carTurret",
+    "sprite": "Sprites/Enemies/turretDoubleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretDoubleSmallFire",
+      "fireSFX": "s_enemyfire_turretdouble",
+      "shadowSprite": "Sprites/Enemies/turretDoubleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 30,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 20, 80 ],
+        "easy": [ 20, 80 ],
+        "normal": [ 20, 20, 80 ],
+        "hard": [ 20, 20, 20, 60 ],
+        "nasty": [ 10, 10, 10, 60 ]
+      }
+    },
+    "explosionEntity": "explosionMedium"
+  },
+  {
+    "name": "carTurretSmall",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_turretsingle",
+      "shadowSprite": "Sprites/Enemies/turretSingleSmallShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 1,
+          "easy": 1,
+          "normal": 1,
+          "hard": 1,
+          "nasty": 1
+        },
+        "bulletSpawnDistance": 30,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.5,
+          "easy": 4.5,
+          "normal": 5,
+          "hard": 5.5,
+          "nasty": 5.5
+        },
+        "bulletSpreadAngle": 20,
+        "bulletEntity": "enemyshot_normal"
+      },
+      "firePattern": {
+        "veryEasy": [ 300 ],
+        "easy": [ 300 ],
+        "normal": [ 250 ],
+        "hard": [ 200 ],
+        "nasty": [ 150 ]
+      }
+    },
+    "explosionEntity": "explosionMedium"
+  },
+  {
+    "name": "turretSpinner",
+    "sprite": "Sprites/Enemies/turretDouble",
+    "behaviour": "SpinTurret",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_spinner",
+      "fireSprite": "Sprites/Enemies/turretDoubleFire",
+      "shadowSprite": "Sprites/Enemies/turretDoubleShadow",
+      "shadowOffsetX": -5,
+      "shadowOffsetY": -5,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 50,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 4,
+          "hard": 5,
+          "nasty": 6
+        },
+        "bulletSpreadAngle": 40,
+        "bulletEntity": "enemyshot_normal",
+        "fireTimer": 400
+      },
+      "firePattern": {
+        "veryEasy": [ 6 ],
+        "easy": [ 6 ],
+        "normal": [ 3 ],
+        "hard": [ 2 ],
+        "nasty": [ 1 ]
+      }
+    }
+  },
+  {
+    "name": "midbossTurretSpinner",
+    "sprite": "Sprites/Enemies/turretDoubleSmall",
+    "behaviour": "SpinTurret",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_midbossspinner",
+      "fireSprite": "Sprites/Enemies/turretDoubleSmallFire",
+      "shadowSprite": "Sprites/Enemies/turretDoubleSmallShadow",
+      "shadowOffsetX": -4,
+      "shadowOffsetY": -4,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 30,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 4,
+          "hard": 4,
+          "nasty": 4
+        },
+        "bulletSpreadAngle": 40,
+        "bulletEntity": "enemyshot_normal",
+        "fireTimer": 400
+      },
+      "firePattern": {
+        "veryEasy": [ 8 ],
+        "easy": [ 8 ],
+        "normal": [ 2, 3, 2, 20 ],
+        "hard": [ 2, 3, 2, 3, 8 ],
+        "nasty": [ 2, 3, 2, 3, 2, 3, 8 ]
+      }
+    }
+  },
+  {
+    "name": "midbossTurretSpinner2",
+    "sprite": "Sprites/Enemies/turretDoubleSmall",
+    "behaviour": "SpinTurret",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_midbossspinner",
+      "fireSprite": "Sprites/Enemies/turretDoubleSmallFire",
+      "shadowSprite": "Sprites/Enemies/turretDoubleSmallShadow",
+      "shadowOffsetX": -4,
+      "shadowOffsetY": -4,
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 2,
+          "easy": 2,
+          "normal": 2,
+          "hard": 2,
+          "nasty": 2
+        },
+        "bulletSpawnDistance": 30,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 3,
+          "easy": 3,
+          "normal": 4,
+          "hard": 4,
+          "nasty": 4
+        },
+        "bulletSpreadAngle": 40,
+        "bulletEntity": "enemyshot_normal",
+        "fireTimer": 410
+      },
+      "firePattern": {
+        "veryEasy": [ 9 ],
+        "easy": [ 9 ],
+        "normal": [ 2, 3, 2, 21 ],
+        "hard": [ 2, 3, 2, 3, 9 ],
+        "nasty": [ 2, 3, 2, 3, 2, 3, 9 ]
+      }
+    }
+  },
+  {
+    "name": "octopusCoreTurret",
+    "sprite": "empty",
+    "behaviour": "RandomShotTurret",
+    "explosionEntity": "explosionMedium",
+    "customBehaviourData": {
+      "fireSFX": "s_enemyfire_octopuscore",
+      "bulletCount": {
+        "veryEasy": 8,
+        "easy": 8,
+        "normal": 12,
+        "hard": 12,
+        "nasty": 12
+      },
+      "bulletSpread": {
+        "easy": 360,
+        "normal": 360,
+        "hard": 360,
+        "nasty": 360
+      },
+      "speedRange": {
+        "easy": [ 2.0, 4.0 ],
+        "normal": [ 4.0, 7.5 ],
+        "hard": [ 4.0, 9.0 ],
+        "nasty": [ 4.0, 10.0 ]
+      },
+      "bulletEntity": {
+        "easy": "enemyshot_steadyBigRed",
+        "normal": "enemyshot_steadyBigRed",
+        "hard": "enemyshot_steadyBigRed",
+        "nasty": "enemyshot_steadyBigRed"
+      },
+      "firePattern": {
+          "veryEasy": [ 30,300 ],
+          "easy": [ 30,300 ],
+          "normal": [ 18, 18, 18, 170 ],
+          "hard": [ 15, 15, 15, 170 ],
+          "nasty": [ 13, 13, 13, 13, 170 ]
+      }
+    },
+    "isEnemy": true,
+    "highlightPoints": false,
+    "points": 500
+  },// ######################################################################################
+  {
+    "name": "boatMissileLauncher",
+    "sprite": "Sprites/Enemies/missile launcher",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"boatMissileLauncher",
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 200 ],
+        "normal": [ 200 ],
+        "hard": [ 200 ],
+        "nasty": [ 200 ]
+      }
+    },
+    "sortOrder": -100
+  },
+  {
+    "name": "boatCannonGun",
+    "sprite": "Sprites/Boss 1/big barrel",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"cannonGun",
+      "turretData": {
+        "bulletCount": {
+          "veryEasy": 7,
+          "easy": 7,
+          "normal": 7,
+          "hard": 7,
+          "nasty": 7
+        },
+        "bulletSpawnDistance": 0,
+        "bulletOriginOffX": 0,
+        "bulletOriginOffY": 0,
+        "bulletSpeed": {
+          "veryEasy": 4.4,
+          "easy": 4.4,
+          "normal": 4.4,
+          "hard": 4.4,
+          "nasty": 4.4
+        },
+        "bulletSpreadAngle": 120,
+        "bulletEntity": "enemyshot_car_cannon"
+      },
+      "firePattern": {
+        "veryEasy": [ 150 ],
+        "easy": [ 150 ],
+        "normal": [ 150 ],
+        "hard": [ 150 ],
+        "nasty": [ 150 ]
+      }
+    },
+    "sortOrder": -100
+  },
+  {
+    "name": "flamethrowerTurretBoat",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_flame",
+      "shadowSprite": "empty",
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 8,
+            "easy": 8,
+            "normal": 8,
+            "hard": 8,
+            "nasty": 8
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_fire"
+      },
+      "firePattern": {
+        "veryEasy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 90 ],
+        "easy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 80 ],
+        "normal": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 70 ],
+        "hard": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 60 ],
+        "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
+      }
+    }
+  }
+]
