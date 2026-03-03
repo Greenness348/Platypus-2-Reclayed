@@ -298,5 +298,14 @@
         "defaultVolume": 1.0,
         "minPitch": 1.0,
         "maxPitch": 1.0
+    },
+    {
+        "name": "s_icbm_warning",
+        "audioBus": "sfx",
+        "audioFile": "airraid",
+        "defaultVolume": 0.5,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
     }
 ]
+
