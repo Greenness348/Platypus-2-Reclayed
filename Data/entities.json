@@ -1273,7 +1273,173 @@
     "isEnemy": true,
     "highlightPoints": false,
     "points": 200
+  },
+
+
+
+
+
+  {
+    "name": "caterpillarBossHead",
+    "sprite": "Sprites/P2 Boss2/head",
+    "behaviour": "Lua",
+    "mainDebrisEntity": "debris_green2_1",
+    "secondaryDebrisEntity": "debris_green2_2",
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "speedKillTimer": 6000,
+    "endKillTimerOnDeath": true,
+    "customBehaviourData": {
+      "luaScript": "caterpillarBoss",
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 150 ],
+        "normal": [ 100 ],
+        "hard": [ 80 ],
+        "nasty": [ 60 ]
+      }
+    },
+    "turrets": [
+      {
+        "turretEntity": "turretPod1",
+        "turretX": 5,
+        "turretY": -1
+      }
+    ],
+    "sortOrder": 1114,
+    "maxHitPoints": 2800,
+    "highlightPoints": true,
+    "points": 5000,
+    "primaryTargetValue": 1,
+    "damageEffects": [
+      {
+        "frame": 4,
+        "shards": [
+          {
+            "entity": "debris_green2_1",
+            "x": -15,
+            "y": 85,
+            "mx": -2,
+            "my": -5,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green2_2",
+            "x": 30,
+            "y": 85,
+            "mx": 2,
+            "my": -7,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+        },
+          {
+            "frame": 5,
+            "shards": [
+              {
+                "entity": "debris_green2_1",
+                "x": -50,
+                "y": -80,
+                "mx": -2,
+                "my": -4,
+                "frame": 9,
+                "type": 1
+              },
+              {
+                "entity": "debris_green2_2",
+                "x": 100,
+                "y": -20,
+                "mx": 4,
+                "my": -2,
+                "frame": 9,
+                "type": 1
+              }
+            ]
+        }
+    ]
+  },
+
+  {
+    "name": "caterpillarBossBody",
+    "sprite": "Sprites/P2 Boss2/body",
+    "behaviour": "Lua",
+    "mainDebrisEntity": "debris_green2_1",
+    "secondaryDebrisEntity": "debris_green2_2",
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "customBehaviourData": {
+      "luaScript": "caterpillarBoss",
+      "firePattern": {
+        "veryEasy": [ 200 ],
+        "easy": [ 150 ],
+        "normal": [ 100 ],
+        "hard": [ 80 ],
+        "nasty": [ 60 ]
+      }
+    },
+    "turrets": [
+      {
+        "turretEntity": "turretPod1",
+        "turretX": 5,
+        "turretY": -1
+      }
+    ],
+    "sortOrder": 1114,
+    "maxHitPoints": 2800,
+    "highlightPoints": true,
+    "points": 5000,
+    "damageEffects": [
+      {
+        "frame": 4,
+        "shards": [
+          {
+            "entity": "debris_green2_1",
+            "x": -15,
+            "y": 85,
+            "mx": -2,
+            "my": -5,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green2_2",
+            "x": 30,
+            "y": 85,
+            "mx": 2,
+            "my": -7,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+        },
+          {
+            "frame": 5,
+            "shards": [
+              {
+                "entity": "debris_green2_1",
+                "x": -50,
+                "y": -80,
+                "mx": -2,
+                "my": -4,
+                "frame": 9,
+                "type": 1
+              },
+              {
+                "entity": "debris_green2_2",
+                "x": 100,
+                "y": -20,
+                "mx": 4,
+                "my": -2,
+                "frame": 9,
+                "type": 1
+              }
+            ]
+        }
+    ]
   }
+  
 ]
 
 

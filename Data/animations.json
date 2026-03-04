@@ -89,5 +89,37 @@
     "matEmissionPower": 2,
     "matDayCycleMultiplier": 0.0,
     "updateCounter": 0
-  }
+  },
+
+
+
+
+  {
+    "sprite": "Sprites/P2 Boss2/tail",
+    "generateColliders": true,
+    "collisionSpriteScale": 0.2,
+    "matEmissionPower": 1,
+    "matDayCycleMultiplier": 0.2,
+    "rows": 3,
+    "columns": 2
+},
+{
+    "sprite": "Sprites/P2 Boss2/body",
+    "generateColliders": true,
+    "collisionSpriteScale": 0.2,
+    "matEmissionPower": 1,
+    "matDayCycleMultiplier": 0.2,
+    "rows": 1,
+    "columns": 6
+},
+{
+    "sprite": "Sprites/P2 Boss2/head",
+    "generateColliders": true,
+    "collisionSpriteScale": 0.2,
+    "matEmissionPower": 1,
+    "matDayCycleMultiplier": 0.2,
+    "rows": 2,
+    "columns": 3
+}
+
 ]
