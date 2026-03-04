@@ -18,29 +18,15 @@ end
 
 function OnTick()
     mxTotal = mx + knockback
-
-    if knockback > 0 then
-        knockback = knockback - 0.065
-    else
-        knockback = 0
-    end
-
+    if knockback > 0 then knockback = knockback - 0.065 else knockback = 0 end
     knockbackCap = mx + 1.3
 
     self.movement = { x = mxTotal, y = 0, z = 0 }
 
-    if timer > 0 then
-        timer = timer - 1
-    end
+    if timer > 0 then timer = timer - 1 end
+    if timer <= 0 and mx > -1.3 then mx = mx - 0.065 end
 
-    if timer <= 0 and mx > -1.3 then
-        mx = mx - 0.065
-    end
-
-    if flipSprite < 11 then
-        flipTimer = flipTimer - 1
-    end
-
+    if flipSprite < 11 then flipTimer = flipTimer - 1 end
     if flipSprite == 1 or flipSprite == 3 or flipSprite == 5 or flipSprite == 7 then
         flipSprite = flipSprite + 1
         flipTimer = 2
@@ -49,12 +35,7 @@ function OnTick()
     end
 
     local damageframe = self.GetDamageFrame(self.hitPoints / 3.25)   
-
-    if allowDamageFrames == false then
-        self.animator.AnimateTo(flipSprite)
-    else
-        self.animator.AnimateTo(damageframe);
-    end
+    if allowDamageFrames == false then self.animator.GoTo(flipSprite) else self.animator.GoTo(damageframe) end
 
     if spawnTurrets == false and flipSprite == 11 then
         SpawnEntityChild(turret1, self, { x = -22, y = 67 }, NewJSONObject())
@@ -67,9 +48,7 @@ function OnTick()
 end
 
 function OnHitByBullet()
-    if mx <= 0.845 and self.position.x <= 770 then
-        knockback = 2.145 - knockbackCap
-    end
+    if mx <= 0.845 and self.position.x <= 770 then knockback = 2.145 - knockbackCap end
 end
 
 function OnKill()
