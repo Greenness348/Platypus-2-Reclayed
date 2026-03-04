@@ -6,24 +6,44 @@ local planeSprite = 0
 
 local mineSprite
 local minePeekX = -5
-local minePeekY = -5
+local minePeekY = -20
 
 local firePattern
 local fireSFX
 
-local firstLaunch = 20
+local firstLaunch = 30
+
+local allowDmgFrames = false --
+
+
+
 
 function OnInitialise()
     mineSprite = self.SpawnAttachedSpriteAnimator("Effects/Bullets/bullet bomb", -100, false)
-    mineSprite.position = { x = -5, y = -5 }
+    mineSprite.position = { x = -5, y = -20 }
     mineSprite.Initialise("empty")
 
     if self.commandArgs.HasField("fireSFX") then fireSFX = self.commandArgs.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
     firePattern = NewFirePatternFromEntityData(self.data)
 end
 
+
+
 function OnTick()
-    self.animator.AnimateTo(planeSprite)
+
+
+    dmgSprite = self.GetDamageFrame(self.hitPoints / 1.75)   
+
+
+    if allowDmgFrames == false then
+        self.animator.AnimateTo(planeSprite)
+    else
+        self.animator.AnimateTo(dmgSprite);
+    end
+
+
+
+
 
     mineSprite.position = { x = minePeekX, y = minePeekY }
 
@@ -32,19 +52,27 @@ function OnTick()
             timer = timer - 1
         end
 
-        if timer <= 0 and planeSprite < 3 then
+
+
+        if timer <= 0 and planeSprite < 4 then
             timer = 10
             planeSprite = planeSprite + 1
-        elseif timer <= 0 and planeSprite >= 3 then
-            planeSprite = planeSprite + 1
+        elseif timer <= 0 and planeSprite >= 4 then
+            allowDmgFrames = true
+            planeSprite = 5
             mineSprite.Initialise("Effects/Bullets/bullet bomb", 0)
         end
+
+
+
+
+
     end
 
     self.movement = { x = mx, y = 0, z = 0 }
     mx = mx + 0.001
 
-    local smokePos = { x = self.worldPosition.x - 70, y = self.worldPosition.y + 13 }
+    local smokePos = { x = self.worldPosition.x - 70, y = self.worldPosition.y + 3 }
 
     trailTimer = trailTimer - 1
     if trailTimer <= 0 then
@@ -63,11 +91,11 @@ function OnTick()
             firstLaunch = firstLaunch - 1
         end
 
-        if firePattern.GetTicksTillFire() == 15 or firstLaunch == 15 then
+        if firePattern.GetTicksTillFire() == 25 or firstLaunch == 25 then
             PlaySound(fireSFX)
         end
 
-        if firePattern.GetTicksTillFire() <= 20 or firstLaunch <= 20 and firstLaunch > 0 then
+        if firePattern.GetTicksTillFire() <= 30 or firstLaunch <= 30 and firstLaunch > 0 then
             minePeekX = minePeekX - 1
             minePeekY = minePeekY - 3
         end
@@ -75,10 +103,10 @@ function OnTick()
         if firePattern.CanFire() and firstLaunch <= 0 then
             firePattern.MarkFired()
             minePeekX = -5
-            minePeekY = -5
-            mineSprite.position = { x = -5, y = -5 }
+            minePeekY = -20
+            mineSprite.position = { x = -5, y = -20 }
 
-            local minePos = { x = self.worldPosition.x - 25, y = self.worldPosition.y - 65 }
+            local minePos = { x = self.worldPosition.x - 35, y = self.worldPosition.y - 108 } -- og y pos - 65
 
             local mineArgs = NewJSONObject()
             mineArgs.AddFieldFloat("my", -3)

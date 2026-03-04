@@ -1016,6 +1016,7 @@
     "explosionY": 0,
     "mainDebrisEntity": "debris_red_1",
     "secondaryDebrisEntity": "debris_red_2",
+    "nudgeOnHit": true,
     "sortOrder": 9000,
     "maxHitPoints": 300,
     "isEnemy": true,
