@@ -59,8 +59,8 @@
     "sprite": "Sprites/Enemies/bomber",
     "generateColliders": true,
     "matDayCycleMultiplier": 0.5,
-    "rows": 2,
-    "columns": 5
+    "rows": 3,
+    "columns": 3
   },
   {
     "sprite": "Effects/Bullets/bullet bomb",
@@ -123,3 +123,4 @@
 }
 
 ]
+
