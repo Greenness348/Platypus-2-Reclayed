@@ -1256,6 +1256,24 @@
     "secondaryTargetValue": 1
   },
   {
+    "name": "bug",
+    "sprite": "Sprites/Enemies/bug",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "bug"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
+  },
+  {
     "name": "icbmLauncher",
     "sprite": "Sprites/Enemies/icbm launch silo",
     "behaviour": "Lua",
@@ -1459,6 +1477,7 @@
   }
   
 ]
+
 
 
 
