@@ -1022,7 +1022,7 @@
     "isEnemy": true,
     "highlightPoints": true,
     "points": 1000,
-    "primaryTargetValue": 2
+    "primaryTargetValue": 4
   },
   {
     "name": "enemyshot_bomb",
@@ -1048,7 +1048,7 @@
     },
     "mainDebrisEntity": "debris_purple_1",
     "secondaryDebrisEntity": "debris_purple_2",
-    "sortOrder": 400,
+    "sortOrder": 4000,
     "isEnemy": true,
     "shieldPenetrating": true,
     "maxHitPoints": 300,
@@ -1441,5 +1441,6 @@
   }
   
 ]
+
 
 
