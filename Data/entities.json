@@ -1238,6 +1238,24 @@
     "secondaryTargetValue": 1
   },
   {
+    "name": "worm",
+    "sprite": "Sprites/Enemies/worm",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "worm"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 10,
+    "secondaryTargetValue": 1
+  },
+  {
     "name": "icbmLauncher",
     "sprite": "Sprites/Enemies/icbm launch silo",
     "behaviour": "Lua",
@@ -1441,6 +1459,7 @@
   }
   
 ]
+
 
 
 
