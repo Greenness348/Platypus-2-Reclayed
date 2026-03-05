@@ -30,9 +30,9 @@ function OnTick()
         if timer <= 0 and planeSprite < 4 then
             timer = 10
             planeSprite = planeSprite + 1
-        elseif timer <= 0 and planeSprite >= 4 then
+        end
+        if planeSprite == 4 then
             allowDamageFrames = true
-            planeSprite = planeSprite + 1
             mineSprite.Initialise("Effects/Bullets/bullet bomb", 0)
         end
     end
@@ -86,4 +86,5 @@ end
 function ShouldKillPlayerOnTouch()
     return self.position.x >= -25
 end
+
 
