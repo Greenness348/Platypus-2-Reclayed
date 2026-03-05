@@ -42,11 +42,11 @@ function OnInitialise()
             local missileArgs = NewJSONObject()
             missileArgs.AddFieldFloatArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
             missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
-            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y}, missileArgs)
+            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y }, missileArgs)
 
             local launcherArgs = NewJSONObject()
             launcherArgs.AddFieldBool("decoy", true)
-            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + (offset * 1), y = self.worldPosition.y}, launcherArgs)
+            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + offset, y = self.worldPosition.y }, launcherArgs)
             offset = offset + 70
         end
     end
@@ -64,3 +64,4 @@ end
 function HasCollision()
     return false
 end
+
