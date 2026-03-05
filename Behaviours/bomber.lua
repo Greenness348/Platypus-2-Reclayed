@@ -8,19 +8,20 @@ local minePeekY = -20
 local firstLaunch = 30
 local firePattern
 local fireSFX
+local allowedToDrop = false
 local allowDamageFrames = false
 
 function OnInitialise()
     mineSprite = self.SpawnAttachedSpriteAnimator("Effects/Bullets/bullet bomb", -100, false)
     mineSprite.position = { x = -5, y = -20 }
     mineSprite.Initialise("empty")
-
+    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set") else self.fruitSet = 5 end
     if self.commandArgs.HasField("fireSFX") then fireSFX = self.commandArgs.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
     firePattern = NewFirePatternFromEntityData(self.data)
 end
 
 function OnTick()
-    local damageframe = self.GetDamageFrame(self.hitPoints / 1.75)   
+    local damageframe = self.GetDamageFrame(self.hitPoints / 1.8005)   
     if allowDamageFrames == false then self.animator.GoTo(planeSprite) else self.animator.GoTo(damageframe) end
 
     mineSprite.position = { x = minePeekX, y = minePeekY }
@@ -33,7 +34,6 @@ function OnTick()
         end
         if planeSprite == 4 then
             allowDamageFrames = true
-            mineSprite.Initialise("Effects/Bullets/bullet bomb", 0)
         end
     end
 
@@ -49,6 +49,10 @@ function OnTick()
     end
 
     if CanFire() == true then
+        if allowedToDrop == false then
+            mineSprite.Initialise("Effects/Bullets/bullet bomb", 0)
+            allowedToDrop = true
+        end
         firePattern.Tick()
         if firstLaunch > 0 then firstLaunch = firstLaunch - 1 end
         if firePattern.GetTicksTillFire() == 25 or firstLaunch == 25 then PlaySound(fireSFX) end
@@ -64,7 +68,7 @@ function OnTick()
             mineSprite.position = { x = -5, y = -20 }
             local mineArgs = NewJSONObject()
             mineArgs.AddFieldFloat("my", -3)
-            SpawnEntityWorld("enemyshot_bomb", { x = self.worldPosition.x - 35, y = self.worldPosition.y - 108 }, mineArgs)
+            SpawnEntityWorld("enemyshot_bomb", { x = self.worldPosition.x - 34, y = self.worldPosition.y - 110 }, mineArgs)
         end
     end
 
@@ -77,14 +81,12 @@ function OnKill()
 end
 
 function CanFire()
-    return self.position.x >= 15
+    return self.position.x >= 0
 end
 
 function HasCollision()
     return true
 end
 function ShouldKillPlayerOnTouch()
-    return self.position.x >= -25
+    return self.position.x >= -40
 end
-
-
