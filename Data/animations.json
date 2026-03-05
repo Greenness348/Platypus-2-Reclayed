@@ -6,6 +6,13 @@
     "matDayCycleMultiplier": 0.5
   },
   {
+    "sprite": "Sprites/Enemies/worm",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 5
+  },
+  {
     "sprite": "Sprites/Enemies/yellow big uns",
     "collisionSprite": "Sprites/Enemies/green big uns_collision",
     "collisionSpriteScale": 0.02,
@@ -123,4 +130,5 @@
 }
 
 ]
+
 
