@@ -1,4 +1,4 @@
-[
+[// ############################################################# FOR SFX ADD-ON CROSS-COMPATIBILITY #############################################################
   {
     "name": "explosionPlayer",
     "sprite": "Effects/Explosions/medium explosion",
@@ -621,7 +621,171 @@
         "nasty":  [ 20, 20, 20, 20, 20, 20, 20, 20, 150 ]
       }
     }
-  },// ######################################################################################
+  },// ##############################################################   LUA-FIED RECLAYED ENEMIES   ##############################################################
+  {
+    "name": "luaGreenBigUn",
+    "sprite": "Sprites/Enemies/green big uns",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"luaBigGreenUn"
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_green_1",
+    "secondaryDebrisEntity": "debris_green_2",
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0,
+        "parachuterX": 0,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": -8,
+            "y": 0,
+            "mx": -2,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green_2",
+            "x": 19,
+            "y": 0,
+            "mx": 2,
+            "my": -6,
+            "frame": 8,
+            "type": 2
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_2",
+            "x": 0,
+            "y": -15,
+            "mx": -1,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": 45,
+            "y": 15,
+            "mx": -1,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_green_2",
+            "x": 45,
+            "y": -15,
+            "mx": 2,
+            "my": 3,
+            "frame": 7,
+            "type": 2
+          }
+        ]
+      }
+    ],
+    "sortOrder": 9000,
+    "speed": 0.2,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 120,
+    "highlightPoints": true,
+    "points": 200,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "luaFlipPlane",
+    "sprite": "Sprites/Enemies/flip plane",
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "luaFlipPlane",
+      "topTurretEntity": "turretFlipPlane1",
+      "topTurretX": -22,
+      "topTurretY": 67,
+      "bottomTurretEntity": "turretFlipPlane2",
+      "bottomTurretX": -22,
+      "bottomTurretY": -74
+    },
+    "mainDebrisEntity": "debris_purple_1",
+    "secondaryDebrisEntity": "debris_purple_2",
+    "sortOrder": 4000,
+    "isEnemy": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 300,
+    "highlightPoints": true,
+    "points": 1000,
+    "primaryTargetValue": 4,
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0.33,
+        "parachuterX": 80,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_purple_1",
+            "x": -30,
+            "y": 56,
+            "mx": -3,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 80,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x": 10,
+            "y": 100,
+            "mx": 3,
+            "my": -5,
+            "frame": 8,
+            "type": 1
+          },
+          {
+            "entity": "debris_purple_1",
+            "x": -25,
+            "y": -50,
+            "mx": -4,
+            "my": -2,
+            "frame": 9,
+            "type": 2
+          }
+        ]
+      }
+    ]
+  },
   {
     "name": "luaMissileBoat",
     "sprite": "Sprites/Enemies/missile boat",
@@ -674,128 +838,31 @@
     "highlightPoints": true,
     "points": 1000,
     "primaryTargetValue": 5
-  },
+  },// ############################################################## RETURNING PLATYPUS II ENEMIES ##############################################################
   {
-    "name": "flameBoat",
-    "sprite": "Sprites/Enemies/cannon boat",
+    "name": "greenFish",
+    "sprite": "Sprites/Enemies/fish fighter green",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "genericBoatBig"
-    },
-    "turrets": [
-      {
-        "turretEntity": "flamethrowerTurretBoat",
-        "turretX": -64,
-        "turretY": 20
+      "luaScript": "greenFishFighter",
+      "firePattern": {
+        "veryEasy": [ 99999 ],
+        "easy": [ 100 ],
+        "normal": [ 60 ],
+        "hard": [ 40 ],
+        "nasty": [ 40 ]
       }
-    ],
-    "explosionEntity": "explosionBig",
+    },
+    "explosionEntity": "explosionSmall",
     "explosionX": 0,
     "explosionY": 0,
-    "mainDebrisEntity": "debris_grey_1",
-    "secondaryDebrisEntity": "debris_grey_2",
-    "sortOrder": 100,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
     "isEnemy": true,
-    "shieldPenetrating": true,
-    "maxHitPoints": 600,
-    "highlightPoints": true,
-    "points": 1000,
-    "primaryTargetValue": 5
-  },
-  {
-    "name": "shieldTick",
-    "sprite": "Sprites/Enemies/deflector tick",
-    "turrets" : [
-      {
-        "turretEntity": "deflectorShield",
-        "turretX": 0,
-        "turretY": -3
-      }
-    ],
-    "behaviour": "GenericSquid",
-    "customBehaviourData": {
-      "acceleration": 0.1,
-      "focus_acceleration": 0.1,
-      "movement_threshold": 10,
-      "tickUntilGiveUp": 2400,
-      "tickUntilDeactivate": 2600,
-      "bottomSprite": "Sprites/Enemies/deflector tick bottom",
-      "bottomSpriteOffset": {
-        "x": 1.4,
-        "y": 2
-      }
-    },
-    "explosionEntity": "explosionMedium",
-    "explosionX": 0,
-    "explosionY": 0,
-    "mainDebrisEntity": "debris_purple_2",
-    "secondaryDebrisEntity": "debris_purple_2",
-    "sortOrder": 5000,
-    "sortOrderSiblingBuffer": 2,
-    "maxHitPoints": 200,
-    "isEnemy": true,
-    "nudgeOnHit": true,
-    "shieldPenetrating": true,
-    "highlightPoints": true,
-    "points":1000,
-    "primaryTargetValue": 2,
-    "damageEffects": [
-      {
-        "frame": 4,
-        "shards": [
-          {
-            "entity": "debris_purple_2",
-            "x": -30,
-            "y": -5,
-            "mx": -4,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          }
-        ]
-      },
-      {
-        "frame": 5,
-        "shards": [
-          {
-            "entity": "debris_purple_2",
-            "x":  30,
-            "y": -5,
-            "mx": 4,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "deflectorShield",
-    "sprite": "Effects/Particles/deflector shield loop",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript":"deflectorShield"
-    },
-    "sortOrder": 20000,
-    "maxHitPoints": 300,
-    "shieldPenetrating": true
-  },
-  {
-    "name": "enemyshot_deflector",
-    "sprite": "Effects/Bullets/deflectorbullet",
-    "sortOrder": 21001,
-    "behaviour": "EnemyBullet",
-    "smallAndFastMoving": true,
-    "customBehaviourData": {
-      "shottype": 1
-    }
-  },
-  {
-    "name": "deflectorShieldShard",
-    "sprite": "Effects/Particles/deflector shield shard",
-    "sortOrder": 20900,
-    "behaviour": "MultiParticle"
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
   },
   {
     "name": "zipper",
@@ -811,98 +878,6 @@
     "highlightPoints": false,
     "points": 100,
     "secondaryTargetValue": 1
-  },
-  {
-    "name": "yellowBigUn",
-    "sprite": "Sprites/Enemies/yellow big uns",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript":"BigYellowUn"
-    },
-    "explosionEntity": "explosionMedium",
-    "explosionX": 5,
-    "explosionY": -20,
-    "mainDebrisEntity": "debris_yellow_1",
-    "secondaryDebrisEntity": "debris_yellow_2",
-    "damageEffects": [
-      {
-        "frame": 3,
-        "parachuterChance": 0,
-        "parachuterX": 0,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_yellow_1",
-            "x": -8,
-            "y": 0,
-            "mx": -2,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          },
-          {
-            "entity": "debris_yellow_2",
-            "x": 19,
-            "y": 0,
-            "mx": 2,
-            "my": -6,
-            "frame": 8,
-            "type": 2
-          }
-        ]
-      },
-      {
-        "frame": 4,
-        "parachuterChance": 0.33,
-        "parachuterX": 40,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_yellow_2",
-            "x": 0,
-            "y": -15,
-            "mx": -1,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          }
-        ]
-      },
-      {
-        "frame": 5,
-        "parachuterChance": 0.33,
-        "parachuterX": 40,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_yellow_1",
-            "x": 45,
-            "y": 15,
-            "mx": -1,
-            "my": -8,
-            "frame": 9,
-            "type": 1
-          },
-          {
-            "entity": "debris_yellow_2",
-            "x": 45,
-            "y": -15,
-            "mx": 2,
-            "my": 3,
-            "frame": 7,
-            "type": 2
-          }
-        ]
-      }
-    ],
-    "sortOrder": 9000,
-    "isEnemy": true,
-    "nudgeOnHit": true,
-    "shieldPenetrating": true,
-    "maxHitPoints": 120,
-    "highlightPoints": true,
-    "points": 200,
-    "primaryTargetValue": 2
   },
   {
     "name": "mineSquid",
@@ -1037,17 +1012,23 @@
     "smallAndFastMoving": true
   },
   {
-    "name": "luaFlipPlane",
-    "sprite": "Sprites/Enemies/flip plane",
+    "name": "flameFlipPlane",
+    "sprite": "Sprites/Enemies/flame flip plane",
     "explosionEntity": "explosionMedium",
     "explosionX": 0,
     "explosionY": 0,
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "luaFlipPlane"
+      "luaScript": "luaFlipPlane",
+      "topTurretEntity": "flamethrowerTurretBoat",
+      "topTurretX": -22,
+      "topTurretY": 67,
+      "bottomTurretEntity": "flamethrowerTurretBoat",
+      "bottomTurretX": -22,
+      "bottomTurretY": -74
     },
-    "mainDebrisEntity": "debris_purple_1",
-    "secondaryDebrisEntity": "debris_purple_2",
+    "mainDebrisEntity": "debris_orange_1",
+    "secondaryDebrisEntity": "debris_orange_2",
     "sortOrder": 4000,
     "isEnemy": true,
     "shieldPenetrating": true,
@@ -1063,7 +1044,7 @@
         "parachuterY": 0,
         "shards": [
           {
-            "entity": "debris_purple_1",
+            "entity": "debris_orange_1",
             "x": -30,
             "y": 56,
             "mx": -3,
@@ -1080,7 +1061,7 @@
         "parachuterY": 0,
         "shards": [
           {
-            "entity": "debris_purple_2",
+            "entity": "debris_orange_2",
             "x": 10,
             "y": 100,
             "mx": 3,
@@ -1089,7 +1070,7 @@
             "type": 1
           },
           {
-            "entity": "debris_purple_1",
+            "entity": "debris_orange_1",
             "x": -25,
             "y": -50,
             "mx": -4,
@@ -1102,176 +1083,31 @@
     ]
   },
   {
-    "name": "luaGreenBigUn",
-    "sprite": "Sprites/Enemies/green big uns",
+    "name": "flameBoat",
+    "sprite": "Sprites/Enemies/cannon boat",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript":"luaBigGreenUn"
+      "luaScript": "genericBoatBig"
     },
-    "explosionEntity": "explosionMedium",
-    "explosionX": 5,
-    "explosionY": -20,
-    "mainDebrisEntity": "debris_green_1",
-    "secondaryDebrisEntity": "debris_green_2",
-    "damageEffects": [
+    "turrets": [
       {
-        "frame": 3,
-        "parachuterChance": 0,
-        "parachuterX": 0,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_green_1",
-            "x": -8,
-            "y": 0,
-            "mx": -2,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          },
-          {
-            "entity": "debris_green_2",
-            "x": 19,
-            "y": 0,
-            "mx": 2,
-            "my": -6,
-            "frame": 8,
-            "type": 2
-          }
-        ]
-      },
-      {
-        "frame": 4,
-        "parachuterChance": 0.33,
-        "parachuterX": 40,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_green_2",
-            "x": 0,
-            "y": -15,
-            "mx": -1,
-            "my": -6,
-            "frame": 9,
-            "type": 1
-          }
-        ]
-      },
-      {
-        "frame": 5,
-        "parachuterChance": 0.33,
-        "parachuterX": 40,
-        "parachuterY": 0,
-        "shards": [
-          {
-            "entity": "debris_green_1",
-            "x": 45,
-            "y": 15,
-            "mx": -1,
-            "my": -8,
-            "frame": 9,
-            "type": 1
-          },
-          {
-            "entity": "debris_green_2",
-            "x": 45,
-            "y": -15,
-            "mx": 2,
-            "my": 3,
-            "frame": 7,
-            "type": 2
-          }
-        ]
+        "turretEntity": "flamethrowerTurretBoat",
+        "turretX": -64,
+        "turretY": 20
       }
     ],
-    "sortOrder": 9000,
-    "speed": 0.2,
+    "explosionEntity": "explosionBig",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_grey_1",
+    "secondaryDebrisEntity": "debris_grey_2",
+    "sortOrder": 100,
     "isEnemy": true,
-    "nudgeOnHit": true,
     "shieldPenetrating": true,
-    "maxHitPoints": 120,
+    "maxHitPoints": 600,
     "highlightPoints": true,
-    "points": 200,
-    "primaryTargetValue": 2
-  },
-  {
-    "name": "greenFish",
-    "sprite": "Sprites/Enemies/fish fighter green",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript": "greenFishFighter",
-      "firePattern": {
-        "veryEasy": [ 99999 ],
-        "easy": [ 100 ],
-        "normal": [ 60 ],
-        "hard": [ 40 ],
-        "nasty": [ 40 ]
-      }
-    },
-    "explosionEntity": "explosionSmall",
-    "explosionX": 0,
-    "explosionY": 0,
-    "sortOrder": 10000,
-    "maxHitPoints": 1,
-    "isEnemy": true,
-    "deathBulletEntity": "deathBullet",
-    "highlightPoints": false,
-    "points": 20,
-    "secondaryTargetValue": 1
-  },
-  {
-    "name": "jumper",
-    "sprite": "Sprites/Enemies/jumper",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript": "jumper"
-    },
-    "explosionEntity": "explosionSmall",
-    "explosionX": 0,
-    "explosionY": 0,
-    "sortOrder": 10000,
-    "maxHitPoints": 1,
-    "isEnemy": true,
-    "deathBulletEntity": "deathBullet",
-    "highlightPoints": false,
-    "points": 10,
-    "secondaryTargetValue": 1
-  },
-  {
-    "name": "worm",
-    "sprite": "Sprites/Enemies/worm",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript": "worm"
-    },
-    "explosionEntity": "explosionSmall",
-    "explosionX": 0,
-    "explosionY": 0,
-    "sortOrder": 10000,
-    "maxHitPoints": 1,
-    "isEnemy": true,
-    "deathBulletEntity": "deathBullet",
-    "highlightPoints": false,
-    "points": 10,
-    "secondaryTargetValue": 1
-  },
-  {
-    "name": "bug",
-    "sprite": "Sprites/Enemies/bug downward",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript": "bug"
-    },
-    "explosionEntity": "explosionSmall",
-    "explosionX": 0,
-    "explosionY": 0,
-    "sortOrder": 10000,
-    "maxHitPoints": 1,
-    "isEnemy": true,
-    "deathBulletEntity": "deathBullet",
-    "highlightPoints": false,
-    "points": 20,
-    "secondaryTargetValue": 1
+    "points": 1000,
+    "primaryTargetValue": 5
   },
   {
     "name": "icbmLauncher",
@@ -1310,11 +1146,247 @@
     "highlightPoints": false,
     "points": 200
   },
-
-
-
-
-
+  {
+    "name": "yellowBigUn",
+    "sprite": "Sprites/Enemies/yellow big uns",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"BigYellowUn"
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_yellow_1",
+    "secondaryDebrisEntity": "debris_yellow_2",
+    "damageEffects": [
+      {
+        "frame": 3,
+        "parachuterChance": 0,
+        "parachuterX": 0,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_1",
+            "x": -8,
+            "y": 0,
+            "mx": -2,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_yellow_2",
+            "x": 19,
+            "y": 0,
+            "mx": 2,
+            "my": -6,
+            "frame": 8,
+            "type": 2
+          }
+        ]
+      },
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_2",
+            "x": 0,
+            "y": -15,
+            "mx": -1,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_yellow_1",
+            "x": 45,
+            "y": 15,
+            "mx": -1,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_yellow_2",
+            "x": 45,
+            "y": -15,
+            "mx": 2,
+            "my": 3,
+            "frame": 7,
+            "type": 2
+          }
+        ]
+      }
+    ],
+    "sortOrder": 9000,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 120,
+    "highlightPoints": true,
+    "points": 200,
+    "primaryTargetValue": 2
+  },
+  {
+    "name": "jumper",
+    "sprite": "Sprites/Enemies/jumper",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "jumper"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 10,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "bug",
+    "sprite": "Sprites/Enemies/bug downward",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "bug"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
+  },
+  {
+    "name": "worm",
+    "sprite": "Sprites/Enemies/worm",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "worm"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 10,
+    "secondaryTargetValue": 1
+  },// ##############################################################    NEW PLATYPUS II ENEMIES    ##############################################################
+  {
+    "name": "shieldTick",
+    "sprite": "Sprites/Enemies/deflector tick",
+    "turrets" : [
+      {
+        "turretEntity": "deflectorShield",
+        "turretX": 0,
+        "turretY": -3
+      }
+    ],
+    "behaviour": "GenericSquid",
+    "customBehaviourData": {
+      "acceleration": 0.1,
+      "focus_acceleration": 0.1,
+      "movement_threshold": 10,
+      "tickUntilGiveUp": 2400,
+      "tickUntilDeactivate": 2600,
+      "bottomSprite": "Sprites/Enemies/deflector tick bottom",
+      "bottomSpriteOffset": {
+        "x": 1.4,
+        "y": 2
+      }
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_purple_2",
+    "secondaryDebrisEntity": "debris_purple_2",
+    "sortOrder": 5000,
+    "sortOrderSiblingBuffer": 2,
+    "maxHitPoints": 200,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "highlightPoints": true,
+    "points":1000,
+    "primaryTargetValue": 2,
+    "damageEffects": [
+      {
+        "frame": 4,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x": -30,
+            "y": -5,
+            "mx": -4,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "shards": [
+          {
+            "entity": "debris_purple_2",
+            "x":  30,
+            "y": -5,
+            "mx": 4,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "deflectorShield",
+    "sprite": "Effects/Particles/deflector shield loop",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript":"deflectorShield"
+    },
+    "sortOrder": 20000,
+    "maxHitPoints": 300,
+    "shieldPenetrating": true
+  },
+  {
+    "name": "enemyshot_deflector",
+    "sprite": "Effects/Bullets/deflectorbullet",
+    "sortOrder": 21001,
+    "behaviour": "EnemyBullet",
+    "smallAndFastMoving": true,
+    "customBehaviourData": {
+      "shottype": 1
+    }
+  },
+  {
+    "name": "deflectorShieldShard",
+    "sprite": "Effects/Particles/deflector shield shard",
+    "sortOrder": 20900,
+    "behaviour": "MultiParticle"
+  },//##############################################################       PLATYPUS II BOSSES       ##############################################################
   {
     "name": "caterpillarBossHead",
     "sprite": "Sprites/P2 Boss2/head",
@@ -1396,7 +1468,6 @@
         }
     ]
   },
-
   {
     "name": "caterpillarBossBody",
     "sprite": "Sprites/P2 Boss2/body",
@@ -1475,11 +1546,4 @@
         }
     ]
   }
-  
 ]
-
-
-
-
-
-
