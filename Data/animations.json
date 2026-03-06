@@ -15,6 +15,14 @@
     "columns": 3
   },
   {
+    "sprite": "Sprites/Enemies/flame flip plane",
+    "generateColliders": true,
+    "collisionSpriteScale": 0.2,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 4,
+    "columns": 4
+  },
+  {
     "sprite": "Sprites/Enemies/deflector tick",
     "generateColliders": true,
     "collisionSprite": "Effects/Bullets/deflector tick_collision",
@@ -139,6 +147,7 @@
     "columns": 3
   }
 ]
+
 
 
 
