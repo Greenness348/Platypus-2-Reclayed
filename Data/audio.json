@@ -1,4 +1,4 @@
-[
+[// ############################################################# FOR SFX ADD-ON CROSS-COMPATIBILITY #############################################################
     {
         "name": "s_player_exp",
         "audioBus": "explosions",
@@ -258,7 +258,7 @@
         "defaultVolume": 0.45,
         "minPitch": 1.0,
         "maxPitch": 1.0
-    },// ######################################################################################
+    },//############################################################## PLATYPUS II SOUND DEFINITIONS ##############################################################
     {
         "name": "s_enemyfire_minesquid",
         "audioBus": "sfx",
@@ -300,6 +300,14 @@
         "maxPitch": 1.0
     },
     {
+        "name": "s_bug_approach",
+        "audioBus": "sfx",
+        "audioFile": "bug screech",
+        "defaultVolume": 1.0,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
         "name": "s_icbm_warning",
         "audioBus": "sfx",
         "audioFile": "airraid",
@@ -308,4 +316,3 @@
         "maxPitch": 1.0
     }
 ]
-
