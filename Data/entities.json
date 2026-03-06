@@ -623,6 +623,14 @@
     }
   },// ##############################################################   LUA-FIED RECLAYED ENEMIES   ##############################################################
   {
+    "name": "playSound",
+    "sprite": "empty",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "playSound"
+    }
+  },
+  {
     "name": "luaGreenBigUn",
     "sprite": "Sprites/Enemies/green big uns",
     "behaviour": "Lua",
@@ -1547,4 +1555,5 @@
     ]
   }
 ]
+
 
