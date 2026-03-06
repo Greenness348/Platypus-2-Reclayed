@@ -1,9 +1,43 @@
-[
+[// ##############################################################   RETURNING PLATYPUS II ENEMIES   ##############################################################
+  {
+    "sprite": "Sprites/Enemies/fish fighter green",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 8,
+    "columns": 8
+  },
   {
     "sprite": "Sprites/Enemies/zipper",
     "generateColliders": true,
     "collisionSpriteScale": 1,
     "matDayCycleMultiplier": 0.5
+  },
+  {
+    "sprite": "Sprites/Enemies/mine squid",
+    "generateColliders": true,
+    "rows": 2,
+    "columns": 3
+  },
+  {
+    "sprite": "Sprites/Enemies/bomber",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 3,
+    "columns": 3
+  },
+  {
+    "sprite": "Effects/Bullets/bullet bomb",
+    "generateColliders": true,
+    "matReflectionPass": false,
+    "matEmissionPower": 2
+  },
+  {
+    "sprite": "Sprites/Enemies/flame flip plane",
+    "generateColliders": true,
+    "collisionSpriteScale": 0.2,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 4,
+    "columns": 4
   },
   {
     "sprite": "Sprites/Enemies/yellow big uns",
@@ -15,13 +49,54 @@
     "columns": 3
   },
   {
-    "sprite": "Sprites/Enemies/flame flip plane",
+    "sprite": "Sprites/Enemies/jumper",
     "generateColliders": true,
-    "collisionSpriteScale": 0.2,
     "matDayCycleMultiplier": 0.5,
-    "rows": 4,
+    "rows": 2,
     "columns": 4
   },
+  {
+    "sprite": "Sprites/Enemies/bug-1",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/bug-2",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/bug-3",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/bug-4",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/bug-5",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/worm",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 5
+  },// ##############################################################    NEW PLATYPUS II ENEMIES    ##############################################################
   {
     "sprite": "Sprites/Enemies/deflector tick",
     "generateColliders": true,
@@ -64,61 +139,7 @@
     "matDayCycleMultiplier": 0.0,
     "rows": 1,
     "columns": 2
-  },
-  {
-    "sprite": "Sprites/Enemies/mine squid",
-    "generateColliders": true,
-    "rows": 2,
-    "columns": 3
-  },
-  {
-    "sprite": "Sprites/Enemies/bomber",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 3,
-    "columns": 3
-  },
-  {
-    "sprite": "Effects/Bullets/bullet bomb",
-    "generateColliders": true,
-    "matReflectionPass": false,
-    "matEmissionPower": 2
-  },
-  {
-    "sprite": "Sprites/Enemies/jumper",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 2,
-    "columns": 4
-  },
-  {
-    "sprite": "Sprites/Enemies/fish fighter green",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 8,
-    "columns": 8
-  },
-  {
-    "sprite": "Sprites/Enemies/worm",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 2,
-    "columns": 5
-  },
-  {
-    "sprite": "Sprites/Enemies/bug downward",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 1,
-    "columns": 7
-  },
-  {
-    "sprite": "Sprites/Enemies/bug upward",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 1,
-    "columns": 7
-  },
+  },//##############################################################       PLATYPUS II BOSSES       ##############################################################
   {
     "sprite": "Sprites/P2 Boss2/tail",
     "generateColliders": true,
@@ -147,6 +168,7 @@
     "columns": 3
   }
 ]
+
 
 
 
