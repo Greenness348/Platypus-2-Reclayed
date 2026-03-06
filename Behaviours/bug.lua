@@ -1,22 +1,22 @@
-local mx = 3
-local my = -3
+local mx = 0
+local my = -5
 local dx = dx or 0
 local dy = dy or 0
 local vx1 = 0
 local vy1 = 0
 local vx2 = 0
 local vy2 = 0
-local t = math.random(0, 4)
+local t = math.random(0, 10)
 
 local sprite = 0
-local spriteSet = false
+local spriteInvert = false
 
 local timer = 0
-local leaveTimer = math.random(400, 600)
+local leaveTimer = 600
 local iFrames = 40
 
 function OnTick()
-    if timer > 0 then timer = timer - 1 else timer = 4 end
+    if timer > 0 then timer = timer - 1 else timer = 3 end
 
     local pos1 = GetPlayer(0).GetWorldPosition()
     vx1 = pos1.x - self.worldPosition.x
@@ -36,16 +36,11 @@ function OnTick()
     end
     
     if timer == 0 then
-        if dy < 0 then
-            if spriteSet == false then 
-                self.animator.Initialise("Sprites/Enemies/bug downward")
-                spriteSet = true
-            end
-        else 
-            if spriteSet == true then
-                self.animator.Initialise("Sprites/Enemies/bug upward")
-                spriteSet = false
-            end
+        if      dy <= -0.6                   then       self.animator.Initialise("Sprites/Enemies/bug-1")
+        elseif  dy <= -0.4 and dy > -0.6     then       self.animator.Initialise("Sprites/Enemies/bug-2")
+        elseif  dy <= -0.2 and dy > -0.4     then       self.animator.Initialise("Sprites/Enemies/bug-3")
+        elseif  dy <=    0 and dy > -0.2     then       self.animator.Initialise("Sprites/Enemies/bug-4")
+        elseif  dy >     0                   then       self.animator.Initialise("Sprites/Enemies/bug-5")
         end
     end
 
@@ -54,16 +49,18 @@ function OnTick()
         mx = mx + ( dx * 0.15 )
 
         if timer <= 0 then
+            if spriteInvert == false then sprite = sprite + 1 else sprite = sprite - 1 end
             if dx > 0 then
-                if sprite > 0 then sprite = sprite - 1 else sprite = sprite + 1 end
+                if sprite <= 0 then spriteInvert = false elseif sprite >= 5 then spriteInvert = true end
             else
-                if sprite < 6 then sprite = sprite + 1 else sprite = sprite - 1 end
+                if sprite >= 18 then spriteInvert = true elseif sprite <= 13 then spriteInvert = false end
             end
         end
     else
         mx = mx - 0.15
         if timer <= 0 then
-            if sprite < 6 then sprite = sprite + 1 else sprite = sprite - 1 end
+            if spriteInvert == false then sprite = sprite + 1 else sprite = sprite - 1 end
+            if sprite >= 18 then spriteInvert = true elseif sprite <= 13 then spriteInvert = false end
         end
     end
         my = my + ( dy * 0.15 )
@@ -73,7 +70,7 @@ function OnTick()
 
     self.animator.GoTo(sprite)
 
-    self.movement = { x = mx + ( math.cos(t) * 0.5 ), y = my + ( math.cos(t) * 0.5 ), z = 0 }
+    self.movement = { x = mx + ( math.cos(t) * 0.5 ), y = my + ( math.cos(t) * 1 ), z = 0 }
 
     if isSpawned == false then
         if self.position.x > 0 and self.position.x < 600 then isSpawned = true end
@@ -96,4 +93,3 @@ end
 function ShouldKillPlayerOnTouch()
     return iFrames <= 0
 end
-
