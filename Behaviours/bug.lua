@@ -16,7 +16,7 @@ local leaveTimer = math.random(400, 600)
 local iFrames = 40
 
 function OnTick()
-    if timer > 0 then timer = timer - 1 else timer = 6 end
+    if timer > 0 then timer = timer - 1 else timer = 4 end
 
     local pos1 = GetPlayer(0).GetWorldPosition()
     vx1 = pos1.x - self.worldPosition.x
@@ -96,3 +96,4 @@ end
 function ShouldKillPlayerOnTouch()
     return iFrames <= 0
 end
+
