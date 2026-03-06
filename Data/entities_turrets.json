@@ -1,4 +1,4 @@
-[
+[// ############################################################# FOR SFX ADD-ON CROSS-COMPATIBILITY #############################################################
   {
     "name": "legacyTurret",
     "sprite": "Sprites/Enemies/turretSingleSmall",
@@ -1795,7 +1795,7 @@
     "isEnemy": true,
     "highlightPoints": false,
     "points": 500
-  },// ######################################################################################
+  },//##############################################################   LUA-FIED RECLAYED ENTITIES   ##############################################################
   {
     "name": "boatMissileLauncher",
     "sprite": "Sprites/Enemies/missile launcher",
@@ -1848,6 +1848,83 @@
       }
     },
     "sortOrder": -100
+  },//############################################################## RETURNING PLATYPUS II ENTITIES ##############################################################
+  {
+    "name": "flamethrowerTurretFlipPlane1",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_flame",
+      "shadowSprite": "empty",
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 8,
+            "easy": 8,
+            "normal": 8,
+            "hard": 8,
+            "nasty": 8
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_fire"
+      },
+      "firePattern": {
+        "veryEasy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 90 ],
+        "easy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 80 ],
+        "normal": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 70 ],
+        "hard": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 60 ],
+        "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
+      }
+    }
+  }{
+    "name": "flamethrowerTurretFlipPlane2",
+    "sprite": "Sprites/Enemies/turretSingleSmall",
+    "explosionEntity": "explosionMedium",
+    "behaviour": "ReclayedTurret",
+    "customBehaviourData": {
+      "fireSprite": "Sprites/Enemies/turretSingleSmallFire",
+      "fireSFX": "s_enemyfire_flame",
+      "shadowSprite": "empty",
+      "turretData": {
+          "bulletCount": {
+            "veryEasy": 1,
+            "easy": 1,
+            "normal": 1,
+            "hard": 1,
+            "nasty": 1
+          },
+          "bulletSpawnDistance": 35,
+          "bulletOriginOffX": 0,
+          "bulletOriginOffY": 0,
+          "bulletSpeed": {
+            "veryEasy": 8,
+            "easy": 8,
+            "normal": 8,
+            "hard": 8,
+            "nasty": 8
+          },
+          "bulletSpreadAngle": 20,
+          "bulletEntity": "enemyshot_fire"
+      },
+      "firePattern": {
+        "veryEasy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 90 ],
+        "easy": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 80 ],
+        "normal": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 70 ],
+        "hard": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 60 ],
+        "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
+      }
+    }
   },
   {
     "name": "flamethrowerTurretBoat",
