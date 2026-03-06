@@ -1257,7 +1257,7 @@
   },
   {
     "name": "bug",
-    "sprite": "Sprites/Enemies/bug",
+    "sprite": "Sprites/Enemies/bug downward",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "bug"
@@ -1477,6 +1477,7 @@
   }
   
 ]
+
 
 
 
