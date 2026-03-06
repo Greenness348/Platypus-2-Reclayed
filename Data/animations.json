@@ -6,13 +6,6 @@
     "matDayCycleMultiplier": 0.5
   },
   {
-    "sprite": "Sprites/Enemies/worm",
-    "generateColliders": true,
-    "matDayCycleMultiplier": 0.5,
-    "rows": 2,
-    "columns": 5
-  },
-  {
     "sprite": "Sprites/Enemies/yellow big uns",
     "collisionSprite": "Sprites/Enemies/green big uns_collision",
     "collisionSpriteScale": 0.02,
@@ -48,6 +41,14 @@
     "collisionSpriteScale": 1,
     "rows": 4,
     "columns": 5
+  },
+  {
+    "sprite": "Effects/Bullets/deflectorbullet",
+    "generateColliders": true,
+    "collisionSprite": "Effects/Bullets/deflectorbullet_collision",
+    "matEmissionPower": 2,
+    "matDayCycleMultiplier": 0.0,
+    "updateCounter": 0
   },
   {
     "sprite": "Effects/Particles/deflector shield shard",
@@ -90,17 +91,26 @@
     "columns": 8
   },
   {
-    "sprite": "Effects/Bullets/deflectorbullet",
+    "sprite": "Sprites/Enemies/worm",
     "generateColliders": true,
-    "collisionSprite": "Effects/Bullets/deflectorbullet_collision",
-    "matEmissionPower": 2,
-    "matDayCycleMultiplier": 0.0,
-    "updateCounter": 0
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 5
   },
-
-
-
-
+  {
+    "sprite": "Sprites/Enemies/bug downward",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
+  {
+    "sprite": "Sprites/Enemies/bug upward",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 1,
+    "columns": 7
+  },
   {
     "sprite": "Sprites/P2 Boss2/tail",
     "generateColliders": true,
@@ -109,8 +119,8 @@
     "matDayCycleMultiplier": 0.2,
     "rows": 3,
     "columns": 2
-},
-{
+  },
+  {
     "sprite": "Sprites/P2 Boss2/body",
     "generateColliders": true,
     "collisionSpriteScale": 0.2,
@@ -118,8 +128,8 @@
     "matDayCycleMultiplier": 0.2,
     "rows": 1,
     "columns": 6
-},
-{
+  },
+  {
     "sprite": "Sprites/P2 Boss2/head",
     "generateColliders": true,
     "collisionSpriteScale": 0.2,
@@ -127,8 +137,8 @@
     "matDayCycleMultiplier": 0.2,
     "rows": 2,
     "columns": 3
-}
-
+  }
 ]
+
 
 
