@@ -986,13 +986,19 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "bomber",
+      "bombSprite": "Effects/Bullets/bullet",
+      "bombEntity": "enemyshot_bomb",
+      "bombPosX": -5,
+      "bombPosY": -20,
+      "ticksTillFirstDrop": 100,
       "firePattern": {
         "veryEasy": [ 200 ],
         "easy": [ 150 ],
         "normal": [ 100 ],
         "hard": [ 80 ],
         "nasty": [ 60 ]
-      }
+      },
+      "fireSFX": "s_enemyfire_bomber"
     },
     "explosionEntity": "explosionBig",
     "explosionX": 0,
@@ -1555,6 +1561,7 @@
     ]
   }
 ]
+
 
 
 
