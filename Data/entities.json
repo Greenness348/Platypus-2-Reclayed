@@ -986,28 +986,27 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "bomber",
-      "bombSprite": "Effects/Bullets/bullet",
+      "bombSprite": "Effects/Bullets/bullet bomb",
       "bombEntity": "enemyshot_bomb",
       "bombPosX": -5,
       "bombPosY": -20,
-      "ticksTillFirstDrop": 100,
+      "ticksTillFirstDrop": 60,
+      "fireSFX": "s_enemyfire_bomber",
       "firePattern": {
         "veryEasy": [ 200 ],
         "easy": [ 150 ],
         "normal": [ 100 ],
         "hard": [ 80 ],
         "nasty": [ 60 ]
-      },
-      "fireSFX": "s_enemyfire_bomber"
+      }
     },
     "explosionEntity": "explosionBig",
     "explosionX": 0,
     "explosionY": 0,
     "mainDebrisEntity": "debris_red_1",
     "secondaryDebrisEntity": "debris_red_2",
-    "nudgeOnHit": true,
     "sortOrder": 9000,
-    "maxHitPoints": 300,
+    "maxHitPoints": 400,
     "isEnemy": true,
     "highlightPoints": true,
     "points": 1000,
@@ -1561,6 +1560,7 @@
     ]
   }
 ]
+
 
 
 
