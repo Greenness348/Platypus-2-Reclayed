@@ -1,30 +1,41 @@
-local mx = 0.3
+local mx = 3
 local timer = 0
 local trailTimer = 0
 local planeSprite = 0
-local mineSprite
-local minePeekX = -5
-local minePeekY = -20
-local firstLaunch = 30
+local bombSprite
+local bombEntity
+local bombProp
+local bombPosX
+local bombPosY
+local bombPeekX
+local bombPeekY
+local firstLaunch
 local firePattern
 local fireSFX
 local allowedToDrop = false
 local allowDamageFrames = false
 
 function OnInitialise()
-    mineSprite = self.SpawnAttachedSpriteAnimator("Effects/Bullets/bullet bomb", -100, false)
-    mineSprite.position = { x = -5, y = -20 }
-    mineSprite.Initialise("empty")
-    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set") else self.fruitSet = 5 end
-    if self.commandArgs.HasField("fireSFX") then fireSFX = self.commandArgs.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
+    if self.customBehaviourData.HasField("bombSprite") then bombSprite = self.customBehaviourData.GetFieldString("bombSprite") else bombSprite = "Effects/Bullets/bullet bomb" end
+    if self.customBehaviourData.HasField("bombEntity") then bombEntity = self.customBehaviourData.GetFieldString("bombEntity") else bombEntity = "enemyshot_bomb" end
+    if self.customBehaviourData.HasField("bombPosX") then bombPosX = self.customBehaviourData.GetFieldInt("bombPosX") else bombPosX = -5 end
+    if self.customBehaviourData.HasField("bombPosY") then bombPosY = self.customBehaviourData.GetFieldInt("bombPosY") else bombPosY = -20 end
+    bombPeekX = bombPosX
+    bombPeekY = bombPosY
+    bombProp = self.SpawnAttachedSpriteAnimator(bombSprite, -1)
+    bombProp.position = { x = bombPosX, y = bombPosY }
+    bombProp.Initialise("empty")
+    if self.customBehaviourData.HasField("ticksTillFirstDrop") then firstLaunch = self.customBehaviourData.GetFieldInt("ticksTillFirstDrop") else firstLaunch = 30 end
+    if self.customBehaviourData.HasField("fireSFX") then fireSFX = self.customBehaviourData.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
     firePattern = NewFirePatternFromEntityData(self.data)
+    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set") else self.fruitSet = 5 end
 end
 
 function OnTick()
     local damageframe = self.GetDamageFrame(self.hitPoints / 1.8005)   
     if allowDamageFrames == false then self.animator.GoTo(planeSprite) else self.animator.GoTo(damageframe) end
 
-    mineSprite.position = { x = minePeekX, y = minePeekY }
+    bombProp.position = { x = bombPeekX, y = bombPeekY }
 
     if ShouldKillPlayerOnTouch() == true then
         if timer > 0 then timer = timer - 1 end
@@ -37,8 +48,8 @@ function OnTick()
         end
     end
 
+    if mx > 0.5 then mx = mx - 0.01 end
     self.movement = { x = mx, y = 0, z = 0 }
-    mx = mx + 0.001
 
     trailTimer = trailTimer - 1
     if trailTimer <= 0 then
@@ -49,26 +60,26 @@ function OnTick()
     end
 
     if CanFire() == true then
-        if allowedToDrop == false then
-            mineSprite.Initialise("Effects/Bullets/bullet bomb", 0)
+        if allowedToDrop == false and firstLaunch <=30 then
+            bombProp.Initialise(bombSprite, 0)
             allowedToDrop = true
         end
         firePattern.Tick()
         if firstLaunch > 0 then firstLaunch = firstLaunch - 1 end
         if firePattern.GetTicksTillFire() == 25 or firstLaunch == 25 then PlaySound(fireSFX) end
         if firePattern.GetTicksTillFire() <= 30 or firstLaunch <= 30 and firstLaunch > 0 then
-            minePeekX = minePeekX - 1
-            minePeekY = minePeekY - 3
+            bombPeekX = bombPeekX - 1
+            bombPeekY = bombPeekY - 3
         end
 
         if firePattern.CanFire() and firstLaunch <= 0 then
             firePattern.MarkFired()
-            minePeekX = -5
-            minePeekY = -20
-            mineSprite.position = { x = -5, y = -20 }
-            local mineArgs = NewJSONObject()
-            mineArgs.AddFieldFloat("my", -3)
-            SpawnEntityWorld("enemyshot_bomb", { x = self.worldPosition.x - 34, y = self.worldPosition.y - 110 }, mineArgs)
+            bombPeekX = bombPosX
+            bombPeekY = bombPosY
+            bombProp.position = { x = bombPosX, y = bombPosY }
+            local bombArgs = NewJSONObject()
+            bombArgs.AddFieldFloat("my", -3)
+            SpawnEntityWorld(bombEntity, { x = self.worldPosition.x + ( -29 + bombPosX ), y = self.worldPosition.y + ( -90 + bombPosY ) }, bombArgs)
         end
     end
 
@@ -81,12 +92,13 @@ function OnKill()
 end
 
 function CanFire()
-    return self.position.x >= 0
+    return allowDamageFrames
 end
 
 function HasCollision()
     return true
 end
+
 function ShouldKillPlayerOnTouch()
     return self.position.x >= -40
 end
