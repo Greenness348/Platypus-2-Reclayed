@@ -1818,6 +1818,7 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript":"cannonGun",
+      "fireSFX": "s_enemyfire_cannonboat",
       "turretData": {
         "bulletCount": {
           "veryEasy": 7,
@@ -1966,3 +1967,4 @@
     }
   }
 ]
+
