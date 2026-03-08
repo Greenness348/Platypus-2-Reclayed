@@ -1,4 +1,4 @@
-local mx = 3
+local mx = 2.2
 local timer = 0
 local trailTimer = 0
 local planeSprite = 0
@@ -9,7 +9,8 @@ local bombPosX
 local bombPosY
 local bombPeekX
 local bombPeekY
-local firstLaunch
+local firstDrop
+local dropTimer = 0
 local firePattern
 local fireSFX
 local allowedToDrop = false
@@ -25,7 +26,7 @@ function OnInitialise()
     bombProp = self.SpawnAttachedSpriteAnimator(bombSprite, -1)
     bombProp.position = { x = bombPosX, y = bombPosY }
     bombProp.Initialise("empty")
-    if self.customBehaviourData.HasField("ticksTillFirstDrop") then firstLaunch = self.customBehaviourData.GetFieldInt("ticksTillFirstDrop") else firstLaunch = 30 end
+    if self.customBehaviourData.HasField("ticksTillFirstDrop") then firstDrop = self.customBehaviourData.GetFieldInt("ticksTillFirstDrop") else firstDrop = 30 end
     if self.customBehaviourData.HasField("fireSFX") then fireSFX = self.customBehaviourData.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
     firePattern = NewFirePatternFromEntityData(self.data)
     if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set") else self.fruitSet = 5 end
@@ -48,7 +49,7 @@ function OnTick()
         end
     end
 
-    if mx > 0.5 then mx = mx - 0.01 end
+    if mx > 0.8 then mx = mx - 0.01 end
     self.movement = { x = mx, y = 0, z = 0 }
 
     trailTimer = trailTimer - 1
@@ -60,26 +61,31 @@ function OnTick()
     end
 
     if CanFire() == true then
-        if allowedToDrop == false and firstLaunch <=30 then
+        firePattern.Tick()
+        if firstDrop > 0 then firstDrop = firstDrop - 1 end
+        if firePattern.CanFire() and firstDrop <= 0 and dropTimer <= 0 then
+            firePattern.MarkFired()
+            dropTimer = 32
+        end
+    end
+
+    if allowDamageFrames == true then
+        if allowedToDrop == false and dropTimer == 30 then
             bombProp.Initialise(bombSprite, 0)
             allowedToDrop = true
         end
-        firePattern.Tick()
-        if firstLaunch > 0 then firstLaunch = firstLaunch - 1 end
-        if firePattern.GetTicksTillFire() == 25 or firstLaunch == 25 then PlaySound(fireSFX) end
-        if firePattern.GetTicksTillFire() <= 30 or firstLaunch <= 30 and firstLaunch > 0 then
-            bombPeekX = bombPeekX - 1
+        if dropTimer > 0 then dropTimer = dropTimer - 1 end
+        if dropTimer == 31 then PlaySound(fireSFX) end
+        if dropTimer <= 31 and dropTimer > 1 then
+            bombPeekX = bombPeekX - 0.8
             bombPeekY = bombPeekY - 3
-        end
-
-        if firePattern.CanFire() and firstLaunch <= 0 then
-            firePattern.MarkFired()
+        elseif dropTimer == 1 then
             bombPeekX = bombPosX
             bombPeekY = bombPosY
             bombProp.position = { x = bombPosX, y = bombPosY }
             local bombArgs = NewJSONObject()
             bombArgs.AddFieldFloat("my", -3)
-            SpawnEntityWorld(bombEntity, { x = self.worldPosition.x + ( -29 + bombPosX ), y = self.worldPosition.y + ( -90 + bombPosY ) }, bombArgs)
+            SpawnEntityWorld(bombEntity, { x = self.worldPosition.x + ( -24 + bombPosX ), y = self.worldPosition.y + ( -90 + bombPosY ) }, bombArgs)
         end
     end
 
@@ -92,7 +98,7 @@ function OnKill()
 end
 
 function CanFire()
-    return allowDamageFrames
+    return allowDamageFrames and self.position.x <= 720
 end
 
 function HasCollision()
