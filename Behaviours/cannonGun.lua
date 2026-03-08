@@ -31,7 +31,7 @@ function OnInitialise()
     originOffX = turretData.bulletOriginOffX
     originOffY = turretData.bulletOriginOffY
 
-    if self.commandArgs.HasField("fireSFX") then fireSFX = self.commandArgs.GetFieldString("fireSFX") else fireSFX = "s_laser" end
+    if self.customBehaviourData.HasField("fireSFX") then fireSFX = self.customBehaviourData.GetFieldString("fireSFX") else fireSFX = "s_laser" end
     firePattern = NewFirePatternFromEntityData(self.data)
 end
 
@@ -74,3 +74,4 @@ end
 function CanFire()
     return self.parent.CanFire()
 end
+
