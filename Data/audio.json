@@ -270,8 +270,8 @@
     {
         "name": "s_enemyfire_bomber",
         "audioBus": "sfx",
-        "audioFile": "clunk",
-        "defaultVolume": 0.6,
+        "audioFile": "bombfall",
+        "defaultVolume": 1.0,
         "minPitch": 1.0,
         "maxPitch": 1.0
     },
@@ -316,3 +316,4 @@
         "maxPitch": 1.0
     }
 ]
+
