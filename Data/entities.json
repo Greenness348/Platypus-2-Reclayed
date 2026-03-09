@@ -635,7 +635,13 @@
     "sprite": "Sprites/Enemies/green big uns",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript":"luaBigGreenUn"
+      "luaScript":"luaBigGreenUn",
+      "smokeTrailEntity": "smokeRing2",
+      "smokeTrailPosX": -54,
+      "smokeTrailPosY": 0,
+      "expertTurretEntity": "turretBigUn",
+      "expertTurretPosX": 7,
+      "expertTurretPosY": -1
     },
     "explosionEntity": "explosionMedium",
     "explosionX": 5,
@@ -750,7 +756,7 @@
     "primaryTargetValue": 4,
     "damageEffects": [
       {
-        "frame": 3,
+        "frame": 14,
         "parachuterChance": 0.33,
         "parachuterX": 80,
         "parachuterY": 0,
@@ -767,7 +773,7 @@
         ]
       },
       {
-        "frame": 4,
+        "frame": 15,
         "parachuterChance": 0.33,
         "parachuterX": 80,
         "parachuterY": 0,
@@ -1164,7 +1170,13 @@
     "sprite": "Sprites/Enemies/yellow big uns",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript":"BigYellowUn"
+      "luaScript":"BigYellowUn",
+      "smokeTrailEntity": "smokeRing2",
+      "smokeTrailPosX": -54,
+      "smokeTrailPosY": 0,
+      "expertTurretEntity": "turretBigUn",
+      "expertTurretPosX": 7,
+      "expertTurretPosY": -1
     },
     "explosionEntity": "explosionMedium",
     "explosionX": 5,
@@ -1560,6 +1572,7 @@
     ]
   }
 ]
+
 
 
 
