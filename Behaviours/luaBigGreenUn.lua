@@ -4,7 +4,7 @@ local timer = 0
 
 function OnInitialise()
     mx = self.data.speed
-    if self.commandArgs.HasField("acceleration") then xAcceleration = self.commandArgs.GetFieldFloat("acceleration") else xAcceleration = 0.002 end
+    xAcceleration = self.commandArgs.GetFieldFloat("acceleration", 0.002)
     if Globals.difficulty > 1 then
         SpawnEntityChild("turretNastySingle", self, { x = 7, y = -1 }, NewJSONObject())
     end
@@ -28,34 +28,9 @@ function OnTick()
 
     if self.position.x > 800 then self.Deactivate() end
 
-    local damageframe = self.GetDamageFrame(self.hitPoints)
-    self.animator.AnimateTo(damageframe)
-
-    local currentFrame = self.GetDamageFrame(self.hitPoints)
-    if currentFrame ~= lastDamageFrame then
-        lastDamageFrame = currentFrame
-        for _, effect in ipairs(self.data.damageEffects or {}) do
-            if effect.frame == currentFrame then
-
-                if effect.parachuterChance and effect.parachuterChance > 0 then
-                    if math.random() < effect.parachuterChance then
-                        local paraArgs = NewJSONObject()
-                        SpawnEntityWorld("parachuter", { x = self.worldPosition.x + effect.parachuterX, y = self.worldPosition.y + effect.parachuterY }, paraArgs)
-                    end
-                end
-
-                for _, shard in ipairs(effect.shards or {}) do
-                    local shardArgs = NewJSONObject()
-                    shardArgs.AddFieldInt("mx", shard.mx)
-                    shardArgs.AddFieldInt("my", shard.my)
-                    shardArgs.AddFieldInt("frame", shard.frame)
-                    shardArgs.AddFieldInt("type", shard.type)
-
-                    SpawnEntityWorld(shard.entity, { x = self.worldPosition.x + shard.x, y = self.worldPosition.y + shard.y }, shardArgs)
-                end
-            end
-        end
-    end
+    local lastFrame = self.animator.currentFrame
+    self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, self.hitPoints, self.animator.totalFrames))
+    self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
 end
 
 function OnKill()
