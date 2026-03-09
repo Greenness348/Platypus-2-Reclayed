@@ -1,12 +1,24 @@
 local mx
 local xAcceleration
-local timer = 0
+local trailTimer = 0
+local smokeTrailEntity
+local smokeTrailPosX
+local smokeTrailPosY
+local expertTurretEntity
+local expertTurretPosX
+local expertTurretPosY
 
 function OnInitialise()
     mx = self.data.speed
     xAcceleration = self.commandArgs.GetFieldFloat("acceleration", 0.002)
+    smokeTrailEntity = self.customBehaviourData.GetFieldString("smokeTrailEntity", "")
+    smokeTrailPosX = self.customBehaviourData.GetFieldInt("smokeTrailPosX", 0)
+    smokeTrailPosY = self.customBehaviourData.GetFieldInt("smokeTrailPosY", 0)
+    expertTurretEntity = self.customBehaviourData.GetFieldString("expertTurretEntity", "")
+    expertTurretPosX = self.customBehaviourData.GetFieldInt("expertTurretPosX", 0)
+    expertTurretPosY = self.customBehaviourData.GetFieldInt("expertTurretPosY", 0)
     if Globals.difficulty > 1 then
-        SpawnEntityChild("turretNastySingle", self, { x = 7, y = -1 }, NewJSONObject())
+        if expertTurretEntity ~= "" then CreateTurret(expertTurretEntity, expertTurretPosX, expertTurretPosY, self, Globals.firewait) end
     end
 end
 
@@ -14,23 +26,21 @@ function OnTick()
     self.movement = { x = mx, y = 0, z = 0 }
     mx = mx + xAcceleration
 
-    local smokePos = { x = self.worldPosition.x - 55, y = self.worldPosition.y }
-
-    timer = timer - 1
-    if timer <= 0 then
-        timer = 16
-
-        local smokeArgs = NewJSONObject()
-
-        smokeArgs.AddFieldFloat("mx", 1)
-        SpawnEntityWorld("smokeRing2", smokePos, smokeArgs)
+    if smokeTrailEntity ~= "" then
+        trailTimer = trailTimer - 1
+        if trailTimer <= 0 then
+            trailTimer = 16
+            local smokeArgs = NewJSONObject()
+            smokeArgs.AddFieldFloat("mx", 1)
+            SpawnEntityWorld(smokeTrailEntity, { x = self.worldPosition.x + smokeTrailPosX, y = self.worldPosition.y + smokeTrailPosY }, smokeArgs)
+        end
     end
-
-    if self.position.x > 800 then self.Deactivate() end
 
     local lastFrame = self.animator.currentFrame
     self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, self.hitPoints, self.animator.totalFrames))
     self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
+
+    if self.position.x > 800 then self.Deactivate() end
 end
 
 function OnKill()
