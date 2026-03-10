@@ -993,11 +993,14 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "bomber",
+      "smokeTrailEntity": "smokeRing3",
+      "smokeTrailPosX": -70,
+      "smokeTrailPosY": 1,
       "bombSprite": "Effects/Bullets/bullet bomb",
       "bombEntity": "enemyshot_bomb",
       "bombPosX": -5,
       "bombPosY": -20,
-      "ticksTillFirstDrop": 60,
+      "firstDropDelay": 60,
       "fireSFX": "s_enemyfire_bomber",
       "firePattern": {
         "veryEasy": [ 200 ],
@@ -1017,7 +1020,43 @@
     "isEnemy": true,
     "highlightPoints": true,
     "points": 1000,
-    "primaryTargetValue": 4
+    "primaryTargetValue": 4,
+    "damageEffects": [
+      {
+        "frame": 7,
+        "parachuterChance": 0.33,
+        "parachuterX": 60,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_red_1",
+            "x": -10,
+            "y": -40,
+            "mx": -3,
+            "my": -8,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "frame": 8,
+        "parachuterChance": 0.33,
+        "parachuterX": 60,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_red_2",
+            "x": 10,
+            "y": 40,
+            "mx": 3,
+            "my": -5,
+            "frame": 8,
+            "type": 1
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "enemyshot_bomb",
@@ -1573,6 +1612,7 @@
     ]
   }
 ]
+
 
 
 
