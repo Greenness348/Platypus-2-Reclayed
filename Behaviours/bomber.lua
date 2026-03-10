@@ -1,6 +1,9 @@
 local mx = 2.2
 local timer = 0
 local trailTimer = 0
+local smokeTrailEntity
+local smokeTrailPosX
+local smokeTrailPosY
 local planeSprite = 0
 local bombSprite
 local bombEntity
@@ -17,25 +20,25 @@ local allowedToDrop = false
 local allowDamageFrames = false
 
 function OnInitialise()
-    if self.customBehaviourData.HasField("bombSprite") then bombSprite = self.customBehaviourData.GetFieldString("bombSprite") else bombSprite = "Effects/Bullets/bullet bomb" end
-    if self.customBehaviourData.HasField("bombEntity") then bombEntity = self.customBehaviourData.GetFieldString("bombEntity") else bombEntity = "enemyshot_bomb" end
-    if self.customBehaviourData.HasField("bombPosX") then bombPosX = self.customBehaviourData.GetFieldInt("bombPosX") else bombPosX = -5 end
-    if self.customBehaviourData.HasField("bombPosY") then bombPosY = self.customBehaviourData.GetFieldInt("bombPosY") else bombPosY = -20 end
+    smokeTrailEntity = self.customBehaviourData.GetFieldString("smokeTrailEntity", "")
+    smokeTrailPosX = self.customBehaviourData.GetFieldInt("smokeTrailPosX", 0)
+    smokeTrailPosY = self.customBehaviourData.GetFieldInt("smokeTrailPosY", 0)
+    bombSprite = self.customBehaviourData.GetFieldString("bombSprite", "")
+    bombEntity = self.customBehaviourData.GetFieldString("bombEntity", "")
+    bombPosX = self.customBehaviourData.GetFieldInt("bombPosX", 0)
+    bombPosY = self.customBehaviourData.GetFieldInt("bombPosY", 0)
     bombPeekX = bombPosX
     bombPeekY = bombPosY
     bombProp = self.SpawnAttachedSpriteAnimator(bombSprite, -1)
     bombProp.position = { x = bombPosX, y = bombPosY }
     bombProp.Initialise("empty")
-    if self.customBehaviourData.HasField("ticksTillFirstDrop") then firstDrop = self.customBehaviourData.GetFieldInt("ticksTillFirstDrop") else firstDrop = 30 end
-    if self.customBehaviourData.HasField("fireSFX") then fireSFX = self.customBehaviourData.GetFieldString("fireSFX") else fireSFX = "s_enemyfire_bomber" end
+    firstDrop = self.customBehaviourData.GetFieldInt("firstDropDelay", 0)
+    fireSFX = self.customBehaviourData.GetFieldString("fireSFX", "")
     firePattern = NewFirePatternFromEntityData(self.data)
-    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set") else self.fruitSet = 5 end
+    self.fruitSet = self.commandArgs.GetFieldInt("fruit_set", 5)
 end
 
 function OnTick()
-    local damageframe = self.GetDamageFrame(self.hitPoints / 1.8005)   
-    if allowDamageFrames == false then self.animator.GoTo(planeSprite) else self.animator.GoTo(damageframe) end
-
     bombProp.position = { x = bombPeekX, y = bombPeekY }
 
     if ShouldKillPlayerOnTouch() == true then
@@ -52,15 +55,17 @@ function OnTick()
     if mx > 0.8 then mx = mx - 0.01 end
     self.movement = { x = mx, y = 0, z = 0 }
 
-    trailTimer = trailTimer - 1
-    if trailTimer <= 0 then
-        trailTimer = 16
-        local smokeArgs = NewJSONObject()
-        smokeArgs.AddFieldFloat("mx", 1)
-        SpawnEntityWorld("smokeRing3", { x = self.worldPosition.x - 70, y = self.worldPosition.y + 3 }, smokeArgs)
+    if smokeTrailEntity ~= "" then
+        trailTimer = trailTimer - 1
+        if trailTimer <= 0 then
+            trailTimer = 16
+            local smokeArgs = NewJSONObject()
+            smokeArgs.AddFieldFloat("mx", 1)
+            SpawnEntityWorld("smokeRing3", { x = self.worldPosition.x + smokeTrailPosX, y = self.worldPosition.y + smokeTrailPosY }, smokeArgs)
+        end
     end
 
-    if CanFire() == true then
+    if bombSprite ~= "" and CanFire() == true then
         firePattern.Tick()
         if firstDrop > 0 then firstDrop = firstDrop - 1 end
         if firePattern.CanFire() and firstDrop <= 0 and dropTimer <= 0 then
@@ -69,7 +74,7 @@ function OnTick()
         end
     end
 
-    if allowDamageFrames == true then
+    if bombSprite ~= "" and allowDamageFrames == true then
         if allowedToDrop == false and dropTimer == 30 then
             bombProp.Initialise(bombSprite, 0)
             allowedToDrop = true
@@ -85,8 +90,15 @@ function OnTick()
             bombProp.position = { x = bombPosX, y = bombPosY }
             local bombArgs = NewJSONObject()
             bombArgs.AddFieldFloat("my", -3)
-            SpawnEntityWorld(bombEntity, { x = self.worldPosition.x + ( -24 + bombPosX ), y = self.worldPosition.y + ( -90 + bombPosY ) }, bombArgs)
+            if bombEntity ~= "" then SpawnEntityWorld(bombEntity, { x = self.worldPosition.x + ( -24 + bombPosX ), y = self.worldPosition.y + ( -90 + bombPosY ) }, bombArgs) end
         end
+    end
+
+    local lastFrame = self.animator.currentFrame
+    if allowDamageFrames == false then self.animator.GoTo(planeSprite)
+    else
+        self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, (self.hitPoints / 1.8005), self.animator.totalFrames))
+        self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
     end
 
     if self.position.x > 840 then self.Deactivate() end

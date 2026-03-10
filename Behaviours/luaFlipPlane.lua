@@ -44,20 +44,18 @@ function OnTick()
         flipSprite = flipSprite + 1
     end
 
-    local lastFrame = self.animator.currentFrame 
-
-    if allowDamageFrames == false then
-        self.animator.GoTo(flipSprite)
-    else
-    self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, (self.hitPoints / 3.25), self.animator.totalFrames))
-    self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
-    end
-
     if spawnTurrets == false and flipSprite == 11 then
         if turretEntity1 ~= "" then CreateTurret(turretEntity1, turretPosX1, turretPosY1, self, Globals.firewait) end
         if turretEntity2 ~= "" then CreateTurret(turretEntity2, turretPosX2, turretPosY2, self, Globals.firewait) end
         allowDamageFrames = true
         spawnTurrets = true
+    end
+
+    local lastFrame = self.animator.currentFrame
+    if allowDamageFrames == false then self.animator.GoTo(flipSprite)
+    else
+        self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, (self.hitPoints / 3.25), self.animator.totalFrames))
+        self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
     end
 
     if self.position.x < -200 and mx < 0 then self.Deactivate() end
