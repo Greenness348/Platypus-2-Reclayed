@@ -75,7 +75,7 @@ function OnTick()
 end
 
 function CanFire()
-    return Globals.difficulty > 0 homingTimer > 0 and cooldownTimer <= 0
+    return Globals.difficulty > 0 and homingTimer > 0 and cooldownTimer <= 0
 end
 
 function OnKill()
@@ -89,4 +89,5 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
+
 
