@@ -61,7 +61,7 @@ function OnTick()
             trailTimer = 16
             local smokeArgs = NewJSONObject()
             smokeArgs.AddFieldFloat("mx", 1)
-            SpawnEntityWorld("smokeRing3", { x = self.worldPosition.x + smokeTrailPosX, y = self.worldPosition.y + smokeTrailPosY }, smokeArgs)
+            SpawnEntityWorld(smokeTrailEntity, { x = self.worldPosition.x + smokeTrailPosX, y = self.worldPosition.y + smokeTrailPosY }, smokeArgs)
         end
     end
 
@@ -120,3 +120,4 @@ end
 function ShouldKillPlayerOnTouch()
     return self.position.x >= -40
 end
+
