@@ -31,8 +31,8 @@ function OnTick()
     if cooldownTimer > 0 then cooldownTimer = cooldownTimer - 1
     else
         if target == nil then target = GetRandomActivePlayer() elseif target ~= nil and not target.isActive then target = nil end
-        if target ~= nil and homingTimer > 0 then homingTimer = homingTimer - 1 end
         if homingTimer > 0 then
+            homingTimer = homingTimer - 1
             if target ~= nil then
                 local sourcePos = self.worldPosition
                 local targetPos = target.position
@@ -51,6 +51,7 @@ function OnTick()
 
             if firePattern.CanFire() and firstShotDelay == 0 then
                 firePattern.MarkFired()
+                target = nil
                 
                 local dx = math.cos(angleRad) * 40
                 local dy = math.sin(angleRad) * 40
