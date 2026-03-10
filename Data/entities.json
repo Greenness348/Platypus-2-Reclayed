@@ -860,6 +860,7 @@
     "customBehaviourData": {
       "luaScript": "greenFishFighter",
       "firePattern": {
+        "fireSFX": "s_enemyfire_fishfighter",
         "veryEasy": [ 99999 ],
         "easy": [ 100 ],
         "normal": [ 60 ],
@@ -1572,6 +1573,7 @@
     ]
   }
 ]
+
 
 
 
