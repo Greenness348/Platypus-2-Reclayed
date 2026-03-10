@@ -35,8 +35,8 @@ function OnTick()
             homingTimer = homingTimer - 1
             if target ~= nil then
                 local sourcePos = self.worldPosition
-                local targetPos = target.position
-                local targetAngle = math.deg(math.atan2(targetPos.y + 50 - sourcePos.y, targetPos.x - sourcePos.x))
+                local targetPos = target.worldPosition
+                local targetAngle = math.deg(math.atan2(targetPos.y - sourcePos.y, targetPos.x - sourcePos.x))
                 angle = MoveTowardsAngle(angle, targetAngle, 4)
                 mx = math.cos(angleRad) * 5
                 my = math.sin(angleRad) * 5
@@ -89,5 +89,3 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
-
-
