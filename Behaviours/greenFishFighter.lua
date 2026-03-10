@@ -23,9 +23,9 @@ end
 function OnTick()
     self.movement = { x = mx, y = my, z = 0 }
 
-    local positiveAngle = (angle % 360 - 5.625) % 360;
-    local animatorFrame = math.floor((positiveAngle / (360.0 / self.animator.totalFrames) + self.animator.totalFrames/2) % self.animator.totalFrames);
-    self.animator.GoTo(animatorFrame);
+    local positiveAngle = (angle % 360 - 5.625) % 360
+    local animatorFrame = math.floor((positiveAngle / (360.0 / self.animator.totalFrames) + self.animator.totalFrames/2) % self.animator.totalFrames)
+    self.animator.GoTo(animatorFrame)
     local angleRad = math.rad(angle)
 
     if cooldownTimer > 0 then cooldownTimer = cooldownTimer - 1
@@ -53,11 +53,8 @@ function OnTick()
                 firePattern.MarkFired()
                 target = nil
                 
-                local dx = math.cos(angleRad) * 40
-                local dy = math.sin(angleRad) * 40
                 local mxb = math.cos(angleRad) * 8
                 local myb = math.sin(angleRad) * 8
-
                 local fireArgs = NewJSONObject()
                 fireArgs.AddFieldFloat("mx", mxb)
                 fireArgs.AddFieldFloat("my", myb)
