@@ -15,7 +15,7 @@ function OnInitialise()
     behind = self.commandArgs.GetFieldBool("isBehind", false)
     if behind == false then mx = -5; angle = 180 else mx = 5; angle = 0 end
 
-    firstShotDelay = NewDiffDictInt(80, 40, 20, 20, 20).Get()
+    firstShotDelay = NewDiffDictInt(40, 40, 40, 20, 20).Get()
     fireSFX = self.customBehaviourData.GetFieldString("fireSFX", "s_laser")
     firePattern = NewFirePatternFromEntityData(self.data)
 end
@@ -75,7 +75,7 @@ function OnTick()
 end
 
 function CanFire()
-    return homingTimer > 0 and cooldownTimer <= 0
+    return Globals.difficulty > 0 homingTimer > 0 and cooldownTimer <= 0
 end
 
 function OnKill()
@@ -89,3 +89,4 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
+
