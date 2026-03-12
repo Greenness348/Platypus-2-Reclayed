@@ -45,23 +45,21 @@ function OnTick()
     end
 
     if CanFire() then
-        if GetActivePlayerCount() > 0 then
-            if firstShotDelay > 0 then firstShotDelay = firstShotDelay - 1 end
-            firePattern.Tick()
+        if firstShotDelay > 0 then firstShotDelay = firstShotDelay - 1 end
+        firePattern.Tick()
 
-            if firePattern.CanFire() and firstShotDelay == 0 then
-                firePattern.MarkFired()
-                target = nil
+        if firePattern.CanFire() and firstShotDelay == 0 then
+            firePattern.MarkFired()
+            target = nil
                 
-                local mxb = math.cos(angleRad) * 8
-                local myb = math.sin(angleRad) * 8
-                local fireArgs = NewJSONObject()
-                fireArgs.AddFieldFloat("mx", mxb)
-                fireArgs.AddFieldFloat("my", myb)
+            local mxb = math.cos(angleRad) * 8
+            local myb = math.sin(angleRad) * 8
+            local fireArgs = NewJSONObject()
+            fireArgs.AddFieldFloat("mx", mxb)
+            fireArgs.AddFieldFloat("my", myb)
 
-                SpawnEntityWorld("enemyshot_laser", { x = self.worldPosition.x + ( math.cos(angleRad) * 40 ), y = self.worldPosition.y + ( math.sin(angleRad) * 40 )}, fireArgs)
-                PlaySound(fireSFX)
-            end
+            SpawnEntityWorld("enemyshot_laser", { x = self.worldPosition.x + ( math.cos(angleRad) * 40 ), y = self.worldPosition.y + ( math.sin(angleRad) * 40 )}, fireArgs)
+            PlaySound(fireSFX)
         end
     end
 
@@ -80,9 +78,10 @@ function OnKill()
 end
 
 function HasCollision()
-    return self.position.x > -100
+    return self.position.x > -100 or cooldownTimer <= 0
 end
 
 function ShouldKillPlayerOnTouch()
     return true
 end
+
