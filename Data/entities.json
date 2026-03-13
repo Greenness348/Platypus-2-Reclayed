@@ -880,6 +880,94 @@
     "secondaryTargetValue": 1
   },
   {
+    "name": "laserShip",
+    "sprite": "Sprites/Enemies/lasership",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "laserShip",
+      "smokeTrailEntity": "smokeRing2",
+      "smokeTrailPosX": -60,
+      "smokeTrailPosY": 2
+    },
+    "turrets": [
+      {
+        "turretEntity": "turretLaserShip",
+        "turretX": 13,
+        "turretY": 0
+      }
+    ],
+    "explosionEntity": "explosionMedium",
+    "explosionX": 5,
+    "explosionY": -20,
+    "mainDebrisEntity": "debris_green_1",
+    "secondaryDebrisEntity": "debris_green_2",
+    "damageEffects": [
+      {
+        "frame": 4,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": 44,
+            "y": -27,
+            "mx": 2,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          },
+          {
+            "entity": "debris_black_2",
+            "x": -80,
+            "y": -5,
+            "mx": -4,
+            "my": -4,
+            "frame": 8,
+            "type": 2
+          }
+        ]
+      },
+      {
+        "frame": 5,
+        "parachuterChance": 0.33,
+        "parachuterX": 40,
+        "parachuterY": 0,
+        "shards": [
+          {
+            "entity": "debris_green_1",
+            "x": -38,
+            "y": -30,
+            "mx": -3,
+            "my": -6,
+            "frame": 9,
+            "type": 1
+          }
+        ]
+      }
+    ],
+    "sortOrder": 8100,
+    "speed": -2,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "shieldPenetrating": true,
+    "maxHitPoints": 200,
+    "highlightPoints": true,
+    "points": 500,
+    "primaryTargetValue": 3
+  },
+  {
+    "name": "enemyshot_beam",
+    "sprite": "Effects/Bullets/laserbeam",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "enemyshot_beam",
+      "chargeSFX": "s_enemyfire_lasershipcharge",
+      "fireSFX": "s_enemyfire_lasershipfire"
+    },
+    "sortOrder": 21001
+  },
+  {
     "name": "zipper",
     "sprite": "Sprites/Enemies/zipper",
     "behaviour": "Lua",
