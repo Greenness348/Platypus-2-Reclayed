@@ -6,7 +6,7 @@
     "invertSheetOrder": true,
     "rows": 8,
     "columns": 8
-  },
+  }z,
   {
     "sprite": "Sprites/Enemies/zipper",
     "generateColliders": true,
@@ -98,6 +98,29 @@
     "rows": 2,
     "columns": 5
   },// ##############################################################    NEW PLATYPUS II ENEMIES    ##############################################################
+  {
+    "sprite": "Sprites/Enemies/lasership",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 2,
+    "columns": 3
+  },
+  {
+    "sprite": "Sprites/Enemies/turret lasership",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5
+  },
+  {
+    "sprite": "Effects/Bullets/laserbeam",
+    "collisionSprite": "Effects/Bullets/laserbeam_collision",
+    "collisionSpriteScale": 1,
+    "generateColliders": true,
+    "matReflectionPass": false,
+    "matDayCycleMultiplier": 0.2,
+    "matEmissionPower": 2,
+    "rows": 10,
+    "columns": 1
+  },
   {
     "sprite": "Sprites/Enemies/deflector tick",
     "generateColliders": true,
