@@ -260,6 +260,22 @@
         "maxPitch": 1.0
     },//############################################################## PLATYPUS II SOUND DEFINITIONS ##############################################################
     {
+        "name": "s_enemyfire_lasershipcharge",
+        "audioBus": "sfx",
+        "audioFile": "laser beam charge",
+        "defaultVolume": 0.35,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_enemyfire_lasershipfire",
+        "audioBus": "sfx",
+        "audioFile": "laser beam fire",
+        "defaultVolume": 0.55,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
         "name": "s_enemyfire_minesquid",
         "audioBus": "sfx",
         "audioFile": "clunk",
