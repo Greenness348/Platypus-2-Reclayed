@@ -61,8 +61,7 @@ function OnTick()
     self.movement = { x = mx, y = my, z = 0 }
     
     if isSpawned == false then
-        if self.position.x > 0 and self.position.x < 600 then isSpawned = true end
-        if self.position.y > -600 and self.position.y < 0 then isSpawned = true end
+        if self.position.x < 600 and self.position.x > 0 and self.position.y < 0 and self.position.y > -600 then isSpawned = true end
     else
         if iFrames > 0 then iFrames = iFrames - 1 end
     end
@@ -75,3 +74,4 @@ end
 function ShouldKillPlayerOnTouch()
     return iFrames <= 0
 end
+
