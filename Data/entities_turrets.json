@@ -1851,6 +1851,24 @@
     "sortOrder": -100
   },//############################################################## RETURNING PLATYPUS II ENTITIES ##############################################################
   {
+    "name": "turretLaserShip",
+    "sprite": "Sprites/Enemies/turret lasership",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "turretLaserShip",
+      "bulletEntity": "enemyshot_beam",
+      "bulletOriginOffX": 0,
+      "bulletOriginOffY": 0,
+      "firePattern": {
+        "veryEasy": [ 240 ],
+        "easy": [ 200 ],
+        "normal": [ 160 ],
+        "hard": [ 120 ],
+        "nasty": [ 80 ]
+      }
+    }
+  },
+  {
     "name": "flamethrowerTurretFlipPlane1",
     "sprite": "Sprites/Enemies/turretSingleSmall",
     "explosionEntity": "explosionMedium",
