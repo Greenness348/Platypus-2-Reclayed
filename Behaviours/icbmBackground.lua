@@ -52,7 +52,7 @@ function OnTick()
             timer = 3
             local smokeArgs = NewJSONObject()
             smokeArgs.AddFieldFloat("mx", -mx)
-            SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x, y = self.worldPosition.y - 60 }, smokeArgs)
+            SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 60 }, smokeArgs)
         end
     end
 

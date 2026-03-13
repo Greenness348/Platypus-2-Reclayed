@@ -13,10 +13,10 @@ function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5)
 
-    if self.commandArgs.HasField("decoy") then decoy = self.commandArgs.GetFieldBool("decoy") else decoy = false end
+    decoy = self.commandArgs.GetFieldBool("decoy", false)
     
     if decoy == false then
-        if self.commandArgs.HasField("missiles") then missiles = self.commandArgs.GetFieldInt("missiles") else missiles = 1 end
+        missiles = self.commandArgs.GetFieldInt("missiles", 1)
         if self.commandArgs.HasField("spawnRange") then
             local s = self.commandArgs.GetFieldFloatArray("spawnRange")
             spawnXmin = s[1] or 0
@@ -42,11 +42,11 @@ function OnInitialise()
             local missileArgs = NewJSONObject()
             missileArgs.AddFieldFloatArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
             missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
-            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y }, missileArgs)
+            SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y}, missileArgs)
 
             local launcherArgs = NewJSONObject()
             launcherArgs.AddFieldBool("decoy", true)
-            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + offset, y = self.worldPosition.y }, launcherArgs)
+            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + (offset * 1), y = self.worldPosition.y}, launcherArgs)
             offset = offset + 70
         end
     end
@@ -64,4 +64,3 @@ end
 function HasCollision()
     return false
 end
-
