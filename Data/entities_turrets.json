@@ -1795,7 +1795,7 @@
     "isEnemy": true,
     "highlightPoints": false,
     "points": 500
-  },//##############################################################   LUA-FIED RECLAYED ENTITIES   ##############################################################
+  },// ##############################################################   LUA-FIED RECLAYED TURRETS   ##############################################################
   {
     "name": "boatMissileLauncher",
     "sprite": "Sprites/Enemies/missile launcher",
@@ -1849,25 +1849,7 @@
       }
     },
     "sortOrder": -100
-  },//############################################################## RETURNING PLATYPUS II ENTITIES ##############################################################
-  {
-    "name": "turretLaserShip",
-    "sprite": "Sprites/Enemies/turret lasership",
-    "behaviour": "Lua",
-    "customBehaviourData": {
-      "luaScript": "turretLaserShip",
-      "bulletEntity": "enemyshot_beam",
-      "bulletOriginOffX": 0,
-      "bulletOriginOffY": 0,
-      "firePattern": {
-        "veryEasy": [ 240 ],
-        "easy": [ 200 ],
-        "normal": [ 160 ],
-        "hard": [ 120 ],
-        "nasty": [ 80 ]
-      }
-    }
-  },
+  },// ############################################################## RETURNING PLATYPUS II TURRETS ##############################################################
   {
     "name": "flamethrowerTurretFlipPlane1",
     "sprite": "Sprites/Enemies/turretSingleSmall",
@@ -1906,7 +1888,8 @@
         "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
       }
     }
-  }{
+  },
+  {
     "name": "flamethrowerTurretFlipPlane2",
     "sprite": "Sprites/Enemies/turretSingleSmall",
     "explosionEntity": "explosionMedium",
@@ -1983,6 +1966,23 @@
         "nasty": [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 50 ]
       }
     }
+  },// ##############################################################    NEW PLATYPUS II TURRETS    ##############################################################
+  {
+    "name": "turretLaserShip",
+    "sprite": "Sprites/Enemies/turret lasership",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "turretLaserShip",
+      "bulletEntity": "enemyshot_beam",
+      "bulletOriginOffX": 0,
+      "bulletOriginOffY": 0,
+      "firePattern": {
+        "veryEasy": [ 240 ],
+        "easy": [ 200 ],
+        "normal": [ 160 ],
+        "hard": [ 120 ],
+        "nasty": [ 80 ]
+      }
+    }
   }
 ]
-
