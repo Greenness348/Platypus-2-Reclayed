@@ -6,7 +6,7 @@
     "invertSheetOrder": true,
     "rows": 8,
     "columns": 8
-  }z,
+  }
   {
     "sprite": "Sprites/Enemies/zipper",
     "generateColliders": true,
