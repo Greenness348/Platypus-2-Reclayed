@@ -1206,6 +1206,13 @@
     "points": 200
   },
   {
+    "name": "rocketTrail2",
+    "sprite": "Effects/Bullets/rocket trail",
+    "behaviour": "SmokeRing",
+    "defaultLayer": 5,
+    "sortOrder": 10999
+  },
+  {
     "name": "yellowBigUn",
     "sprite": "Sprites/Enemies/yellow big uns",
     "behaviour": "Lua",
@@ -1612,6 +1619,7 @@
     ]
   }
 ]
+
 
 
 
