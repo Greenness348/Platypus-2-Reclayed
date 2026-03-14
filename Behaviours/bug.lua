@@ -1,39 +1,34 @@
 local mx = 0
 local my = -5
-local dx = dx or 0
-local dy = dy or 0
-local vx1 = 0
-local vy1 = 0
-local vx2 = 0
-local vy2 = 0
+local dx = 0
+local dy = 0
+local vx = 0
+local vy = 0
+local target = nil
+local length
 local t = math.random(0, 10)
-
 local sprite = 0
 local spriteInvert = false
-
 local timer = 0
+local targetTimer = math.random(50, 200)
 local leaveTimer = 600
+local isSpawned = false
 local iFrames = 40
 
 function OnTick()
     if timer > 0 then timer = timer - 1 else timer = 3 end
 
-    local pos1 = GetPlayer(0).GetWorldPosition()
-    vx1 = pos1.x - self.worldPosition.x
-    vy1 = pos1.y - self.worldPosition.y
-    local pos2 = GetPlayer(1).GetWorldPosition()
-    vx2 = pos2.x - self.worldPosition.x
-    vy2 = pos2.y - self.worldPosition.y
-    local length1 = math.sqrt(vx1 * vx1 + vy1 * vy1)
-    local length2 = math.sqrt(vx2 * vx2 + vy2 * vy2)
-
-    if length1 > length2 and GetActivePlayerCount() == 2 then
-        dx = vx2 / length2
-        dy = vy2 / length2
+    length = math.sqrt(vx * vx + vy * vy)
+    if target == nil then target = GetRandomActivePlayer() elseif target ~= nil and not target.isActive then target = nil end
+    if target ~= nil then
+        vx = target.worldPosition.x - self.worldPosition.x
+        vy = target.worldPosition.y - self.worldPosition.y
     else
-        dx = vx1 / length1
-        dy = vy1 / length1
+        vx = -300 - self.worldPosition.x
+        vy = -300 - self.worldPosition.y
     end
+        dx = vx / length
+        dy = vy / length
     
     if timer == 0 then
         if      dy <= -0.6                   then       self.animator.Initialise("Sprites/Enemies/bug-1")
@@ -43,6 +38,8 @@ function OnTick()
         elseif  dy >     0                   then       self.animator.Initialise("Sprites/Enemies/bug-5")
         end
     end
+
+    if targetTimer > 0 then targetTimer = targetTimer - 1 else targetTimer = math.random(50, 200); target = nil end
 
     if leaveTimer > 0 then
         leaveTimer = leaveTimer - 1
@@ -73,8 +70,7 @@ function OnTick()
     self.movement = { x = mx + ( math.cos(t) * 0.5 ), y = my + ( math.cos(t) * 1 ), z = 0 }
 
     if isSpawned == false then
-        if self.position.x > 0 and self.position.x < 600 then isSpawned = true end
-        if self.position.y > -600 and self.position.y < 0 then isSpawned = true end
+        if self.position.x > 0 and self.position.x < 600 and self.position.y > -600 and self.position.y < 0 then isSpawned = true end
     else
         if iFrames > 0 then iFrames = iFrames - 1 end
     end
