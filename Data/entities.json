@@ -1535,6 +1535,24 @@
     "sprite": "Effects/Particles/deflector shield shard",
     "sortOrder": 20900,
     "behaviour": "MultiParticle"
+  },
+  {
+    "name": "fishFish",
+    "sprite": "Sprites/Enemies/fish fighter fish",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "fishFishFighter"
+    },
+    "explosionEntity": "explosionSmall",
+    "explosionX": 0,
+    "explosionY": 0,
+    "sortOrder": 10000,
+    "maxHitPoints": 1,
+    "isEnemy": true,
+    "deathBulletEntity": "deathBullet",
+    "highlightPoints": false,
+    "points": 20,
+    "secondaryTargetValue": 1
   },//##############################################################       PLATYPUS II BOSSES       ##############################################################
   {
     "name": "caterpillarBossHead",
