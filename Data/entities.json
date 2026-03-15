@@ -805,13 +805,16 @@
     "sprite": "Sprites/Enemies/missile boat",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "genericBoatSmall"
+      "luaScript": "genericBoatSmall",
+      "wakeSprite": "Effects/Water/boat wake",
+      "wakePosX": -20,
+      "wakePosY": -20
     },
     "turrets": [
       {
         "turretEntity": "boatMissileLauncher",
         "turretX": 40,
-        "turretY": 10
+        "turretY": 11
       }
     ],
     "explosionEntity": "explosionBig",
@@ -831,7 +834,10 @@
     "sprite": "Sprites/Enemies/cannon boat",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "genericBoatBig"
+      "luaScript": "genericBoatBig",
+      "wakeSprite": "Effects/Water/boat wake 2",
+      "wakePosX": -70,
+      "wakePosY": -48
     },
     "turrets": [
       {
