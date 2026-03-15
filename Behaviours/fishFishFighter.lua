@@ -67,6 +67,11 @@ function OnTick()
         if currentSpeed < boostSpeed then
             currentSpeed = currentSpeed + acceleration
         end
+
+        -- Despawn outside bounds
+        if self.position.x > 800 or self.position.x < -200 or self.position.y > 200 or self.position.y < -800 then
+            self.Deactivate()
+        end
     end
 
     -- Movement calculation
@@ -85,16 +90,6 @@ function OnTick()
     )
     self.animator.GoTo(animatorFrame)
 
-    -- Despawn outside bounds
-    if cooldownTimer <= 0 then
-        if self.position.x > 800 or self.position.x < -200 then
-            self.Deactivate()
-        end
-        if self.position.y > 200 or self.position.y < -800 then
-            self.Deactivate()
-        end
-    end
-    
     -- Ticks before it can kill players on touch
     if isSpawned == false then
         if self.position.x > 0 and self.position.x < 600 and self.position.y > -600 and self.position.y < 0 then isSpawned = true end
