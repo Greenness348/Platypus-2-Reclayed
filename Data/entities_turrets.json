@@ -1802,6 +1802,9 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript":"boatMissileLauncher",
+      "bulletOriginOffX": 0,
+      "bulletOriginOffY": 13,
+      "fireSFX": "s_woosh",
       "firePattern": {
         "veryEasy": [ 200 ],
         "easy": [ 200 ],
@@ -1818,7 +1821,6 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript":"cannonGun",
-      "fireSFX": "s_enemyfire_cannonboat",
       "turretData": {
         "bulletCount": {
           "veryEasy": 7,
@@ -1840,6 +1842,7 @@
         "bulletSpreadAngle": 120,
         "bulletEntity": "enemyshot_car_cannon"
       },
+      "fireSFX": "s_enemyfire_cannonboat",
       "firePattern": {
         "veryEasy": [ 150 ],
         "easy": [ 150 ],
