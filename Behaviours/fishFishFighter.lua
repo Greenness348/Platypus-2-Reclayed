@@ -1,18 +1,24 @@
-local mx
+local mx = 0
 local my = 0
 local angle
 local target = nil
 local cooldownTimer
 local homingTimer
+local behind
 
-local baseSpeed = 4      -- slightly slower than 5
-local homingSpeed = 6    -- faster when locking on
+-- Speed settings
+local baseSpeed = 3
+local boostSpeed = 5
+local currentSpeed
+local acceleration = 0.05
 
 function OnInitialise()
     cooldownTimer = self.commandArgs.GetFieldFloat("homingCooldown", 50)
     homingTimer = self.commandArgs.GetFieldFloat("homingTime", 150)
 
     behind = self.commandArgs.GetFieldBool("isBehind", false)
+
+    currentSpeed = baseSpeed
 
     if behind == false then
         angle = 180
@@ -26,12 +32,14 @@ function OnTick()
     if cooldownTimer > 0 then
         cooldownTimer = cooldownTimer - 1
     else
+        -- Acquire or validate target
         if target == nil then
             target = GetRandomActivePlayer()
         elseif target ~= nil and not target.isActive then
             target = nil
         end
 
+        -- Homing behaviour
         if homingTimer > 0 then
             homingTimer = homingTimer - 1
 
@@ -49,30 +57,30 @@ function OnTick()
                 angle = MoveTowardsAngle(angle, targetAngle, 4)
             end
         end
+
+        -- Gradual acceleration
+        if currentSpeed < boostSpeed then
+            currentSpeed = currentSpeed + acceleration
+        end
     end
 
-    -- Choose speed depending on state
-    local speed = baseSpeed
-    if cooldownTimer <= 0 then
-        speed = homingSpeed
-    end
-
-    -- Calculate movement AFTER angle changes
+    -- Movement calculation
     local angleRad = math.rad(angle)
-    mx = math.cos(angleRad) * speed
-    my = math.sin(angleRad) * speed
+
+    mx = math.cos(angleRad) * currentSpeed
+    my = math.sin(angleRad) * currentSpeed
 
     self.movement = { x = mx, y = my, z = 0 }
 
-    -- Animation
+    -- Animation update
     local positiveAngle = (angle % 360 - 5.625) % 360
     local animatorFrame = math.floor(
         (positiveAngle / (360.0 / self.animator.totalFrames) +
-        self.animator.totalFrames/2) % self.animator.totalFrames
+        self.animator.totalFrames / 2) % self.animator.totalFrames
     )
     self.animator.GoTo(animatorFrame)
 
-    -- Bounds check
+    -- Despawn outside bounds
     if cooldownTimer <= 0 then
         if self.position.x > 800 or self.position.x < -200 then
             self.Deactivate()
