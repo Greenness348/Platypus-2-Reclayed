@@ -5,6 +5,8 @@ local target = nil
 local cooldownTimer
 local homingTimer
 local behind
+local isSpawned = false
+local iFrames = 40
 
 -- Speed settings
 local baseSpeed = 3
@@ -25,10 +27,13 @@ function OnInitialise()
     else
         angle = 0
     end
+    
+    self.defaultOnHitByBulletBehaviour = true
+    self.defaultOnHitByPlayerBehaviour = true
 end
 
 function OnTick()
-
+    -- Ticks before it starts homing
     if cooldownTimer > 0 then
         cooldownTimer = cooldownTimer - 1
     else
@@ -89,6 +94,13 @@ function OnTick()
             self.Deactivate()
         end
     end
+    
+    -- Ticks before it can kill players on touch
+    if isSpawned == false then
+        if self.position.x > 0 and self.position.x < 600 and self.position.y > -600 and self.position.y < 0 then isSpawned = true end
+    else
+        if iFrames > 0 then iFrames = iFrames - 1 end
+    end
 end
 
 function OnKill()
@@ -96,9 +108,9 @@ function OnKill()
 end
 
 function HasCollision()
-    return self.position.x > -100 or cooldownTimer <= 0
+    return iFrames < 40 or mx < 0
 end
 
 function ShouldKillPlayerOnTouch()
-    return true
+    return iFrames <= 0
 end
