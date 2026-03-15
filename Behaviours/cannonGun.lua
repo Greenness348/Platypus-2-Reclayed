@@ -19,7 +19,7 @@ local fireSFX
 function OnInitialise()
     sprite = self.data.spriteName
     barrel = self.SpawnAttachedSpriteAnimator(sprite, -100, false)
-    barrel.position = { x = 0.5, y = -1 }
+    barrel.position = { x = 0.5, y = 0 }
     self.animator.Initialise("empty")
 
     turretData = NewTurretDataFromEntityData(self.data)
@@ -31,15 +31,13 @@ function OnInitialise()
     originOffX = turretData.bulletOriginOffX
     originOffY = turretData.bulletOriginOffY
 
-    if self.customBehaviourData.HasField("fireSFX") then fireSFX = self.customBehaviourData.GetFieldString("fireSFX") else fireSFX = "s_laser" end
     firePattern = NewFirePatternFromEntityData(self.data)
+    fireSFX = self.customBehaviourData.GetFieldString("fireSFX", "s_laser")
 end
 
 function OnTick()
     barrel.position = { x = 0.5, y = recoil }
-    if recoil <= -1 then
-        recoil = recoil + 1
-    end
+    if recoil < 0 then recoil = recoil + 1 end
     
     if CanFire() then
         firePattern.Tick()
@@ -74,4 +72,3 @@ end
 function CanFire()
     return self.parent.CanFire()
 end
-

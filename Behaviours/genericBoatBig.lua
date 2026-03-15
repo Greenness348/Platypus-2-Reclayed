@@ -1,35 +1,40 @@
 local mx
-
-local wake
+local wakeSprite
+local wakePosX
+local wakePosY
+local wakeRender
 
 function OnInitialise()
-    if self.commandArgs.HasField("speedX") then mx = self.commandArgs.GetFieldFloat("speedX") else mx = 0.3 end
+    mx = self.commandArgs.GetFieldFloat("speed", 0.3)
+    self.fruit_set = self.commandArgs.GetFieldInt("fruit_set", 6)
+
+    wakeSprite = self.customBehaviourData.GetFieldString("wakeSprite", "")
+    wakePosX = self.customBehaviourData.GetFieldInt("wakePosX", 0)
+    wakePosY = self.customBehaviourData.GetFieldInt("wakePosY", 0)
     
-    wake = self.SpawnAttachedSpriteAnimator("Effects/Water/boat wake 2", 1)
-    wake.position = { x = -70, y = -48 }
+    if wakeSprite ~= "" then
+        wakeRender = self.SpawnAttachedSpriteAnimator(wakeSprite, 1)
+        wakeRender.position = { x = wakePosX, y = wakePosY }
+    end
 end
 
 function OnTick()
     self.movement = { x = mx, y = 0, z = 0 }
 
-    if self.position.x < -300 then self.Deactivate() end
-    if self.position.x > 950 then self.Deactivate() end
-
-    local damageframe = self.GetDamageFrame(self.hitPoints)
-    self.animator.AnimateTo(damageframe)
+    local lastFrame = self.animator.currentFrame
+    self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, self.hitPoints, self.animator.totalFrames))
+    self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
+    wakeRender.AnimateToNextFrame(true)
     
-    wake.AnimateToNextFrame(true)
+    if self.position.x < -300 or self.position.x > 950 then self.Deactivate() end
 end
 
 function OnKill()
     self.SpawnShipShards(32, -6, 0, -15, 5, 0, 0, 0, 0, 0, 0)
     self.SpawnShipDebris(32, -12, 8, -20, 0, 0, 0, 0, 10, 0, 5)
 
-    local pos1 = { x = self.worldPosition.x - 20, y = self.worldPosition.y }
-    local pos2 = { x = self.worldPosition.x + 80, y = self.worldPosition.y }
-
-    SpawnEntityWorld("explosionBig", pos1, NewJSONObject())
-    SpawnEntityWorld("explosionBig", pos2, NewJSONObject())
+    SpawnEntityWorld("explosionBig", { x = self.worldPosition.x - 20, y = self.worldPosition.y })
+    SpawnEntityWorld("explosionBig", { x = self.worldPosition.x + 80, y = self.worldPosition.y })
 end
 
 function CanFire()

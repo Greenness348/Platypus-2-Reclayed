@@ -1,24 +1,32 @@
 local mx
-
-local wake
+local wakeSprite
+local wakePosX
+local wakePosY
+local wakeRender
 
 function OnInitialise()
-    if self.commandArgs.HasField("speedX") then mx = self.commandArgs.GetFieldFloat("speedX") else mx = 0.3 end
+    mx = self.commandArgs.GetFieldFloat("speed", 0.3)
+    self.fruit_set = self.commandArgs.GetFieldInt("fruit_set", 4)
+
+    wakeSprite = self.customBehaviourData.GetFieldString("wakeSprite", "")
+    wakePosX = self.customBehaviourData.GetFieldInt("wakePosX", 0)
+    wakePosY = self.customBehaviourData.GetFieldInt("wakePosY", 0)
     
-    wake = self.SpawnAttachedSpriteAnimator("Effects/Water/boat wake", 1)
-    wake.position = { x = -20, y = -20 }
+    if wakeSprite ~= "" then
+        wakeRender = self.SpawnAttachedSpriteAnimator(wakeSprite, 1)
+        wakeRender.position = { x = wakePosX, y = wakePosY }
+    end
 end
 
 function OnTick()
     self.movement = { x = mx, y = 0, z = 0 }
 
-    if self.position.x < -200 then self.Deactivate() end
-    if self.position.x > 860 then self.Deactivate() end
-
-    local damageframe = self.GetDamageFrame(self.hitPoints)
-    self.animator.AnimateTo(damageframe)
+    local lastFrame = self.animator.currentFrame
+    self.animator.GoTo(self.GetDamageFrame(self.data.maxHitPoints, self.hitPoints, self.animator.totalFrames))
+    self.HandleDamageEffects(self.animator.currentFrame, lastFrame)
+    wakeRender.AnimateToNextFrame(true)
     
-    wake.AnimateToNextFrame(true)
+    if self.position.x < -200 or self.position.x > 860 then self.Deactivate() end
 end
 
 function OnKill()
