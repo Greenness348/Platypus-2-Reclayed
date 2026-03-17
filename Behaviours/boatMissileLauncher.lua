@@ -47,7 +47,7 @@ function OnTick()
             SpawnEntityWorld("homingMissile", { x = self.worldPosition.x + originOffX, y = self.worldPosition.y + originOffY}, missileArgs)
         end
     else
-        if firePattern.GetTicksTillFire() >= 35 then firePattern.Tick() else firstLaunch = 36 end
+        if firePattern.GetTicksTillFire() > 35 then firePattern.Tick() else firstLaunch = 36 end
         if launchPos > -32 then launchPos = launchPos - 1 end
     end
     
