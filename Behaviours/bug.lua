@@ -24,17 +24,17 @@ end
 function OnTick()
     if timer > 0 then timer = timer - 1 else timer = 3 end
 
-    length = math.sqrt(vx * vx + vy * vy)
     if target == nil then target = GetRandomActivePlayer() elseif target ~= nil and not target.isActive then target = nil end
     if target ~= nil then
         vx = target.worldPosition.x - self.worldPosition.x
         vy = target.worldPosition.y - self.worldPosition.y
     else
-        vx = -300 - self.worldPosition.x
+        vx =  300 - self.worldPosition.x
         vy = -300 - self.worldPosition.y
     end
-        dx = vx / length
-        dy = vy / length
+    length = math.sqrt(vx * vx + vy * vy)
+    dx = vx / length
+    dy = vy / length
     
     if timer == 0 then
         if      dy <= -0.6                   then       self.animator.Initialise("Sprites/Enemies/bug-1")
