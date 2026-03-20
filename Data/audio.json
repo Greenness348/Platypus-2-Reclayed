@@ -324,6 +324,14 @@
         "maxPitch": 1.0
     },
     {
+        "name": "s_bug_idle",
+        "audioBus": "sfx",
+        "audioFile": "insect",
+        "defaultVolume": 0.3,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
         "name": "s_icbm_warning",
         "audioBus": "sfx",
         "audioFile": "airraid",
@@ -332,4 +340,3 @@
         "maxPitch": 1.0
     }
 ]
-
