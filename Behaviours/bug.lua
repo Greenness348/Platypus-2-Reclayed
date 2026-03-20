@@ -1,5 +1,5 @@
 local mx = 0
-local my = -5
+local my = 0
 local dx = 0
 local dy = 0
 local vx = 0
@@ -12,8 +12,14 @@ local spriteInvert = false
 local timer = 0
 local targetTimer = math.random(50, 200)
 local leaveTimer = 600
+local idleSFX
 local isSpawned = false
 local iFrames = 40
+
+function OnInitialise()
+    idleSFX = PlaySoundRaw("s_bug_idle")
+    idleSFX.loop = true
+end
 
 function OnTick()
     if timer > 0 then timer = timer - 1 else timer = 3 end
@@ -67,7 +73,7 @@ function OnTick()
 
     self.animator.GoTo(sprite)
 
-    self.movement = { x = mx + ( math.cos(t) * 0.5 ), y = my + ( math.cos(t) * 1 ), z = 0 }
+    self.movement = { x = mx + ( math.cos(t) * 0.5 ), y = my + ( math.cos(t) * 0.5 ), z = 0 }
 
     if isSpawned == false then
         if self.position.x > 0 and self.position.x < 600 and self.position.y > -600 and self.position.y < 0 then isSpawned = true end
@@ -76,6 +82,10 @@ function OnTick()
     end
 
     if self.position.x < -200 and leaveTimer <= 0 then self.Deactivate() end
+end
+
+function OnDeinitialise()
+    idleSFX.Stop()
 end
 
 function OnKill()
