@@ -21,9 +21,6 @@ function OnInitialise()
     firstShotDelay = NewDiffDictInt(40, 40, 40, 20, 20).Get()
     fireSFX = self.customBehaviourData.GetFieldString("fireSFX", "s_laser")
     firePattern = NewFirePatternFromEntityData(self.data)
-    
-    self.defaultOnHitByBulletBehaviour = true
-    self.defaultOnHitByPlayerBehaviour = true
 end
 
 function OnTick()
