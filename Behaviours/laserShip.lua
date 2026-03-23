@@ -9,7 +9,6 @@ local smokeTrailPosX
 local smokeTrailPosY
 
 function OnInitialise()
-    self.defaultOnHitByBulletBehaviour = true
     smokeTrailEntity = self.customBehaviourData.GetFieldString("smokeTrailEntity", "")
     smokeTrailPosX = self.customBehaviourData.GetFieldInt("smokeTrailPosX", 0)
     smokeTrailPosY = self.customBehaviourData.GetFieldInt("smokeTrailPosY", 0)
