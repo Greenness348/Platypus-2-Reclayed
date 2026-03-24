@@ -41,6 +41,23 @@
     "columns": 4
   },
   {
+    "sprite": "Sprites/Enemies/icbm launch silo",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5
+  },
+  {
+    "sprite": "Sprites/Enemies/icbm background",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5
+  },
+  {
+    "sprite": "Sprites/Enemies/icbm launched",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 4,
+    "columns": 4
+  },
+  {
     "sprite": "Sprites/Enemies/yellow big uns",
     "collisionSprite": "Sprites/Enemies/green big uns_collision",
     "collisionSpriteScale": 0.02,
