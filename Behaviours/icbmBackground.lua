@@ -1,6 +1,7 @@
 local mx
 local my = 0
-local timer = 3
+local trailTimer = 3
+local launchTime
 local spawnXmin
 local spawnXmax
 local spawnYmin
@@ -9,14 +10,17 @@ local spawnY
 local spawnX
 local speedX
 local speedY
+local isFirst
 local isLaunched = false
 
 function OnInitialise()
     self.ChangeLayers(5)
-    mx = -Globals.ScrollingSpeed(5)
+    mx = -Globals.ScrollingSpeed(5) * Globals.backgroundSpeedMultiplier
 
+    isFirst = self.commandArgs.GetFieldBool("isFirst")
+    launchTime = self.commandArgs.GetFieldInt("launchTime")
     if self.commandArgs.HasField("spawnRange") then
-        local s = self.commandArgs.GetFieldFloatArray("spawnRange")
+        local s = self.commandArgs.GetFieldIntArray("spawnRange")
         spawnXmin = s[1] or 0
         spawnXmax = s[2] or 0
         spawnYmin = s[3] or 0
@@ -41,18 +45,22 @@ function OnInitialise()
 end
 
 function OnTick()
-    if self.worldPosition.x < 500 then
-        my = my + 0.1
-        timer = timer - 1
-        if isLaunched == false then
-            PlaySound("s_icbm_warning")
-            isLaunched = true
-        end
-        if timer <= 0 then
-            timer = 3
-            local smokeArgs = NewJSONObject()
-            smokeArgs.AddFieldFloat("mx", -mx)
-            SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 60 }, smokeArgs)
+    if self.worldPosition.x < 600 then
+        if launchTime > 0 then launchTime = launchTime - 1
+        else
+            my = my + 0.1
+            if isLaunched == false then
+                if isFirst == true then PlaySound("s_icbm_siren") end
+                PlaySound("s_icbm_launch")
+                isLaunched = true
+            end
+            if trailTimer > 0 then trailTimer = trailTimer - 1
+            else
+                trailTimer = 3
+                local smokeArgs = NewJSONObject()
+                smokeArgs.AddFieldFloat("mx", -mx)
+                SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 80 }, smokeArgs)
+            end
         end
     end
 

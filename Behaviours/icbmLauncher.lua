@@ -8,17 +8,21 @@ local spawnYmin
 local spawnYmax
 local speedX
 local speedY
+local launchTime
+local launchTimeMin
+local launchTimeMax
+local isFirst = true
 
 function OnInitialise()
     self.ChangeLayers(5)
-    mx = -Globals.ScrollingSpeed(5)
+    mx = -Globals.ScrollingSpeed(5) * Globals.backgroundSpeedMultiplier
 
     decoy = self.commandArgs.GetFieldBool("decoy", false)
     
     if decoy == false then
         missiles = self.commandArgs.GetFieldInt("missiles", 1)
         if self.commandArgs.HasField("spawnRange") then
-            local s = self.commandArgs.GetFieldFloatArray("spawnRange")
+            local s = self.commandArgs.GetFieldIntArray("spawnRange")
             spawnXmin = s[1] or 0
             spawnXmax = s[2] or 0
             spawnYmin = s[3] or 0
@@ -37,16 +41,29 @@ function OnInitialise()
             speedX =  3
             speedY = -2
         end
+        if self.commandArgs.HasField("timeRange") then
+            local t = self.commandArgs.GetFieldIntArray("timeRange")
+            launchTimeMin = t[1] or 0
+            launchTimeMax = t[2] or 0
+        else
+            launchTimeMin = 120
+            launchTimeMax = 120
+        end
+        launchTime = launchTimeMin
 
         for i = 0, missiles - 1 do
             local missileArgs = NewJSONObject()
-            missileArgs.AddFieldFloatArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
+            missileArgs.AddFieldIntArray("spawnRange", { spawnXmin, spawnXmax, spawnYmin, spawnYmax })
             missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
+            missileArgs.AddFieldInt("launchTime", launchTime)
+            missileArgs.AddFieldBool("isFirst", isFirst)
             SpawnEntityWorld("icbmBackground", { x = self.worldPosition.x + offset, y = self.worldPosition.y}, missileArgs)
+            launchTime = math.random( launchTimeMin, launchTimeMax )
+            isFirst = false
 
             local launcherArgs = NewJSONObject()
             launcherArgs.AddFieldBool("decoy", true)
-            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + (offset * 1), y = self.worldPosition.y}, launcherArgs)
+            SpawnEntityWorld("icbmLauncher", { x = self.worldPosition.x + offset, y = self.worldPosition.y}, launcherArgs)
             offset = offset + 70
         end
     end
