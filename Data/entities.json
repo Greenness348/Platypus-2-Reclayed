@@ -1191,7 +1191,7 @@
     "customBehaviourData": {
       "luaScript": "icbmBackground"
     },
-    "sortOrder": 9999,
+    "sortOrder": 2001,
     "stopEvaluation": true
   },
   {
@@ -1204,7 +1204,7 @@
     "explosionEntity": "explosionBig",
     "explosionX": 0,
     "explosionY": 0,
-    "sortOrder": 11999,
+    "sortOrder": 9000,
     "maxHitPoints": 100,
     "shieldPenetrating": true,
     "isEnemy": true,
@@ -1216,7 +1216,7 @@
     "sprite": "Effects/Bullets/rocket trail",
     "behaviour": "SmokeRing",
     "defaultLayer": 5,
-    "sortOrder": 10999
+    "sortOrder": 2000
   },
   {
     "name": "yellowBigUn",
