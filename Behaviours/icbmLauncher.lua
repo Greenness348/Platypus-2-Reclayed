@@ -38,8 +38,8 @@ function OnInitialise()
             launchTimeMin = t[1] or 0
             launchTimeMax = t[2] or 0
         else
-            launchTimeMin = 120
-            launchTimeMax = 120
+            launchTimeMin = 300
+            launchTimeMax = 300
         end
         launchTime = launchTimeMin
 

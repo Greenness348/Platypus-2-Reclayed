@@ -27,7 +27,7 @@ function OnInitialise()
 end
 
 function OnTick()
-    local r = 90
+    local r = 80
     local ox = 0
     local oy = 0
     if sprite == 0 then         ox =  0;        oy = -r
@@ -53,7 +53,7 @@ function OnTick()
         trailTimer = 3
         local smokeArgs = NewJSONObject()
         smokeArgs.AddFieldFloat("mx", 0)
-        SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy}, smokeArgs)
+        SpawnEntityWorld("icbmTrail", { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy}, smokeArgs)
     end
     if self.position.x < -300 and mx < 0 then self.Deactivate() end
     if self.position.x >  900 and mx > 0 then self.Deactivate() end
@@ -74,12 +74,12 @@ function OnTick()
         if length1 < 150 then player1.TriggerWarning() end
     end
     if player2.isActive then
-        dx2 = player2.worldPosition.x - (self.worldPosition.x + (math.cos(math.rad(direction)) * 200))
-        dy2 = player2.worldPosition.y - (self.worldPosition.y + (math.sin(math.rad(direction)) * 200))
+        dx2 = player2.worldPosition.x - self.worldPosition.x
+        dy2 = player2.worldPosition.y - self.worldPosition.y
         length2 = math.sqrt(dx2 * dx2 + dy2 * dy2)
         dx2 = dx2 / length2
         dy2 = dy2 / length2
-        if length2 < 150 then player2.TriggerWarning() end
+        if length2 < 200 then player2.TriggerWarning() end
     end
 end
 

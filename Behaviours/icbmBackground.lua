@@ -18,7 +18,7 @@ function OnInitialise()
 
     direction = self.commandArgs.GetFieldInt("direction")
     isFirst = self.commandArgs.GetFieldBool("isFirst")
-    launchTime = self.commandArgs.GetFieldInt("launchTime")
+    launchTime = self.commandArgs.GetFieldInt("launchTime") + 60
     if self.commandArgs.HasField("spawnRange") then
         local s = self.commandArgs.GetFieldIntArray("spawnRange")
         spawnXmin = s[1] or 0
@@ -36,12 +36,11 @@ function OnInitialise()
 end
 
 function OnTick()
-    if self.worldPosition.x < 600 then
+    if self.worldPosition.x < 700 then
         if launchTime > 0 then launchTime = launchTime - 1
         else
-            my = my + 0.1
+            if my < 3 then my = my + 0.1 else my = my + 0.01 end
             if isLaunched == false then
-                if isFirst == true then PlaySound("s_icbm_siren") end
                 PlaySound("s_icbm_launch")
                 isLaunched = true
             end
@@ -50,12 +49,14 @@ function OnTick()
                 trailTimer = 3
                 local smokeArgs = NewJSONObject()
                 smokeArgs.AddFieldFloat("mx", -mx)
-                SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 85 }, smokeArgs)
+                SpawnEntityWorld("icbmTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 80 }, smokeArgs)
             end
         end
+        if isFirst == true and launchTime == 50 then
+            PlaySound("s_icbm_siren")
+            isFirst = false
+        end
     end
-
-    if my > 3 then my = 3 end
 
     if self.worldPosition.y > 200 then
         local missileArgs = NewJSONObject()
