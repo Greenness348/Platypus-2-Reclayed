@@ -1,32 +1,33 @@
-local my = -2
-local mx = 3
-local timer = 3
-local speedX
-local speedY
-local iFrames = 60
-local isSpawned = false
+local my
+local mx
+local speed
+local direction
+local angle
+local sprite
+local trailTimer = 3
+local dx1 = 0
+local dy1 = 0
+local dx2 = 0
+local dy2 = 0
+local player1
+local player2
+local length1
+local length2
 
 function OnInitialise()
-    if self.commandArgs.HasField("speed") then
-        local p = self.commandArgs.GetFieldFloatArray("speed")
-        speedX = p[1] or 0
-        speedY = p[2] or 0
-    else
-        speedX =  3
-        speedY = -2
-    end
-    mx = speedX
-    my = speedY
+    direction = self.commandArgs.GetFieldInt("direction")
+    angle = (direction % 360 + 101.25) % 360
+    sprite = math.floor((angle / (360.0 / self.animator.totalFrames) + self.animator.totalFrames/2) % self.animator.totalFrames)
+    self.animator.GoTo(sprite)
+
+    speed = NewDiffDictInt(3, 4, 5, 6, 7).Get()
+    mx = math.cos(math.rad(direction)) * speed
+    my = math.sin(math.rad(direction)) * speed
+    self.movement = { x = mx, y = my, z = 0 }
 end
 
 function OnTick()
-    timer = timer - 1
-
-    local angle = math.atan2(-mx, my)
-    local sprite = (math.floor((angle / (2 * math.pi)) * 16 + 0.5) % 16)
-    self.animator.GoTo(sprite)
-
-    local r = 70
+    local r = 90
     local ox = 0
     local oy = 0
     if sprite == 0 then         ox =  0;        oy = -r
@@ -47,23 +48,38 @@ function OnTick()
     elseif sprite == 15 then    ox = -r*0.38;   oy = -r*0.92
     end
 
-    if timer <= 0 then
-        timer = 3
-        SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy}, NewJSONObject())
+    if trailTimer > 0 then trailTimer = trailTimer - 1
+    else
+        trailTimer = 3
+        local smokeArgs = NewJSONObject()
+        smokeArgs.AddFieldFloat("mx", 0)
+        SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy}, smokeArgs)
     end
-    if self.worldPosition.y < -520 then
-        SpawnEntityWorld("explosionHuge", { x = self.worldPosition.x, y = self.worldPosition.y + 100 }, NewJSONObject())
+    if self.position.x < -300 and mx < 0 then self.Deactivate() end
+    if self.position.x >  900 and mx > 0 then self.Deactivate() end
+    if self.position.y >  300 and my > 0 then self.Deactivate() end
+    if self.worldPosition.y < -450 then
+        SpawnEntityWorld("explosionHuge", { x = self.worldPosition.x, y = self.worldPosition.y + 150 })
         self.Deactivate()
     end
-    if self.position.x < -1000 then self.Deactivate() end
-    if self.position.x > 1600 then self.Deactivate() end
-    if self.position.y > 1000 then self.Deactivate() end
-    self.movement = { x = mx, y = my, z = 0 }
-    
-    if isSpawned == false then
-        if self.position.x < 600 and self.position.x > 0 and self.position.y < 0 and self.position.y > -600 then isSpawned = true end
-    else
-        if iFrames > 0 then iFrames = iFrames - 1 end
+        
+    if player1 == nil then player1 = GetPlayer(0) end
+    if player2 == nil then player2 = GetPlayer(1) end
+    if player1.isActive then
+        dx1 = player1.worldPosition.x - (self.worldPosition.x + (math.cos(math.rad(direction)) * 200))
+        dy1 = player1.worldPosition.y - (self.worldPosition.y + (math.sin(math.rad(direction)) * 200))
+        length1 = math.sqrt(dx1 * dx1 + dy1 * dy1)
+        dx1 = dx1 / length1
+        dy1 = dy1 / length1
+        if length1 < 150 then player1.TriggerWarning() end
+    end
+    if player2.isActive then
+        dx2 = player2.worldPosition.x - self.worldPosition.x
+        dy2 = player2.worldPosition.y - self.worldPosition.y
+        length2 = math.sqrt(dx2 * dx2 + dy2 * dy2)
+        dx2 = dx2 / length2
+        dy2 = dy2 / length2
+        if length2 < 200 then player2.TriggerWarning() end
     end
 end
 
@@ -72,6 +88,5 @@ function HasCollision()
 end
 
 function ShouldKillPlayerOnTouch()
-    return iFrames <= 0
+    return true
 end
-

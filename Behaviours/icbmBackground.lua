@@ -1,5 +1,6 @@
 local mx
 local my = 0
+local direction
 local trailTimer = 3
 local launchTime
 local spawnXmin
@@ -8,8 +9,6 @@ local spawnYmin
 local spawnYmax
 local spawnY
 local spawnX
-local speedX
-local speedY
 local isFirst
 local isLaunched = false
 
@@ -17,6 +16,7 @@ function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5) * Globals.backgroundSpeedMultiplier
 
+    direction = self.commandArgs.GetFieldInt("direction")
     isFirst = self.commandArgs.GetFieldBool("isFirst")
     launchTime = self.commandArgs.GetFieldInt("launchTime")
     if self.commandArgs.HasField("spawnRange") then
@@ -31,15 +31,6 @@ function OnInitialise()
         spawnYmin = -250
         spawnYmax =  200
     end
-    if self.commandArgs.HasField("speed") then
-        local p = self.commandArgs.GetFieldFloatArray("speed")
-        speedX = p[1] or 0
-        speedY = p[2] or 0
-    else
-        speedX =  3
-        speedY = -2
-    end
-
     spawnY = math.random( spawnYmin, spawnYmax )
     spawnX = math.random( spawnXmin, spawnXmax )
 end
@@ -59,7 +50,7 @@ function OnTick()
                 trailTimer = 3
                 local smokeArgs = NewJSONObject()
                 smokeArgs.AddFieldFloat("mx", -mx)
-                SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 80 }, smokeArgs)
+                SpawnEntityWorld("rocketTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 85 }, smokeArgs)
             end
         end
     end
@@ -68,7 +59,7 @@ function OnTick()
 
     if self.worldPosition.y > 200 then
         local missileArgs = NewJSONObject()
-        missileArgs.AddFieldFloatArray("speed", { speedX, speedY })
+        missileArgs.AddFieldInt("direction", direction)
         SpawnEntityWorld("icbmLaunched", { x = spawnX, y = spawnY }, missileArgs)
         self.Deactivate()
     end
