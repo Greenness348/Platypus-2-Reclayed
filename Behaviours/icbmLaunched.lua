@@ -74,12 +74,12 @@ function OnTick()
         if length1 < 150 then player1.TriggerWarning() end
     end
     if player2.isActive then
-        dx2 = player2.worldPosition.x - self.worldPosition.x
-        dy2 = player2.worldPosition.y - self.worldPosition.y
+        dx2 = player2.worldPosition.x - (self.worldPosition.x + (math.cos(math.rad(direction)) * 200))
+        dy2 = player2.worldPosition.y - (self.worldPosition.y + (math.sin(math.rad(direction)) * 200))
         length2 = math.sqrt(dx2 * dx2 + dy2 * dy2)
         dx2 = dx2 / length2
         dy2 = dy2 / length2
-        if length2 < 200 then player2.TriggerWarning() end
+        if length2 < 150 then player2.TriggerWarning() end
     end
 end
 
