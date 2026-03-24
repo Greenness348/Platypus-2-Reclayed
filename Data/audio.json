@@ -332,10 +332,18 @@
         "maxPitch": 1.0
     },
     {
-        "name": "s_icbm_warning",
+        "name": "s_icbm_launch",
+        "audioBus": "sfx",
+        "audioFile": "icbm launch",
+        "defaultVolume": 1.0,
+        "minPitch": 1.0,
+        "maxPitch": 1.0
+    },
+    {
+        "name": "s_icbm_siren",
         "audioBus": "sfx",
         "audioFile": "airraid",
-        "defaultVolume": 0.5,
+        "defaultVolume": 0.8,
         "minPitch": 1.0,
         "maxPitch": 1.0
     }
