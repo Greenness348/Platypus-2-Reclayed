@@ -1186,7 +1186,7 @@
   },
   {
     "name": "icbmBackground",
-    "sprite": "Sprites/Enemies/icbm background",
+    "sprite": "Effects/Bullets/icbm background",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "icbmBackground"
@@ -1196,7 +1196,7 @@
   },
   {
     "name": "icbmLaunched",
-    "sprite": "Sprites/Enemies/icbm launched",
+    "sprite": "Effects/Bullets/icbm launched",
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "icbmLaunched"
@@ -1212,8 +1212,14 @@
     "points": 200
   },
   {
-    "name": "rocketTrail2",
-    "sprite": "Effects/Bullets/rocket trail",
+    "name": "icbmTrail",
+    "sprite": "Effects/Bullets/icbm trail",
+    "behaviour": "SmokeRing"
+    "sortOrder": 8999
+  },
+  {
+    "name": "icbmTrail2",
+    "sprite": "Effects/Bullets/icbm trail",
     "behaviour": "SmokeRing",
     "defaultLayer": 5,
     "sortOrder": 2000
