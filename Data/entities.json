@@ -1214,7 +1214,7 @@
   {
     "name": "icbmTrail",
     "sprite": "Effects/Bullets/icbm trail",
-    "behaviour": "SmokeRing"
+    "behaviour": "SmokeRing",
     "sortOrder": 8999
   },
   {
