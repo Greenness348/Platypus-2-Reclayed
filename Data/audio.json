@@ -342,7 +342,7 @@
     {
         "name": "s_icbm_siren",
         "audioBus": "sfx",
-        "audioFile": "airraid",
+        "audioFile": "icbm siren",
         "defaultVolume": 1.0,
         "minPitch": 1.0,
         "maxPitch": 1.0
