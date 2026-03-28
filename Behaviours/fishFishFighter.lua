@@ -27,9 +27,6 @@ function OnInitialise()
     else
         angle = 0
     end
-    
-    self.defaultOnHitByBulletBehaviour = true
-    self.defaultOnHitByPlayerBehaviour = true
 end
 
 function OnTick()
