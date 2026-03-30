@@ -64,6 +64,12 @@
     "updateCounter": 4
   },
   {
+    "sprite": "Effects/Bullets/icbm trail 2",
+    "rows": 5,
+    "columns": 7,
+    "updateCounter": 4
+  },
+  {
     "sprite": "Sprites/Enemies/yellow big uns",
     "collisionSprite": "Sprites/Enemies/green big uns_collision",
     "collisionSpriteScale": 0.02,
