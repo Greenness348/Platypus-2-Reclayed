@@ -1219,7 +1219,7 @@
   },
   {
     "name": "icbmTrail2",
-    "sprite": "Effects/Bullets/icbm trail",
+    "sprite": "Effects/Bullets/icbm trail 2",
     "behaviour": "SmokeRing",
     "defaultLayer": 5,
     "sortOrder": 2000
