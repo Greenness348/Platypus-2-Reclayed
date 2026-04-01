@@ -18,15 +18,13 @@ function OnInitialise()
     shieldUp.Initialise("empty")
 
     self.hitPoints = self.data.maxHitPoints + 1000
-
-    if     Globals.difficulty == -1 then shieldTimer = 250; bullets = 2; minSpeed = 2; maxSpeed =  4; cooldownSet = 10
-    elseif Globals.difficulty ==  0 then shieldTimer = 220; bullets = 3; minSpeed = 3; maxSpeed =  6; cooldownSet = 10
-    elseif Globals.difficulty ==  1 then shieldTimer = 180; bullets = 3; minSpeed = 4; maxSpeed =  8; cooldownSet =  5
-    elseif Globals.difficulty ==  2 then shieldTimer = 150; bullets = 4; minSpeed = 5; maxSpeed = 10; cooldownSet =  5
-    elseif Globals.difficulty ==  3 then shieldTimer = 120; bullets = 4; minSpeed = 6; maxSpeed = 12; cooldownSet =  2
-    end
-
     spriteTimer = timer - 28
+
+    shieldTimer = NewDiffDictInt(250, 220, 180, 150, 120).Get()
+    cooldownSet = NewDiffDictInt(10, 10, 5, 5, 2).Get()
+    bullets = NewDiffDictInt(2, 3, 3, 4, 4).Get()
+    minSpeed = NewDiffDictFloat(2, 3, 4, 5, 6).Get()
+    maxSpeed = NewDiffDictFloat(4, 6, 8, 10, 12).Get()
 end
 
 function OnTick()
@@ -96,7 +94,7 @@ function OnHitByBullet()
                 fireArgs.AddFieldFloat("mx", mxb)
                 fireArgs.AddFieldFloat("my", myb)
 
-                SpawnEntityWorld("enemyshot_deflector", firePos, fireArgs)
+                SpawnEntityWorld("enemyshot_pelletSmall_red", firePos, fireArgs)
             end
         end
     end
@@ -121,4 +119,3 @@ end
 function ShouldKillPlayerOnTouch()
     return true
 end
-
