@@ -1526,7 +1526,13 @@
     "sprite": "Effects/Particles/deflector shield loop",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript":"deflectorShield"
+      "luaScript":"deflectorShield",
+      "activationSprite": "Effects/Particles/deflector shield up",
+      "bulletEntity": "enemyshot_deflector",
+      "activateSFX": "s_enemy_shield_up",
+      "disableSFX": "s_enemy_shield_down",
+      "deflectSFX": "s_enemyfire_deflector",
+      "deflectRadius": 60
     },
     "sortOrder": 20000,
     "maxHitPoints": 300,
