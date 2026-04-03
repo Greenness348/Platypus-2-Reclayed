@@ -167,19 +167,22 @@
   },
   {
     "sprite": "Effects/Particles/deflector shield up",
+    "matDayCycleMultiplier": 0.0,
     "matReflectionPass": false,
     "rows": 2,
     "columns": 5,
-    "updateCounter": 2
+    "updateCounter": 3
   },
   {
     "sprite": "Effects/Particles/deflector shield loop",
     "collisionSprite": "Effects/Particles/deflector shield loop_collision",
     "collisionSpriteScale": 1,
     "generateColliders": true,
+    "matDayCycleMultiplier": 0.0,
     "matReflectionPass": false,
     "rows": 4,
-    "columns": 5
+    "columns": 5,
+    "updateCounter": 2
   },
   {
     "sprite": "Effects/Bullets/deflectorbullet",
