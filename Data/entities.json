@@ -1527,11 +1527,13 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript":"deflectorShield",
-      "activationSprite": "Effects/Particles/deflector shield up",
+      "shieldUpSprite": "Effects/Particles/deflector shield up",
       "bulletEntity": "enemyshot_deflector",
+      "shardEntity": "deflectorShieldShard",
       "activateSFX": "s_enemy_shield_up",
       "disableSFX": "s_enemy_shield_down",
-      "deflectSFX": "s_enemyfire_deflector",
+      "fireSFX": "s_enemyfire_deflector",
+      "shardCount": 60,
       "deflectRadius": 60
     },
     "sortOrder": 20000,
