@@ -345,7 +345,7 @@
         "audioFile": "icbm siren",
         "defaultVolume": 1.0,
         "minPitch": 1.0,
-        "maxPitch": 1.0
-        "cooldownFrames": 100
+        "maxPitch": 1.0,
+        "cooldownFrames": 200
     }
 ]
