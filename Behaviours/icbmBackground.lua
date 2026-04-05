@@ -2,6 +2,7 @@ local mx
 local my = 0
 local direction
 local trailTimer = 3
+local trailOffset
 local launchTime
 local spawnXmin
 local spawnXmax
@@ -9,15 +10,16 @@ local spawnYmin
 local spawnYmax
 local spawnY
 local spawnX
-local isFirst
+local missileEntity
 local isLaunched = false
 
 function OnInitialise()
     self.ChangeLayers(5)
     mx = -Globals.ScrollingSpeed(5) * Globals.backgroundSpeedMultiplier
+    missileEntity = self.customBehaviourData.GetFieldString("missileEntity", "icbmLaunched")
+    trailOffset = self.customBehaviourData.GetFieldFloat("trailOffset", 50)
 
     direction = self.commandArgs.GetFieldInt("direction")
-    isFirst = self.commandArgs.GetFieldBool("isFirst")
     launchTime = self.commandArgs.GetFieldInt("launchTime") + 60
     if self.commandArgs.HasField("spawnRange") then
         local s = self.commandArgs.GetFieldIntArray("spawnRange")
@@ -49,19 +51,16 @@ function OnTick()
                 trailTimer = 3
                 local smokeArgs = NewJSONObject()
                 smokeArgs.AddFieldFloat("mx", -mx)
-                SpawnEntityWorld("icbmTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - 80 }, smokeArgs)
+                SpawnEntityWorld("icbmTrail2", { x = self.worldPosition.x, y = self.worldPosition.y - math.abs(trailOffset) }, smokeArgs)
             end
         end
-        if isFirst == true and launchTime == 50 then
-            PlaySound("s_icbm_siren")
-            isFirst = false
-        end
+        if launchTime == 50 then PlaySound("s_icbm_siren") end
     end
 
     if self.worldPosition.y > 200 then
         local missileArgs = NewJSONObject()
         missileArgs.AddFieldInt("direction", direction)
-        SpawnEntityWorld("icbmLaunched", { x = spawnX, y = spawnY }, missileArgs)
+        SpawnEntityWorld(missileEntity, { x = spawnX, y = spawnY }, missileArgs)
         self.Deactivate()
     end
     self.movement = { x = mx, y = my, z = 0 }
