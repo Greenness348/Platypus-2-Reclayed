@@ -1181,7 +1181,7 @@
     "customBehaviourData": {
       "luaScript": "icbmLauncher"
     },
-    "sortOrder": 1999,
+    "sortOrder": 2001,
     "stopEvaluation": true
   },
   {
@@ -1189,9 +1189,11 @@
     "sprite": "Effects/Bullets/icbm background",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "icbmBackground"
+      "luaScript": "icbmBackground",
+      "missileEntity": "icbmLaunched",
+      "trailOffset": 50
     },
-    "sortOrder": 2001,
+    "sortOrder": 2000,
     "stopEvaluation": true
   },
   {
@@ -1209,7 +1211,7 @@
     "shieldPenetrating": true,
     "isEnemy": true,
     "highlightPoints": false,
-    "points": 200
+    "points": 500
   },
   {
     "name": "icbmTrail",
@@ -1222,7 +1224,7 @@
     "sprite": "Effects/Bullets/icbm trail 2",
     "behaviour": "SmokeRing",
     "defaultLayer": 5,
-    "sortOrder": 2000
+    "sortOrder": 1999
   },
   {
     "name": "yellowBigUn",
