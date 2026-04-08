@@ -198,6 +198,13 @@
     "matDayCycleMultiplier": 0.0,
     "rows": 1,
     "columns": 2
+  },
+  {
+    "sprite": "Effects/Explosions/screen wipe explosion",
+    "generateColliders": true,
+    "collisionSpriteScale": 1,
+    "rows": 4,
+    "columns": 4
   },//##############################################################       PLATYPUS II BOSSES       ##############################################################
   {
     "sprite": "Sprites/P2 Boss2/tail",
