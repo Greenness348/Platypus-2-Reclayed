@@ -1456,6 +1456,17 @@
     "primaryTargetValue": 3
   },
   {
+    "name": "explosionScreenWipe",
+    "sprite": "Effects/Explosions/screen wipe explosion",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "screenFlash"
+    },
+    "defaultLayer": 0,
+    "sortOrder": 30000,
+    "shieldPenetrating": true
+  },
+  {
     "name": "shieldTick",
     "sprite": "Sprites/Enemies/deflector tick",
     "turrets" : [
