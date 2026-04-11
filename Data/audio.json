@@ -347,5 +347,13 @@
         "minPitch": 1.0,
         "maxPitch": 1.0,
         "cooldownFrames": 200
+    },
+    {
+        "name": "s_nuke_exp",
+        "audioBus": "sfx",
+        "audioFile": "nukeblast",
+        "defaultVolume": 1.0,
+        "minPitch": 0.8,
+        "maxPitch": 1.1
     }
 ]
