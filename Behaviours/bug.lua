@@ -12,13 +12,13 @@ local spriteInvert = false
 local timer = 0
 local targetTimer = math.random(50, 200)
 local leaveTimer = 600
-local idleSFX
+local idleSFX = nil
 local isSpawned = false
 local iFrames = 40
 
 function OnInitialise()
     idleSFX = PlaySoundRaw("s_bug_idle")
-    idleSFX.loop = true
+    if idleSFX ~= nil then idleSFX.loop = true end
 end
 
 function OnTick()
@@ -85,7 +85,7 @@ function OnTick()
 end
 
 function OnDeinitialise()
-    idleSFX.Stop()
+    if idleSFX ~= nil then idleSFX.Stop() end
 end
 
 function OnKill()
