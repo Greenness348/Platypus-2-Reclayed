@@ -18,7 +18,7 @@ local fireSFX
 
 function OnInitialise()
     sprite = self.data.spriteName
-    barrel = self.SpawnAttachedSpriteAnimator(sprite, -100, false)
+    barrel = self.SpawnAttachedSpriteAnimator(sprite, -1, false)
     barrel.position = { x = 0.5, y = 0 }
     self.animator.Initialise("empty")
 
