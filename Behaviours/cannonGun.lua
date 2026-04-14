@@ -57,13 +57,11 @@ function OnTick()
                 local mxb = math.cos(angleRad) * speed - 0.535
                 local myb = math.sin(angleRad) * speed + 3.1
 
-                local firePos = { x = self.worldPosition.x + dx + originOffX, y = self.worldPosition.y + dy + originOffY }
-            
                 local fireArgs = NewJSONObject()
                 fireArgs.AddFieldFloat("mx", mxb * 0.93)
                 fireArgs.AddFieldFloat("my", myb)
 
-                SpawnEntityWorld(entity, firePos, fireArgs)
+                SpawnEntityWorld(entity, { x = self.worldPosition.x + dx + originOffX, y = self.worldPosition.y + dy + originOffY }, fireArgs)
             end
         end
     end
