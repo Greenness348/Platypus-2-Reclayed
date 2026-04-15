@@ -1,7 +1,7 @@
-local mx
+local mxT
 local mx1
 local mx2
-local my
+local myT
 local my1
 local my2
 local myMax
@@ -34,20 +34,20 @@ function OnInitialise()
     if self.commandArgs.HasField("downwardMax") then myMax = self.commandArgs.GetFieldFloat("downwardMax") else myMax = -6 end
     if self.commandArgs.HasField("acceleration") then acceleration = self.commandArgs.GetFieldFloat("acceleration") else acceleration = 1 end
 
-    mx = math.random(mx1, mx2)
-    my = math.random(my1, my2)
+    mxT = math.random(mx1, mx2)
+    myT = math.random(my1, my2)
 end
 
 function OnTick()
-    self.movement = { x = mx, y = my, z = 0 }
+    self.movement = { x = mxT, y = myT, z = 0 }
     self.animator.GoTo(sprite)
 
     if timer > 0 then
         timer = timer - 1
     else
-        if my > myMax then my = my - ( 0.05 * acceleration ) end
+        if myT > myMax then myT = myT - ( 0.05 * acceleration ) end
     end
-    if my <= 2 then
+    if myT <= 2 then
         if spriteTimer > 0 then spriteTimer = spriteTimer - 1 end
         if spriteTimer <= 0 and sprite > 0 then
             spriteTimer = spriteTimer + ( 12 / acceleration )
@@ -58,7 +58,7 @@ function OnTick()
     if trailTimer > 0 then
         trailTimer = trailTimer - 1
     else
-        if my >= 3 then
+        if myT >= 3 then
             trailTimer = 3
             SpawnEntityWorld("rocketTrail", { x = self.worldPosition.x - 1, y = self.worldPosition.y - 10 }, NewJSONObject())
         end
@@ -69,12 +69,12 @@ function OnTick()
         jumped = true
     end
     if Globals.createSplashes == true then
-        if self.position.y < -580 and my < 0 then
+        if self.position.y < -580 and myT < 0 then
             self.CreateFancySplashes()
             self.Deactivate()
         end
     else
-        if self.position.y < -700 and my < 0 then self.Deactivate() end
+        if self.position.y < -700 and myT < 0 then self.Deactivate() end
     end
     if self.position.y > 1000 then self.Deactivate() end
 end
