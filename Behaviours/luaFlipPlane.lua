@@ -1,5 +1,5 @@
 local mx = 6.5
-local mxTotal
+local mxT
 local knockback = 0
 local knockbackCap = 0
 local timer = 81
@@ -22,15 +22,18 @@ function OnInitialise()
     turretPosX2 = self.customBehaviourData.GetFieldInt("bottomTurretX", 0)
     turretPosY2 = self.customBehaviourData.GetFieldInt("bottomTurretY", 0)
     
-    self.fruitSet = self.commandArgs.GetFieldInt("fruit_set", 5)
+    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set")
+    else
+        if self.customBehaviourData.HasField("fruitSet") then self.fruitSet = self.customBehaviourData.GetFieldInt("fruitSet") end
+    end
 end
 
 function OnTick()
-    mxTotal = mx + knockback
+    mxT = mx + knockback
     if knockback > 0 then knockback = knockback - 0.065 else knockback = 0 end
     knockbackCap = mx + 1.3
 
-    self.movement = { x = mxTotal, y = 0, z = 0 }
+    self.movement = { x = mxT, y = 0, z = 0 }
 
     if timer > 0 then timer = timer - 1
     elseif timer <= 0 and mx > -1.3 then mx = mx - 0.065
