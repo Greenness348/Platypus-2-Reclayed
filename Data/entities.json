@@ -738,6 +738,7 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "luaFlipPlane",
+      "fruitSet": 5,
       "topTurretEntity": "turretFlipPlane1",
       "topTurretX": -22,
       "topTurretY": 67,
@@ -1085,6 +1086,7 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "luaFlipPlane",
+      "fruitSet": 5,
       "topTurretEntity": "flamethrowerTurretFlipPlane1",
       "topTurretX": -22,
       "topTurretY": 67,
