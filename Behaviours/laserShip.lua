@@ -14,7 +14,10 @@ function OnInitialise()
     smokeTrailPosY = self.customBehaviourData.GetFieldInt("smokeTrailPosY", 0)
     yAcceleration = myMax / 50
     
-    self.fruitSet = self.commandArgs.GetFieldInt("fruit_set", 4)
+    if self.commandArgs.HasField("fruit_set") then self.fruitSet = self.commandArgs.GetFieldInt("fruit_set")
+    else
+        if self.customBehaviourData.HasField("fruitSet") then self.fruitSet = self.customBehaviourData.GetFieldInt("fruitSet") end
+    end
 end
 
 function OnTick()
