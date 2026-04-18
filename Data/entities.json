@@ -1386,6 +1386,7 @@
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript": "laserShip",
+      "fruitSet": 5,
       "smokeTrailEntity": "smokeRing2",
       "smokeTrailPosX": -60,
       "smokeTrailPosY": 2
