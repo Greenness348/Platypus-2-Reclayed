@@ -185,6 +185,15 @@
     "updateCounter": 2
   },
   {
+    "sprite": "Effects/Particles/deflector shield flash",
+    "invertSheetOrder": true,
+    "matDayCycleMultiplier": 0.0,
+    "matReflectionPass": false,
+    "rows": 3,
+    "columns": 3,
+    "updateCounter": 2
+  },
+  {
     "sprite": "Effects/Bullets/deflectorbullet",
     "generateColliders": true,
     "collisionSprite": "Effects/Bullets/deflectorbullet_collision",

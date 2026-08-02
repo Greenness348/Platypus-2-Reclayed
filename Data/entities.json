@@ -1547,6 +1547,7 @@
     "customBehaviourData": {
       "luaScript":"deflectorShield",
       "shieldUpSprite": "Effects/Particles/deflector shield up",
+      "flashSprite": "Effects/Particles/deflector shield flash",
       "bulletEntity": "enemyshot_deflector",
       "shardEntity": "deflectorShieldShard",
       "activateSFX": "s_enemy_shield_up",

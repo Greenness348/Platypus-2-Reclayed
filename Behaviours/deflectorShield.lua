@@ -5,6 +5,8 @@ local shieldTimeSet
 local shieldUpSprite
 local shieldUpAnimator
 local shieldSet = false
+local flashSprite
+local flashAnimator
 local bulletCount
 local bulletEntity
 local deflectRadius
@@ -23,6 +25,7 @@ local fireSFX
 
 function OnInitialise()
     shieldUpSprite = self.customBehaviourData.GetFieldString("shieldUpSprite", "")
+    flashSprite = self.customBehaviourData.GetFieldString("flashSprite", "")
     bulletEntity = self.customBehaviourData.GetFieldString("bulletEntity", "")
     shardEntity = self.customBehaviourData.GetFieldString("shardEntity", "")
     activateSFX = self.customBehaviourData.GetFieldString("activateSFX", "")
@@ -34,6 +37,10 @@ function OnInitialise()
     shardCount = self.customBehaviourData.GetFieldInt("shardCount", 0)
 
     shieldUpAnimator = self.SpawnAttachedSpriteAnimator("empty", 1)
+    if flashSprite ~= "" then
+        flashAnimator = self.SpawnAttachedSpriteAnimator(flashSprite, 2)
+        flashAnimator.GoTo(0)
+    end
     self.animator.Initialise("empty")
     self.animator.ApplyLayerMaterial(self.layer)
 
@@ -63,6 +70,7 @@ function OnTick()
     if initialDelay > 0 then initialDelay = initialDelay - 1 end
     if CanFire() then oktofire = true end
     if not shieldSet then
+        if flashSprite ~= "" then flashAnimator.GoTo(0) end
         if oktofire and shieldTimer > 0 then shieldTimer = shieldTimer - 1 end
         if shieldTimer == 0 then
             self.animator.Initialise(self.data.spriteName)
@@ -78,6 +86,7 @@ function OnTick()
         end
     end
 
+    if flashSprite ~= "" then flashAnimator.AnimateToFirstIndex() end
     if shieldTimer <= 25 then shieldUpAnimator.AnimateToNextFrame(false) end
     self.animator.LoopAnimation()
 
@@ -102,13 +111,16 @@ function OnHitByBullet(playerBullet)
     if shieldSet then
         if cooldownTimer == 0 then
             cooldownTimer = cooldownTimeSet
+            if flashSprite ~= "" then flashAnimator.GoTo(flashAnimator.totalFrames - 1) end
             if fireSFX ~= "" then PlaySound(fireSFX) end
-            if playerBullet ~= nil then
-                local sourcePos = self.worldPosition
-                local targetPos = playerBullet.worldPosition
-                local targetAngle = math.deg(math.atan2(targetPos.y - sourcePos.y, targetPos.x - sourcePos.x))
-                deflectAngle = MoveTowardsAngle(deflectAngle, targetAngle, 360)
-            end
+            if playerBullet.data.behaviourName ~= "PlayerLightningBehaviour" then
+                if playerBullet ~= nil then
+                    local sourcePos = self.worldPosition
+                    local targetPos = playerBullet.worldPosition
+                    local targetAngle = math.deg(math.atan2(targetPos.y - sourcePos.y, targetPos.x - sourcePos.x))
+                    deflectAngle = MoveTowardsAngle(deflectAngle, targetAngle, 360)
+                end
+            else deflectAngle = RandRangeF(90, 270) end
             deflectDispersion = RandRangeF(-dispersionAngle, dispersionAngle)
             for i = 0, bulletCount - 1 do
                 local t = (bulletCount > 1) and (i / (bulletCount - 1)) or 0.5
