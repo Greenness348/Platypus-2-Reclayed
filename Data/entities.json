@@ -1540,6 +1540,9 @@
   {
     "name": "deflectorShield",
     "sprite": "Effects/Particles/deflector shield loop",
+    "sortOrder": 20000,
+    "maxHitPoints": 300,
+    "shieldPenetrating": true,
     "behaviour": "Lua",
     "customBehaviourData": {
       "luaScript":"deflectorShield",
@@ -1549,12 +1552,16 @@
       "activateSFX": "s_enemy_shield_up",
       "disableSFX": "s_enemy_shield_down",
       "fireSFX": "s_enemyfire_deflector",
+      "shieldUpTimer": [250, 220, 180, 150, 120],
+      "deflectCooldown": [10, 7, 4, 2, 1],
+      "bulletCount": [1, 1, 2, 2, 2],
+      "minSpeed": [2, 3, 4, 5, 6],
+      "maxSpeed": [4, 6, 8, 10, 12],
       "shardCount": 60,
-      "deflectRadius": 60
-    },
-    "sortOrder": 20000,
-    "maxHitPoints": 300,
-    "shieldPenetrating": true
+      "deflectRadius": 60,
+      "deflectDispersion": 45,
+      "initialDelay": 0
+    }
   },
   {
     "name": "enemyshot_deflector",

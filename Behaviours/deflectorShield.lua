@@ -1,13 +1,18 @@
-local timer = 150
-local shieldTimer
+local oktofire = false
+local initialDelay
+local shieldTimer = 30
+local shieldTimeSet
 local shieldUpSprite
 local shieldUpAnimator
 local shieldSet = false
 local bulletCount
 local bulletEntity
 local deflectRadius
-local cooldownSet
-local cooldownTick = 0
+local deflectAngle = 0
+local dispersionAngle
+local deflectDispersion
+local cooldownTimeSet
+local cooldownTimer = 0
 local minSpeed
 local maxSpeed
 local shardCount
@@ -24,76 +29,96 @@ function OnInitialise()
     disableSFX = self.customBehaviourData.GetFieldString("disableSFX", "")
     fireSFX = self.customBehaviourData.GetFieldString("fireSFX", "")
     deflectRadius = self.customBehaviourData.GetFieldFloat("deflectRadius", 0)
+    dispersionAngle = self.customBehaviourData.GetFieldFloat("deflectDispersion", 45)
+    initialDelay = self.customBehaviourData.GetFieldInt("initialDelay", 0)
     shardCount = self.customBehaviourData.GetFieldInt("shardCount", 0)
 
     shieldUpAnimator = self.SpawnAttachedSpriteAnimator("empty", 1)
     self.animator.Initialise("empty")
     self.animator.ApplyLayerMaterial(self.layer)
 
-    self.hitPoints = self.data.maxHitPoints + 1000
-    shieldTimer = NewDiffDictInt(250, 220, 180, 150, 120).Get()
-    cooldownSet = NewDiffDictInt(10, 10, 5, 5, 2).Get()
-    bulletCount = NewDiffDictInt(2, 3, 3, 4, 4).Get()
-    minSpeed = NewDiffDictFloat(2, 3, 4, 5, 6).Get()
-    maxSpeed = NewDiffDictFloat(4, 6, 8, 10, 12).Get()
+    if self.customBehaviourData.HasField("shieldUpTimer") then
+        local a = self.customBehaviourData.GetFieldIntArray("shieldUpTimer")
+        shieldTimeSet = NewDiffDictInt(a[1], a[2], a[3], a[4], a[5]).Get()
+    else shieldTimeSet = NewDiffDictInt(250, 220, 180, 150, 120).Get() end
+    if self.customBehaviourData.HasField("deflectCooldown") then
+        local a = self.customBehaviourData.GetFieldIntArray("deflectCooldown")
+        cooldownTimeSet = NewDiffDictInt(a[1], a[2], a[3], a[4], a[5]).Get()
+    else cooldownTimeSet = NewDiffDictInt(10, 10, 5, 5, 2).Get() end
+    if self.customBehaviourData.HasField("bulletCount") then
+        local a = self.customBehaviourData.GetFieldIntArray("bulletCount")
+        bulletCount = NewDiffDictInt(a[1], a[2], a[3], a[4], a[5]).Get()
+    else bulletCount = NewDiffDictInt(1, 1, 1, 1, 1).Get() end
+    if self.customBehaviourData.HasField("minSpeed") then
+        local a = self.customBehaviourData.GetFieldFloatArray("minSpeed")
+        minSpeed = NewDiffDictFloat(a[1], a[2], a[3], a[4], a[5]).Get()
+    else minSpeed = NewDiffDictFloat(2, 3, 4, 5, 6).Get() end
+    if self.customBehaviourData.HasField("maxSpeed") then
+        local a = self.customBehaviourData.GetFieldFloatArray("maxSpeed")
+        maxSpeed = NewDiffDictFloat(a[1], a[2], a[3], a[4], a[5]).Get()
+    else maxSpeed = NewDiffDictFloat(4, 6, 8, 10, 12).Get() end
 end
 
 function OnTick()
-    if shieldSet == false then
-        if timer > 0 then timer = timer - 1
-        else
+    if initialDelay > 0 then initialDelay = initialDelay - 1 end
+    if CanFire() then oktofire = true end
+    if not shieldSet then
+        if oktofire and shieldTimer > 0 then shieldTimer = shieldTimer - 1 end
+        if shieldTimer == 0 then
             self.animator.Initialise(self.data.spriteName)
             self.animator.ApplyLayerMaterial(self.layer)
             shieldUpAnimator.Initialise("empty")
             shieldUpAnimator.ApplyLayerMaterial(self.layer)
             shieldSet = true
         end
-        
-        if timer == 28 then
+        if shieldTimer == 28 then
             if activateSFX ~= "" then PlaySound(activateSFX) end
-            if shieldUpAnimator ~= "" then shieldUpAnimator.Initialise(shieldUpSprite) end
+            if shieldUpSprite ~= "" then shieldUpAnimator.Initialise(shieldUpSprite) end
             shieldUpAnimator.ApplyLayerMaterial(self.layer)
         end
     end
-    
-    if timer <= 25 then shieldUpAnimator.AnimateToNextFrame(false) end
-    self.animator.LoopAnimation()
-    
-    if cooldownTick > 0 then cooldownTick = cooldownTick - 1 end
 
-    if self.hitPoints <= 1000 then
+    if shieldTimer <= 25 then shieldUpAnimator.AnimateToNextFrame(false) end
+    self.animator.LoopAnimation()
+
+    if cooldownTimer > 0 then cooldownTimer = cooldownTimer - 1 end
+
+    if self.hitPoints <= 0 then
         if disableSFX ~= "" then PlaySound(disableSFX) end
-        self.hitPoints = self.data.maxHitPoints + 1000
+        self.hitPoints = self.data.maxHitPoints
         self.animator.Initialise("empty")
         self.animator.ApplyLayerMaterial(self.layer)
-        timer = shieldTimer
+        shieldTimer = shieldTimeSet
         shieldSet = false
-        for i = 0, shardCount - 1 do
+        for _ = 1, shardCount do
             local ox = math.random(-deflectRadius, deflectRadius)
             local oy = math.random(-deflectRadius, deflectRadius)
             if shardEntity ~= "" then SpawnEntityWorld(shardEntity, { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy }) end
-        end            
+        end
     end
 end
 
-function OnHitByBullet()
-    if shieldSet == true then
-        if cooldownTick <= 0 then
-            cooldownTick = cooldownSet
+function OnHitByBullet(playerBullet)
+    if shieldSet then
+        if cooldownTimer == 0 then
+            cooldownTimer = cooldownTimeSet
             if fireSFX ~= "" then PlaySound(fireSFX) end
+            if playerBullet ~= nil then
+                local sourcePos = self.worldPosition
+                local targetPos = playerBullet.worldPosition
+                local targetAngle = math.deg(math.atan2(targetPos.y - sourcePos.y, targetPos.x - sourcePos.x))
+                deflectAngle = MoveTowardsAngle(deflectAngle, targetAngle, 360)
+            end
+            deflectDispersion = RandRangeF(-dispersionAngle, dispersionAngle)
             for i = 0, bulletCount - 1 do
-                local angleDeg = math.random(0, 360)
-                local angleRad = math.rad(angleDeg)
-
-                local dx = math.cos(angleRad) * deflectRadius
-                local dy = math.sin(angleRad) * deflectRadius
-                local mxb = math.cos(angleRad) * math.random(minSpeed, maxSpeed)
-                local myb = math.sin(angleRad) * math.random(minSpeed, maxSpeed)
+                local t = (bulletCount > 1) and (i / (bulletCount - 1)) or 0.5
+                local shotAngle = (deflectAngle - 1 / 2 + t) + deflectDispersion
+                local dx = math.cos(math.rad(shotAngle - deflectDispersion)) * deflectRadius
+                local dy = math.sin(math.rad(shotAngle - deflectDispersion)) * deflectRadius
 
                 local fireArgs = NewJSONObject()
-                fireArgs.AddFieldFloat("mx", mxb)
-                fireArgs.AddFieldFloat("my", myb)
-
+                fireArgs.AddFieldFloat("mx", math.cos(math.rad(shotAngle)) * RandRangeF(minSpeed, maxSpeed))
+                fireArgs.AddFieldFloat("my", math.sin(math.rad(shotAngle)) * RandRangeF(minSpeed, maxSpeed))
                 if bulletEntity ~= "" then SpawnEntityWorld(bulletEntity, { x = self.worldPosition.x + dx, y = self.worldPosition.y + dy }, fireArgs) end
             end
         end
@@ -101,14 +126,22 @@ function OnHitByBullet()
 end
 
 function OnKill()
-    if shieldSet == true or timer <= 30 then
+    if shieldSet or shieldTimer <= 28 then
         if disableSFX ~= "" then PlaySound(disableSFX) end
-        for i = 0, shardCount - 1 do
+        for _ = 1, shardCount do
             local ox = math.random(-deflectRadius, deflectRadius)
             local oy = math.random(-deflectRadius, deflectRadius)
             if shardEntity ~= "" then SpawnEntityWorld(shardEntity, { x = self.worldPosition.x + ox, y = self.worldPosition.y + oy }) end
-        end      
+        end
     end
+end
+
+function IsKilledManually()
+    return true
+end
+
+function CanFire()
+    return self.parent.CanFire() and initialDelay == 0
 end
 
 function HasCollision()
