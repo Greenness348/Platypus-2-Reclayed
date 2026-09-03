@@ -151,15 +151,17 @@
     "columns": 1
   },
   {
-    "sprite": "Sprites/Enemies/deflector tick",
+    "sprite": "Sprites/Enemies/tick shield",
     "generateColliders": true,
-    "collisionSprite": "Effects/Bullets/deflector tick_collision",
+    "collisionSpriteScale": 0.3,
+    "matDayCycleMultiplier": 0.5,
     "rows": 2,
     "columns": 3
   },
   {
-    "sprite": "Sprites/Enemies/deflector tick bottom",
+    "sprite": "Sprites/Enemies/tick bottom shield",
     "generateColliders": true,
+    "collisionSpriteScale": 0.3,
     "matDayCycleMultiplier": 0.5,
     "rows": 5,
     "columns": 2,

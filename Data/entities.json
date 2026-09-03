@@ -1471,7 +1471,22 @@
   },
   {
     "name": "shieldTick",
-    "sprite": "Sprites/Enemies/deflector tick",
+    "sprite": "Sprites/Enemies/tick shield",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "luaSquid",
+      "baseAcceleration": 0.1,
+      "focusAcceleration": 0.1,
+      "movementThreshold": 4,
+      "hangtime": 2000,
+      "invulnTime": 70,
+      "firstShotDelay": 120,
+      "entityType": 0,
+      "bottomSprite": "Sprites/Enemies/tick bottom shield",
+      "bottomOffX": 1.4,
+      "bottomOffY": 1.6,
+      "bottomSortOrder": 1
+    },
     "turrets" : [
       {
         "turretEntity": "deflectorShield",
@@ -1479,24 +1494,11 @@
         "turretY": -3
       }
     ],
-    "behaviour": "GenericSquid",
-    "customBehaviourData": {
-      "acceleration": 0.1,
-      "focus_acceleration": 0.1,
-      "movement_threshold": 10,
-      "tickUntilGiveUp": 2400,
-      "tickUntilDeactivate": 2600,
-      "bottomSprite": "Sprites/Enemies/deflector tick bottom",
-      "bottomSpriteOffset": {
-        "x": 1.4,
-        "y": 2
-      }
-    },
     "explosionEntity": "explosionMedium",
     "explosionX": 0,
     "explosionY": 0,
-    "mainDebrisEntity": "debris_purple_2",
-    "secondaryDebrisEntity": "debris_purple_2",
+    "mainDebrisEntity": "debris_white_1",
+    "secondaryDebrisEntity": "debris_white_2",
     "sortOrder": 5000,
     "sortOrderSiblingBuffer": 2,
     "maxHitPoints": 200,
@@ -1504,14 +1506,14 @@
     "nudgeOnHit": true,
     "shieldPenetrating": true,
     "highlightPoints": true,
-    "points":1000,
-    "primaryTargetValue": 2,
+    "points": 500,
+    "primaryTargetValue": 3,
     "damageEffects": [
       {
         "frame": 4,
         "shards": [
           {
-            "entity": "debris_purple_2",
+            "entity": "debris_white_2",
             "x": -30,
             "y": -5,
             "mx": -4,
@@ -1525,7 +1527,7 @@
         "frame": 5,
         "shards": [
           {
-            "entity": "debris_purple_2",
+            "entity": "debris_white_1",
             "x":  30,
             "y": -5,
             "mx": 4,
