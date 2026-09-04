@@ -86,6 +86,13 @@
     "columns": 4
   },
   {
+    "sprite": "Sprites/Enemies/rollship",
+    "generateColliders": true,
+    "matDayCycleMultiplier": 0.5,
+    "rows": 5,
+    "columns": 8
+  },
+  {
     "sprite": "Sprites/Enemies/bug-1",
     "generateColliders": true,
     "matDayCycleMultiplier": 0.5,
@@ -243,6 +250,18 @@
     "matDayCycleMultiplier": 0.2,
     "rows": 2,
     "columns": 3
+  },//###############################################################       PLATYPUS II MISC       ###############################################################
+  {
+    "sprite": "Misc/parachute man",
+    "rows": 1,
+    "columns": 11,
+    "updateCounter": 0
+  },
+  {
+    "sprite": "Misc/parachute",
+    "rows": 2,
+    "columns": 3,
+    "updateCounter": 0
   }
 ]
 

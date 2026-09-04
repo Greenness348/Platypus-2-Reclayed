@@ -1345,6 +1345,26 @@
     "secondaryTargetValue": 1
   },
   {
+    "name": "rollShip",
+    "sprite": "Sprites/Enemies/rollship",
+    "behaviour": "Lua",
+    "customBehaviourData": {
+      "luaScript": "rollShip"
+    },
+    "explosionEntity": "explosionMedium",
+    "explosionX": 0,
+    "explosionY": 0,
+    "mainDebrisEntity": "debris_blue_1",
+    "secondaryDebrisEntity": "debris_blue_2",
+    "sortOrder": 9000,
+    "isEnemy": true,
+    "nudgeOnHit": true,
+    "maxHitPoints": 20,
+    "highlightPoints": false,
+    "points": 100,
+    "secondaryTargetValue": 1
+  },
+  {
     "name": "bug",
     "sprite": "Sprites/Enemies/bug-1",
     "behaviour": "Lua",
