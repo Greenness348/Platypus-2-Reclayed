@@ -861,11 +861,11 @@
     "primaryTargetValue": 5
   },// ############################################################## RETURNING PLATYPUS II ENEMIES ##############################################################
   {
-    "name": "greenFish",
+    "name": "homingFish",
     "sprite": "Sprites/Enemies/fish fighter green",
     "behaviour": "Lua",
     "customBehaviourData": {
-      "luaScript": "greenFishFighter",
+      "luaScript": "homingFishFighter",
       "firePattern": {
         "fireSFX": "s_enemyfire_fishfighter",
         "veryEasy": [ 80 ],
